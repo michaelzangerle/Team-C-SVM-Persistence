@@ -18,8 +18,6 @@ public interface IPartResultEntity extends IEntity {
 
     void setComment(String comment);
 
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContestantEntity.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "contestant")
     ContestantEntity getContestant();
 
     void setContestant(ContestantEntity contestant);
