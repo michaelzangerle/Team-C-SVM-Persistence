@@ -1,4 +1,5 @@
 import svm.persistence.PersistenceFacade;
+import svm.persistence.abstraction.model.IContactDetailsEntity;
 import svm.persistence.hibernate.dao.ContactDetailsDAO;
 import svm.persistence.hibernate.model.ContactDetailsEntity;
 
@@ -20,7 +21,7 @@ public class Main {
 
         ContactDetailsDAO dao = new ContactDetailsDAO();
 
-        for (ContactDetailsEntity entity : dao.getAll(sessionId)) {
+        for (IContactDetailsEntity entity : dao.getAll(sessionId)) {
             System.out.println(entity.getLocationEntity().getPlaceName());
         }
 
