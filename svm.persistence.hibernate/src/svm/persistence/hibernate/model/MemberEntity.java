@@ -2,6 +2,7 @@ package svm.persistence.hibernate.model;
 
 import svm.persistence.abstraction.model.IDepartmentsHasMembersEntity;
 import svm.persistence.abstraction.model.IMemberEntity;
+import svm.persistence.abstraction.model.ISubTeamsHasMembersEntity;
 import svm.persistence.abstraction.model.ITeamsHasMembersEntity;
 
 import javax.persistence.*;
@@ -295,33 +296,32 @@ public class MemberEntity implements IMemberEntity {
         this.fees = fees;
     }
 
-    // TODO
-
-    private List<SubTeamsHasMembersEntity> subteamHasMember;
+    private List<ISubTeamsHasMembersEntity> subTeamHasMember;
 
     @Override
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = SubTeamsHasMembersEntity.class, mappedBy = "pk.member", fetch = FetchType.LAZY)
-    public List<SubTeamsHasMembersEntity> getSubteamHasMember() {
-        return subteamHasMember;
+    public List<ISubTeamsHasMembersEntity> getSubTeamHasMember() {
+        return subTeamHasMember;
     }
 
     @Override
-    public void setSubteamHasMember(List<SubTeamsHasMembersEntity> subteamHasMember) {
-        this.subteamHasMember = subteamHasMember;
+    public void setSubTeamHasMember(List<ISubTeamsHasMembersEntity> subTeamHasMember) {
+        this.subTeamHasMember = subTeamHasMember;
     }
 
-    // TODO
-
-    private List<MembersHasUserpriviledgesEntity> priviledges;
+    private List<MembersHasUserpriviledgesEntity> privileges;
 
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = MembersHasUserpriviledgesEntity.class, mappedBy = "pk.member", fetch = FetchType.LAZY)
-    public List<MembersHasUserpriviledgesEntity> getPriviledges() {
-        return priviledges;
+    @ManyToMany(cascade = CascadeType.DETACH, targetEntity = MembersHasUserpriviledgesEntity.class)
+    @JoinTable(name = "members_has_userPriviledges",
+            joinColumns = {@JoinColumn(name = "member")},
+            inverseJoinColumns = {@JoinColumn(name = "userPriviledge")})
+    public List<MembersHasUserpriviledgesEntity> getPrivileges() {
+        return privileges;
     }
 
     @Override
-    public void setPriviledges(List<MembersHasUserpriviledgesEntity> priviledges) {
-        this.priviledges = priviledges;
+    public void setPrivileges(List<MembersHasUserpriviledgesEntity> privileges) {
+        this.privileges = privileges;
     }
 }

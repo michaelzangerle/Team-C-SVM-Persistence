@@ -1,61 +1,80 @@
 package svm.persistence.hibernate.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import svm.persistence.abstraction.model.IMemberEntity;
+import svm.persistence.abstraction.model.ISubTeamEntity;
+import svm.persistence.abstraction.model.ISubTeamsHasMembersEntity;
+
+import javax.persistence.*;
 
 /**
- * Projectteam: Team C
+ * ProjectTeam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.IdClass(SubTeamsHasMembersEntityPK.class)
-@javax.persistence.Table(name = "subteams_has_members", schema = "", catalog = "svm")
 @Entity
-public class SubTeamsHasMembersEntity {
-    private int subteam;
+@javax.persistence.Table(name = "subteams_has_members", schema = "", catalog = "svm")
+@AssociationOverrides({
+        @AssociationOverride(name = "pk.member", joinColumns = @JoinColumn(name = "member")),
+        @AssociationOverride(name = "pk.subTeam", joinColumns = @JoinColumn(name = "subteam"))
+})
+public class SubTeamsHasMembersEntity implements ISubTeamsHasMembersEntity {
 
-    @javax.persistence.Column(name = "subteam")
-    @Id
-    public int getSubteam() {
-        return subteam;
+    private SubTeamsHasMembersEntityPK pk = new SubTeamsHasMembersEntityPK();
+
+    @EmbeddedId()
+    public SubTeamsHasMembersEntityPK getPk() {
+        return pk;
     }
 
-    public void setSubteam(int subteam) {
-        this.subteam = subteam;
+    public void setPk(SubTeamsHasMembersEntityPK pk) {
+        this.pk = pk;
     }
 
-    private int member;
-
-    @javax.persistence.Column(name = "member")
-    @Id
-    public int getMember() {
-        return member;
+    @Override
+    @Transient
+    public ISubTeamEntity getSubTeam() {
+        return getPk().getSubTeam();
     }
 
-    public void setMember(int member) {
-        this.member = member;
+    @Override
+    public void setSubTeam(ISubTeamEntity subTeam) {
+        getPk().setSubTeam(subTeam);
+    }
+
+    @Override
+    @Transient
+    public IMemberEntity getMember() {
+        return getPk().getMember();
+    }
+
+    @Override
+    public void setMember(IMemberEntity member) {
+        getPk().setMember(member);
     }
 
     private boolean confirmed;
 
+    @Override
     @javax.persistence.Column(name = "confirmed")
     @Basic
     public boolean isConfirmed() {
         return confirmed;
     }
 
+    @Override
     public void setConfirmed(boolean confirmed) {
         this.confirmed = confirmed;
     }
 
     private String comment;
 
+    @Override
     @javax.persistence.Column(name = "comment")
     @Basic
     public String getComment() {
         return comment;
     }
 
+    @Override
     public void setComment(String comment) {
         this.comment = comment;
     }
@@ -68,8 +87,8 @@ public class SubTeamsHasMembersEntity {
         SubTeamsHasMembersEntity that = (SubTeamsHasMembersEntity) o;
 
         if (confirmed != that.confirmed) return false;
-        if (member != that.member) return false;
-        if (subteam != that.subteam) return false;
+        if (getMember() != that.getMember()) return false;
+        if (getSubTeam() != that.getSubTeam()) return false;
         if (comment != null ? !comment.equals(that.comment) : that.comment != null) return false;
 
         return true;
@@ -77,10 +96,18 @@ public class SubTeamsHasMembersEntity {
 
     @Override
     public int hashCode() {
-        int result = subteam;
-        result = 31 * result + member;
+        int result = getSubTeam().getId();
+        result = 31 * result + getMember().getId();
         result = 31 * result + (confirmed ? 1 : 0);
         result = 31 * result + (comment != null ? comment.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public int getId() {
+        return 0;
+    }
+
+    public void setId(int id) {
     }
 }

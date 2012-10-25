@@ -77,11 +77,11 @@ public interface IMemberEntity extends IEntity {
 
     void setFees(List<MemberFeeEntity> fees);
 
-    List<SubTeamsHasMembersEntity> getSubteamHasMember();
+    List<ISubTeamsHasMembersEntity> getSubTeamHasMember();
 
-    void setSubteamHasMember(List<SubTeamsHasMembersEntity> subteamHasMember);
+    void setSubTeamHasMember(List<ISubTeamsHasMembersEntity> subTeamHasMember);
 
-    List<MembersHasUserpriviledgesEntity> getPriviledges();
+    List<MembersHasUserpriviledgesEntity> getPrivileges();
 
-    void setPriviledges(List<MembersHasUserpriviledgesEntity> priviledges);
+    void setPrivileges(List<MembersHasUserpriviledgesEntity> privileges);
 }

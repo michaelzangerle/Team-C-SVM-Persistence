@@ -68,51 +68,6 @@ public class MemberRoleEntity implements IMemberRoleEntity {
         this.description = description;
     }
 
-
-    // TODO
-
-    private List<DepartmentsHasMembersEntity> departmentMembers;
-
-    @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = DepartmentsHasMembersEntity.class, mappedBy = "pk.department", fetch = FetchType.LAZY)
-    public List<DepartmentsHasMembersEntity> getDepartmentMembers() {
-        return departmentMembers;
-    }
-
-    @Override
-    public void setDepartmentMembers(List<DepartmentsHasMembersEntity> departmentMembers) {
-        this.departmentMembers = departmentMembers;
-    }
-
-    // TODO
-
-    private List<TeamsHasMembersEntity> teamMembers;
-
-    @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamsHasMembersEntity.class, mappedBy = "pk.memberRole", fetch = FetchType.LAZY)
-    public List<TeamsHasMembersEntity> getTeamMembers() {
-        return teamMembers;
-    }
-
-    @Override
-    public void setTeamMembers(List<TeamsHasMembersEntity> teamMembers) {
-        this.teamMembers = teamMembers;
-    }
-
-    private List<TeamRuleEntity> teamRules;
-
-    @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamRuleEntity.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "memberRole")
-    public List<TeamRuleEntity> getTeamRules() {
-        return teamRules;
-    }
-
-    @Override
-    public void setTeamRules(List<TeamRuleEntity> teamRules) {
-        this.teamRules = teamRules;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,35 +1,38 @@
 package svm.persistence.hibernate.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import svm.persistence.abstraction.model.IMemberEntity;
+import svm.persistence.abstraction.model.ISubTeamEntity;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Projectteam: Team C
+ * ProjectTeam: Team C
  * Date: 24.10.12
  */
+@Embeddable
 public class SubTeamsHasMembersEntityPK implements Serializable {
-    private int subteam;
+    private ISubTeamEntity subTeam;
 
-    @Id
-    @Column(name = "subteam")
-    public int getSubteam() {
-        return subteam;
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = SubTeamEntity.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "contest")
+    public ISubTeamEntity getSubTeam() {
+        return subTeam;
     }
 
-    public void setSubteam(int subteam) {
-        this.subteam = subteam;
+    public void setSubTeam(ISubTeamEntity subTeam) {
+        this.subTeam = subTeam;
     }
 
-    private int member;
+    private IMemberEntity member;
 
-    @Id
-    @Column(name = "member")
-    public int getMember() {
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberEntity.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "team")
+    public IMemberEntity getMember() {
         return member;
     }
 
-    public void setMember(int member) {
+    public void setMember(IMemberEntity member) {
         this.member = member;
     }
 
@@ -41,15 +44,15 @@ public class SubTeamsHasMembersEntityPK implements Serializable {
         SubTeamsHasMembersEntityPK that = (SubTeamsHasMembersEntityPK) o;
 
         if (member != that.member) return false;
-        if (subteam != that.subteam) return false;
+        if (subTeam != that.subTeam) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = subteam;
-        result = 31 * result + member;
+        int result = getSubTeam().getId();
+        result = 31 * result + getMember().getId();
         return result;
     }
 }

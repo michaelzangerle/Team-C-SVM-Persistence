@@ -26,15 +26,4 @@ public interface IMemberRoleEntity extends IEntity {
 
     void setDescription(String description);
 
-    List<DepartmentsHasMembersEntity> getDepartmentMembers();
-
-    void setDepartmentMembers(List<DepartmentsHasMembersEntity> departmentMembers);
-
-    List<TeamsHasMembersEntity> getTeamMembers();
-
-    void setTeamMembers(List<TeamsHasMembersEntity> teamMembers);
-
-    List<TeamRuleEntity> getTeamRules();
-
-    void setTeamRules(List<TeamRuleEntity> teamRules);
 }

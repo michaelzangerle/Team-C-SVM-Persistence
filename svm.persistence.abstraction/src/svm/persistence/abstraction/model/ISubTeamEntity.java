@@ -27,7 +27,7 @@ public interface ISubTeamEntity extends IEntity {
 
     void setTeam(TeamEntity team);
 
-    List<SubTeamsHasMembersEntity> getSubTeamsHasMembers();
+    List<ISubTeamsHasMembersEntity> getSubTeamsHasMembers();
 
-    void setSubTeamsHasMembers(List<SubTeamsHasMembersEntity> subTeamsHasMembers);
+    void setSubTeamsHasMembers(List<ISubTeamsHasMembersEntity> subTeamsHasMembers);
 }

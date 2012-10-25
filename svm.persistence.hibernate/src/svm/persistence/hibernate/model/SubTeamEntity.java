@@ -1,12 +1,13 @@
 package svm.persistence.hibernate.model;
 
 import svm.persistence.abstraction.model.ISubTeamEntity;
+import svm.persistence.abstraction.model.ISubTeamsHasMembersEntity;
 
 import javax.persistence.*;
 import java.util.List;
 
 /**
- * Projectteam: Team C
+ * ProjectTeam: Team C
  * Date: 24.10.12
  */
 @javax.persistence.Table(name = "subteams", schema = "", catalog = "svm")
@@ -88,17 +89,16 @@ public class SubTeamEntity implements ISubTeamEntity {
         this.team = team;
     }
 
-    // TODO
-    private List<SubTeamsHasMembersEntity> subTeamsHasMembers;
+    private List<ISubTeamsHasMembersEntity> subTeamsHasMembers;
 
     @Override
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = SubTeamsHasMembersEntity.class, mappedBy = "pk.subTeam", fetch = FetchType.LAZY)
-    public List<SubTeamsHasMembersEntity> getSubTeamsHasMembers() {
+    public List<ISubTeamsHasMembersEntity> getSubTeamsHasMembers() {
         return subTeamsHasMembers;
     }
 
     @Override
-    public void setSubTeamsHasMembers(List<SubTeamsHasMembersEntity> subTeamsHasMembers) {
+    public void setSubTeamsHasMembers(List<ISubTeamsHasMembersEntity> subTeamsHasMembers) {
         this.subTeamsHasMembers = subTeamsHasMembers;
     }
 }
