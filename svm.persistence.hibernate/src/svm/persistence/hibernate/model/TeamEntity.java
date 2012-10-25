@@ -1,8 +1,6 @@
 package svm.persistence.hibernate.model;
 
-import svm.persistence.abstraction.model.IContestsHasTeamsEntity;
-import svm.persistence.abstraction.model.ITeamEntity;
-import svm.persistence.abstraction.model.ITeamsHasMembersEntity;
+import svm.persistence.abstraction.model.*;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -95,31 +93,31 @@ public class TeamEntity implements ITeamEntity {
         return result;
     }
 
-    private SportEntity sport;
+    private ISportEntity sport;
 
     @Override
     @ManyToOne(cascade = CascadeType.DETACH, targetEntity = SportEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "sport")
-    public SportEntity getSport() {
+    public ISportEntity getSport() {
         return sport;
     }
 
     @Override
-    public void setSport(SportEntity sport) {
+    public void setSport(ISportEntity sport) {
         this.sport = sport;
     }
 
-    private MemberEntity contactPerson;
+    private IMemberEntity contactPerson;
 
     @Override
     @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "contactperson")
-    public MemberEntity getContactPerson() {
+    public IMemberEntity getContactPerson() {
         return contactPerson;
     }
 
     @Override
-    public void setContactPerson(MemberEntity contactPerson) {
+    public void setContactPerson(IMemberEntity contactPerson) {
         this.contactPerson = contactPerson;
     }
 
@@ -149,45 +147,45 @@ public class TeamEntity implements ITeamEntity {
         this.contestsHasTeams = contestsHasTeams;
     }
 
-    private List<SubTeamEntity> subTeams;
+    private List<ISubTeamEntity> subTeams;
 
     @Override
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = SubTeamEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "team")
-    public List<SubTeamEntity> getSubTeams() {
+    public List<ISubTeamEntity> getSubTeams() {
         return subTeams;
     }
 
     @Override
-    public void setSubTeams(List<SubTeamEntity> subTeams) {
+    public void setSubTeams(List<ISubTeamEntity> subTeams) {
         this.subTeams = subTeams;
     }
 
-    private List<ContestantEntity> contestants;
+    private List<IContestantEntity> contestants;
 
     @Override
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = ContestantEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "internalteam")
-    public List<ContestantEntity> getContestants() {
+    public List<IContestantEntity> getContestants() {
         return contestants;
     }
 
     @Override
-    public void setContestants(List<ContestantEntity> contestants) {
+    public void setContestants(List<IContestantEntity> contestants) {
         this.contestants = contestants;
     }
 
-    private TeamTypeEntity teamType;
+    private ITeamTypeEntity teamType;
 
     @Override
     @ManyToOne(cascade = CascadeType.DETACH, targetEntity = TeamTypeEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "teamtype")
-    public TeamTypeEntity getTeamType() {
+    public ITeamTypeEntity getTeamType() {
         return teamType;
     }
 
     @Override
-    public void setTeamType(TeamTypeEntity teamType) {
+    public void setTeamType(ITeamTypeEntity teamType) {
         this.teamType = teamType;
     }
 }

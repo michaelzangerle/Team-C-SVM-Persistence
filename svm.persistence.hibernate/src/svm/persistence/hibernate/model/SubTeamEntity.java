@@ -1,7 +1,9 @@
 package svm.persistence.hibernate.model;
 
+import svm.persistence.abstraction.model.IContestEntity;
 import svm.persistence.abstraction.model.ISubTeamEntity;
 import svm.persistence.abstraction.model.ISubTeamsHasMembersEntity;
+import svm.persistence.abstraction.model.ITeamEntity;
 
 import javax.persistence.*;
 import java.util.List;
@@ -61,31 +63,31 @@ public class SubTeamEntity implements ISubTeamEntity {
         return result;
     }
 
-    private ContestEntity contest;
+    private IContestEntity contest;
 
     @Override
     @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContestEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "contest")
-    public ContestEntity getContest() {
+    public IContestEntity getContest() {
         return contest;
     }
 
     @Override
-    public void setContest(ContestEntity contest) {
+    public void setContest(IContestEntity contest) {
         this.contest = contest;
     }
 
-    private TeamEntity team;
+    private ITeamEntity team;
 
     @Override
     @ManyToOne(cascade = CascadeType.DETACH, targetEntity = TeamEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "team")
-    public TeamEntity getTeam() {
+    public ITeamEntity getTeam() {
         return team;
     }
 
     @Override
-    public void setTeam(TeamEntity team) {
+    public void setTeam(ITeamEntity team) {
         this.team = team;
     }
 

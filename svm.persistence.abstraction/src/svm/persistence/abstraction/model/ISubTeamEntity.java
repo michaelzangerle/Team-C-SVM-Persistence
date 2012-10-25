@@ -18,14 +18,13 @@ public interface ISubTeamEntity extends IEntity {
 
     void setName(String name);
 
+    IContestEntity getContest();
 
-    ContestEntity getContest();
+    void setContest(IContestEntity contest);
 
-    void setContest(ContestEntity contest);
+    ITeamEntity getTeam();
 
-    TeamEntity getTeam();
-
-    void setTeam(TeamEntity team);
+    void setTeam(ITeamEntity team);
 
     List<ISubTeamsHasMembersEntity> getSubTeamsHasMembers();
 

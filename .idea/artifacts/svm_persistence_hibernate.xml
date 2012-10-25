@@ -1,11 +1,17 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="svm.persistence.hibernate">
-    <output-path>$PROJECT_DIR$/out/artifacts/svm_persistence_hibernate</output-path>
+  <artifact type="jar" build-on-make="true" name="svm.persistence.hibernate">
+    <output-path>$PROJECT_DIR$/out/artifacts/</output-path>
     <root id="archive" name="svm.persistence.hibernate.jar">
-      <element id="module-output" name="svm.persistence.abstraction" />
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/svm.persistence.abstraction/META-INF/MANIFEST.MF" />
-      </element>
+      <element id="module-output" name="svm.persistence.hibernate" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.persistence.hibernate/lib/hibernate-core-4.1.1.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.persistence.hibernate/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.persistence.hibernate/lib/hibernate-commons-annotations-4.0.1.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.persistence.hibernate/lib/antlr-2.7.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.persistence.hibernate/lib/dom4j-1.6.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.persistence.hibernate/lib/javassist-3.15.0-GA.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.persistence.hibernate/lib/jboss-logging-3.1.0.GA.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.persistence.hibernate/lib/jboss-transaction-api_1.1_spec-1.0.0.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/svm.persistence.hibernate/lib/mysql-connector-java-5.1.22-bin.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

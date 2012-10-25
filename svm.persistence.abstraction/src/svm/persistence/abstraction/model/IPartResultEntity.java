@@ -18,7 +18,7 @@ public interface IPartResultEntity extends IEntity {
 
     void setComment(String comment);
 
-    ContestantEntity getContestant();
+    IContestantEntity getContestant();
 
-    void setContestant(ContestantEntity contestant);
+    void setContestant(IContestantEntity contestant);
 }

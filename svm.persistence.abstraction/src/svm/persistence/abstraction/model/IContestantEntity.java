@@ -20,9 +20,9 @@ public interface IContestantEntity extends IEntity {
 
     void setExternalTeam(IExternalTeamEntity externalTeam);
 
-    List<PartResultEntity> getPartResults();
+    List<IPartResultEntity> getPartResults();
 
-    void setPartResults(List<PartResultEntity> partResults);
+    void setPartResults(List<IPartResultEntity> partResults);
 
     List<IMatchEntity> getMatches();
 

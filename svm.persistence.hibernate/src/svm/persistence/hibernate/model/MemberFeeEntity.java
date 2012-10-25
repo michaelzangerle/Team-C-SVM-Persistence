@@ -1,5 +1,6 @@
 package svm.persistence.hibernate.model;
 
+import svm.persistence.abstraction.model.IMemberEntity;
 import svm.persistence.abstraction.model.IMemberFeeEntity;
 
 import javax.persistence.*;
@@ -76,17 +77,17 @@ public class MemberFeeEntity implements IMemberFeeEntity {
         return result;
     }
 
-    private MemberEntity member;
+    private IMemberEntity member;
 
     @Override
     @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "member")
-    public MemberEntity getMember() {
+    public IMemberEntity getMember() {
         return member;
     }
 
     @Override
-    public void setMember(MemberEntity member) {
+    public void setMember(IMemberEntity member) {
         this.member = member;
     }
 }

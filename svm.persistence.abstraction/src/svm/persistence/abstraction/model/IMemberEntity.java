@@ -1,7 +1,5 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.hibernate.model.*;
-
 import java.sql.Date;
 import java.util.List;
 
@@ -17,29 +15,29 @@ public interface IMemberEntity extends IEntity {
 
     void setTitle(String title);
 
-    String getFirstname();
+    String getFirstName();
 
-    void setFirstname(String firstname);
+    void setFirstName(String firstName);
 
-    String getLastname();
+    String getLastName();
 
-    void setLastname(String lastname);
+    void setLastName(String lastName);
 
-    String getSocialnumber();
+    String getSocialNumber();
 
-    void setSocialnumber(String socialnumber);
+    void setSocialNumber(String socialNumber);
 
-    Date getBirthdate();
+    Date getBirthDate();
 
-    void setBirthdate(Date birthdate);
+    void setBirthDate(Date birthDate);
 
     String getGender();
 
     void setGender(String gender);
 
-    Date getEntrydate();
+    Date getEntryDate();
 
-    void setEntrydate(Date entrydate);
+    void setEntryDate(Date entryDate);
 
     String getAvatar();
 
@@ -57,9 +55,9 @@ public interface IMemberEntity extends IEntity {
 
     void setFee(double fee);
 
-    ContactDetailsEntity getContactDetails();
+    IContactDetailsEntity getContactDetails();
 
-    void setContactDetails(ContactDetailsEntity contactDetails);
+    void setContactDetails(IContactDetailsEntity contactDetails);
 
     List<IDepartmentsHasMembersEntity> getDepartmentHasMembers();
 
@@ -69,13 +67,9 @@ public interface IMemberEntity extends IEntity {
 
     void setTeamsHasMembers(List<ITeamsHasMembersEntity> teamsHasMembers);
 
-    List<TeamEntity> getTeams();
+    List<IMemberFeeEntity> getFees();
 
-    void setTeams(List<TeamEntity> teams);
-
-    List<MemberFeeEntity> getFees();
-
-    void setFees(List<MemberFeeEntity> fees);
+    void setFees(List<IMemberFeeEntity> fees);
 
     List<ISubTeamsHasMembersEntity> getSubTeamHasMember();
 

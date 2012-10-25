@@ -13,18 +13,14 @@ import javax.persistence.*;
  * Date: 25.10.12
  */
 public interface IDepartmentsHasMembersEntity extends IEntity {
-    @Transient
     IDepartmentEntity getDepartment();
 
     void setDepartment(IDepartmentEntity department);
 
-    @Transient
     IMemberEntity getMember();
 
     void setMember(IMemberEntity member);
 
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberRoleEntity.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "memberRole")
     IMemberRoleEntity getMemberRole();
 
     void setMemberRole(IMemberRoleEntity memberRole);

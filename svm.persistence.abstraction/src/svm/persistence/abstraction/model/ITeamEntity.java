@@ -29,30 +29,30 @@ public interface ITeamEntity extends IEntity {
     void setFounded(Date founded);
 
 
-    SportEntity getSport();
+    ISportEntity getSport();
 
-    void setSport(SportEntity sport);
+    void setSport(ISportEntity sport);
 
 
-    MemberEntity getContactPerson();
+    IMemberEntity getContactPerson();
 
-    void setContactPerson(MemberEntity contactPerson);
+    void setContactPerson(IMemberEntity contactPerson);
 
     List<ITeamsHasMembersEntity> getTeamsHasMembers();
 
     void setTeamsHasMembers(List<ITeamsHasMembersEntity> teamsHasMembers);
 
-    List<SubTeamEntity> getSubTeams();
+    List<ISubTeamEntity> getSubTeams();
 
-    void setSubTeams(List<SubTeamEntity> subteams);
+    void setSubTeams(List<ISubTeamEntity> subTeams);
 
-    List<ContestantEntity> getContestants();
+    List<IContestantEntity> getContestants();
 
-    void setContestants(List<ContestantEntity> contestans);
+    void setContestants(List<IContestantEntity> contestants);
 
-    TeamTypeEntity getTeamType();
+    ITeamTypeEntity getTeamType();
 
-    void setTeamType(TeamTypeEntity teamType);
+    void setTeamType(ITeamTypeEntity teamType);
 
     void setContestsHasTeams(List<IContestsHasTeamsEntity> contests);
 

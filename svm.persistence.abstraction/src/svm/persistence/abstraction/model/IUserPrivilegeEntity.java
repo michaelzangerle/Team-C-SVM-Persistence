@@ -1,11 +1,9 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.hibernate.model.MemberEntity;
-
 import java.util.List;
 
 /**
- * Projectteam: Team C
+ * ProjectTeam: Team C
  * Date: 24.10.12
  */
 public interface IUserPrivilegeEntity extends IEntity {
@@ -24,7 +22,7 @@ public interface IUserPrivilegeEntity extends IEntity {
 
     void setDescription(String description);
 
-    List<MemberEntity> getMembers();
+    List<IMemberEntity> getMembers();
 
-    void setMembers(List<MemberEntity> members);
+    void setMembers(List<IMemberEntity> members);
 }

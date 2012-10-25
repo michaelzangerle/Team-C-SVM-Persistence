@@ -1,9 +1,6 @@
 package svm.persistence.hibernate.model;
 
-import svm.persistence.abstraction.model.IContestantEntity;
-import svm.persistence.abstraction.model.IExternalTeamEntity;
-import svm.persistence.abstraction.model.IMatchEntity;
-import svm.persistence.abstraction.model.ITeamEntity;
+import svm.persistence.abstraction.model.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -56,17 +53,17 @@ public class ContestantEntity implements IContestantEntity {
         this.externalTeam = externalTeam;
     }
 
-    private List<PartResultEntity> partResults;
+    private List<IPartResultEntity> partResults;
 
     @Override
     @OneToMany(cascade = CascadeType.REMOVE, targetEntity = PartResultEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "contestant")
-    public List<PartResultEntity> getPartResults() {
+    public List<IPartResultEntity> getPartResults() {
         return partResults;
     }
 
     @Override
-    public void setPartResults(List<PartResultEntity> partResults) {
+    public void setPartResults(List<IPartResultEntity> partResults) {
         this.partResults = partResults;
     }
 

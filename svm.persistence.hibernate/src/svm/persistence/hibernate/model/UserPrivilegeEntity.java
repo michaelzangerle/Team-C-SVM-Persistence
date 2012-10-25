@@ -1,5 +1,6 @@
 package svm.persistence.hibernate.model;
 
+import svm.persistence.abstraction.model.IMemberEntity;
 import svm.persistence.abstraction.model.IUserPrivilegeEntity;
 
 import javax.persistence.*;
@@ -92,18 +93,18 @@ public class UserPrivilegeEntity implements IUserPrivilegeEntity {
         return result;
     }
 
-    private List<MemberEntity> members;
+    private List<IMemberEntity> members;
 
     @ManyToMany(cascade = CascadeType.DETACH, targetEntity = MemberEntity.class)
     @JoinTable(name = "members_has_userpriviledges",
             joinColumns = {@JoinColumn(name = "userPriviledge")},
             inverseJoinColumns = {@JoinColumn(name = "member")})
-    public List<MemberEntity> getMembers() {
+    public List<IMemberEntity> getMembers() {
         return members;
     }
 
     @Override
-    public void setMembers(List<MemberEntity> members) {
+    public void setMembers(List<IMemberEntity> members) {
         this.members = members;
     }
 }

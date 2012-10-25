@@ -28,7 +28,7 @@ public interface IDepartmentEntity extends IEntity {
 
     void setContactDetails(IContactDetailsEntity contactDetails);
 
-    List<SportEntity> getSports();
+    List<ISportEntity> getSports();
 
-    void setSports(List<SportEntity> sports);
+    void setSports(List<ISportEntity> sports);
 }

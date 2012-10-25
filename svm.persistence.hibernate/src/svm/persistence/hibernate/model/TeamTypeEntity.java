@@ -1,5 +1,7 @@
 package svm.persistence.hibernate.model;
 
+import svm.persistence.abstraction.model.ITeamEntity;
+import svm.persistence.abstraction.model.ITeamRuleEntity;
 import svm.persistence.abstraction.model.ITeamTypeEntity;
 
 import javax.persistence.*;
@@ -92,29 +94,29 @@ public class TeamTypeEntity implements ITeamTypeEntity {
         return result;
     }
 
-    private List<TeamEntity> teams;
+    private List<ITeamEntity> teams;
 
     @Override
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamEntity.class, mappedBy = "teamType", fetch = FetchType.LAZY)
-    public List<TeamEntity> getTeams() {
+    public List<ITeamEntity> getTeams() {
         return teams;
     }
 
     @Override
-    public void setTeams(List<TeamEntity> teams) {
+    public void setTeams(List<ITeamEntity> teams) {
         this.teams = teams;
     }
 
-    private List<TeamRuleEntity> teamRules;
+    private List<ITeamRuleEntity> teamRules;
 
     @Override
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamRuleEntity.class, mappedBy = "teamType", fetch = FetchType.LAZY)
-    public List<TeamRuleEntity> getTeamRules() {
+    public List<ITeamRuleEntity> getTeamRules() {
         return teamRules;
     }
 
     @Override
-    public void setTeamRules(List<TeamRuleEntity> teamRules) {
+    public void setTeamRules(List<ITeamRuleEntity> teamRules) {
         this.teamRules = teamRules;
     }
 }

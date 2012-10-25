@@ -46,13 +46,13 @@ public class MemberEntity implements IMemberEntity {
     @Override
     @javax.persistence.Column(name = "firstname")
     @Basic
-    public String getFirstname() {
+    public String getFirstName() {
         return firstname;
     }
 
     @Override
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstname = firstName;
     }
 
     private String lastname;
@@ -60,13 +60,13 @@ public class MemberEntity implements IMemberEntity {
     @Override
     @javax.persistence.Column(name = "lastname")
     @Basic
-    public String getLastname() {
+    public String getLastName() {
         return lastname;
     }
 
     @Override
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastname = lastName;
     }
 
     private String socialnumber;
@@ -74,13 +74,13 @@ public class MemberEntity implements IMemberEntity {
     @Override
     @javax.persistence.Column(name = "socialnumber")
     @Basic
-    public String getSocialnumber() {
+    public String getSocialNumber() {
         return socialnumber;
     }
 
     @Override
-    public void setSocialnumber(String socialnumber) {
-        this.socialnumber = socialnumber;
+    public void setSocialNumber(String socialNumber) {
+        this.socialnumber = socialNumber;
     }
 
     private Date birthdate;
@@ -88,13 +88,13 @@ public class MemberEntity implements IMemberEntity {
     @Override
     @javax.persistence.Column(name = "birthdate")
     @Basic
-    public Date getBirthdate() {
+    public Date getBirthDate() {
         return birthdate;
     }
 
     @Override
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthDate(Date birthDate) {
+        this.birthdate = birthDate;
     }
 
     private String gender;
@@ -116,13 +116,13 @@ public class MemberEntity implements IMemberEntity {
     @Override
     @javax.persistence.Column(name = "entrydate")
     @Basic
-    public Date getEntrydate() {
+    public Date getEntryDate() {
         return entrydate;
     }
 
     @Override
-    public void setEntrydate(Date entrydate) {
-        this.entrydate = entrydate;
+    public void setEntryDate(Date entryDate) {
+        this.entrydate = entryDate;
     }
 
     private String avatar;
@@ -181,17 +181,17 @@ public class MemberEntity implements IMemberEntity {
         this.fee = fee;
     }
 
-    private ContactDetailsEntity contactDetails;
+    private IContactDetailsEntity contactDetails;
 
     @Override
     @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "contactdetails")
-    public ContactDetailsEntity getContactDetails() {
+    public IContactDetailsEntity getContactDetails() {
         return contactDetails;
     }
 
     @Override
-    public void setContactDetails(ContactDetailsEntity contactDetails) {
+    public void setContactDetails(IContactDetailsEntity contactDetails) {
         this.contactDetails = contactDetails;
     }
 
@@ -265,31 +265,17 @@ public class MemberEntity implements IMemberEntity {
         this.teamsHasMembers = teamsHasMembers;
     }
 
-    private List<TeamEntity> teams;
-
-    @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamEntity.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "contactperson")
-    public List<TeamEntity> getTeams() {
-        return teams;
-    }
-
-    @Override
-    public void setTeams(List<TeamEntity> teams) {
-        this.teams = teams;
-    }
-
-    private List<MemberFeeEntity> fees;
+    private List<IMemberFeeEntity> fees;
 
     @Override
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = MemberFeeEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "member")
-    public List<MemberFeeEntity> getFees() {
+    public List<IMemberFeeEntity> getFees() {
         return fees;
     }
 
     @Override
-    public void setFees(List<MemberFeeEntity> fees) {
+    public void setFees(List<IMemberFeeEntity> fees) {
         this.fees = fees;
     }
 

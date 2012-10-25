@@ -25,11 +25,11 @@ public interface ISportEntity extends IEntity {
 
     void setDescription(String description);
 
-    DepartmentEntity getDepartment();
+    IDepartmentEntity getDepartment();
 
-    void setDepartment(DepartmentEntity department);
+    void setDepartment(IDepartmentEntity department);
 
-    List<TeamEntity> getTeams();
+    List<ITeamEntity> getTeams();
 
-    void setTeams(List<TeamEntity> teams);
+    void setTeams(List<ITeamEntity> teams);
 }

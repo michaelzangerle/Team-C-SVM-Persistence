@@ -22,7 +22,7 @@ public interface ITeamRuleEntity extends IEntity {
 
     void setDescription(String description);
 
-    TeamTypeEntity getTeamType();
+    ITeamTypeEntity getTeamType();
 
-    void setTeamType(TeamTypeEntity teamType);
+    void setTeamType(ITeamTypeEntity teamType);
 }

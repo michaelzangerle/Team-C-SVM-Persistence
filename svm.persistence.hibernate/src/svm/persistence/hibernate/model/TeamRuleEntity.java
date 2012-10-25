@@ -1,6 +1,8 @@
 package svm.persistence.hibernate.model;
 
+import svm.persistence.abstraction.model.IMemberRoleEntity;
 import svm.persistence.abstraction.model.ITeamRuleEntity;
+import svm.persistence.abstraction.model.ITeamTypeEntity;
 
 import javax.persistence.*;
 
@@ -91,29 +93,29 @@ public class TeamRuleEntity implements ITeamRuleEntity {
         return result;
     }
 
-     private TeamTypeEntity teamType;
+     private ITeamTypeEntity teamType;
 
     @Override
     @ManyToOne(cascade = CascadeType.DETACH, targetEntity = TeamTypeEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "teamtype")
-    public TeamTypeEntity getTeamType() {
+    public ITeamTypeEntity getTeamType() {
         return teamType;
     }
 
     @Override
-    public void setTeamType(TeamTypeEntity teamType) {
+    public void setTeamType(ITeamTypeEntity teamType) {
         this.teamType = teamType;
     }
 
-    private MemberRoleEntity memberRole;
+    private IMemberRoleEntity memberRole;
 
     @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberRoleEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "memberRole")
-    public MemberRoleEntity getMemberRole() {
+    public IMemberRoleEntity getMemberRole() {
         return memberRole;
     }
 
-    public void setMemberRole(MemberRoleEntity memberRole) {
+    public void setMemberRole(IMemberRoleEntity memberRole) {
         this.memberRole = memberRole;
     }
 }

@@ -1,5 +1,6 @@
 package svm.persistence.hibernate.model;
 
+import svm.persistence.abstraction.model.IContestantEntity;
 import svm.persistence.abstraction.model.IPartResultEntity;
 
 import javax.persistence.*;
@@ -75,17 +76,17 @@ public class PartResultEntity implements IPartResultEntity {
         return result1;
     }
 
-    private ContestantEntity contestant;
+    private IContestantEntity contestant;
 
     @Override
     @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContestantEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "contestant")
-    public ContestantEntity getContestant() {
+    public IContestantEntity getContestant() {
         return contestant;
     }
 
     @Override
-    public void setContestant(ContestantEntity contestant) {
+    public void setContestant(IContestantEntity contestant) {
         this.contestant = contestant;
     }
 }

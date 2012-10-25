@@ -1,6 +1,8 @@
 package svm.persistence.hibernate.model;
 
+import svm.persistence.abstraction.model.IDepartmentEntity;
 import svm.persistence.abstraction.model.ISportEntity;
+import svm.persistence.abstraction.model.ITeamEntity;
 
 import javax.persistence.*;
 import java.util.List;
@@ -92,31 +94,31 @@ public class SportEntity implements ISportEntity {
         return result;
     }
 
-    private DepartmentEntity department;
+    private IDepartmentEntity department;
 
     @Override
     @ManyToOne(cascade = CascadeType.DETACH, targetEntity = DepartmentEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "department")
-    public DepartmentEntity getDepartment() {
+    public IDepartmentEntity getDepartment() {
         return department;
     }
 
     @Override
-    public void setDepartment(DepartmentEntity department) {
+    public void setDepartment(IDepartmentEntity department) {
         this.department = department;
     }
 
-    private List<TeamEntity> teams;
+    private List<ITeamEntity> teams;
 
     @Override
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "sport")
-    public List<TeamEntity> getTeams() {
+    public List<ITeamEntity> getTeams() {
         return teams;
     }
 
     @Override
-    public void setTeams(List<TeamEntity> teams) {
+    public void setTeams(List<ITeamEntity> teams) {
         this.teams = teams;
     }
 }

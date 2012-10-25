@@ -29,11 +29,11 @@ public interface ITeamTypeEntity extends IEntity {
 
     void setDescription(String description);
 
-    List<TeamEntity> getTeams();
+    List<ITeamEntity> getTeams();
 
-    void setTeams(List<TeamEntity> teams);
+    void setTeams(List<ITeamEntity> teams);
 
-    List<TeamRuleEntity> getTeamRules();
+    List<ITeamRuleEntity> getTeamRules();
 
-    void setTeamRules(List<TeamRuleEntity> teamRules);
+    void setTeamRules(List<ITeamRuleEntity> teamRules);
 }
