@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="svm.persistence.hibernate">
+    <output-path>$PROJECT_DIR$/out/artifacts/svm_persistence_hibernate</output-path>
+    <root id="archive" name="svm.persistence.hibernate.jar">
+      <element id="module-output" name="svm.persistence.abstraction" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/svm.persistence.abstraction/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

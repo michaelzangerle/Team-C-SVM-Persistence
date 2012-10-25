@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/svm.persistence.abstraction/svm.persistence.abstraction.iml" filepath="$PROJECT_DIR$/svm.persistence.abstraction/svm.persistence.abstraction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/svm.persistence.hibernate/svm.persistence.hibernate.iml" filepath="$PROJECT_DIR$/svm.persistence.hibernate/svm.persistence.hibernate.iml" />
+    </modules>
+  </component>
+</project>
+
