@@ -29,4 +29,8 @@ public interface IContestEntity extends IEntity {
     List<IContestsHasTeamsEntity> getContestsHasTeams();
 
     void setContestsHasTeams(List<IContestsHasTeamsEntity> teams);
+
+    IContactDetailsEntity getContactDetails();
+
+    void setContactDetails(IContactDetailsEntity contactDetails);
 }
