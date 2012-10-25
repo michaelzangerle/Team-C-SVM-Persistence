@@ -1,35 +1,38 @@
 package svm.persistence.hibernate.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import svm.persistence.abstraction.model.IDepartmentEntity;
+import svm.persistence.abstraction.model.IMemberEntity;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Projectteam: Team C
+ * ProjectTeam: Team C
  * Date: 24.10.12
  */
+@Embeddable
 public class DepartmentsHasMembersEntityPK implements Serializable {
-    private int department;
+    private IDepartmentEntity department;
 
-    @Id
-    @Column(name = "department")
-    public int getDepartment() {
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = DepartmentEntity.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "department")
+    public IDepartmentEntity getDepartment() {
         return department;
     }
 
-    public void setDepartment(int department) {
+    public void setDepartment(IDepartmentEntity department) {
         this.department = department;
     }
 
-    private int member;
+    private IMemberEntity member;
 
-    @Id
-    @Column(name = "member")
-    public int getMember() {
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberEntity.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "member")
+    public IMemberEntity getMember() {
         return member;
     }
 
-    public void setMember(int member) {
+    public void setMember(IMemberEntity member) {
         this.member = member;
     }
 
@@ -48,8 +51,8 @@ public class DepartmentsHasMembersEntityPK implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = department;
-        result = 31 * result + member;
+        int result = getDepartment().getId();
+        result = 31 * result + getMember().getId();
         return result;
     }
 }

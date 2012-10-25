@@ -1,40 +1,66 @@
 package svm.persistence.hibernate.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import svm.persistence.abstraction.model.*;
 
-// TODO Department has Members
+import javax.persistence.*;
 
 /**
  * ProjectTeam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.IdClass(svm.persistence.hibernate.model.DepartmentsHasMembersEntityPK.class)
-@javax.persistence.Table(name = "departments_has_members", schema = "", catalog = "svm")
 @Entity
-public class DepartmentsHasMembersEntity {
-    private int department;
+@javax.persistence.Table(name = "departments_has_members", schema = "", catalog = "svm")
+@AssociationOverrides({
+        @AssociationOverride(name = "pk.member", joinColumns = @JoinColumn(name = "member")),
+        @AssociationOverride(name = "pk.department", joinColumns = @JoinColumn(name = "department"))
+})
+public class DepartmentsHasMembersEntity implements IDepartmentsHasMembersEntity {
 
-    @javax.persistence.Column(name = "department")
-    @Id
-    public int getDepartment() {
-        return department;
+    private DepartmentsHasMembersEntityPK pk = new DepartmentsHasMembersEntityPK();
+
+    @EmbeddedId()
+    public DepartmentsHasMembersEntityPK getPk() {
+        return pk;
     }
 
-    public void setDepartment(int department) {
-        this.department = department;
+    public void setPk(DepartmentsHasMembersEntityPK pk) {
+        this.pk = pk;
     }
 
-    private int member;
-
-    @javax.persistence.Column(name = "member")
-    @Id
-    public int getMember() {
-        return member;
+    @Override
+    @Transient
+    public IDepartmentEntity getDepartment() {
+        return getPk().getDepartment();
     }
 
-    public void setMember(int member) {
-        this.member = member;
+    @Override
+    public void setDepartment(IDepartmentEntity department) {
+        this.getPk().setDepartment(department);
+    }
+
+    @Override
+    @Transient
+    public IMemberEntity getMember() {
+        return getPk().getMember();
+    }
+
+    @Override
+    public void setMember(IMemberEntity member) {
+        this.getPk().setMember(member);
+    }
+
+    private IMemberRoleEntity memberRole;
+
+    @Override
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberRoleEntity.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "memberRole")
+    public IMemberRoleEntity getMemberRole() {
+        return memberRole;
+    }
+
+    @Override
+    public void setMemberRole(IMemberRoleEntity memberRole) {
+        this.memberRole = memberRole;
     }
 
     @Override
@@ -44,16 +70,24 @@ public class DepartmentsHasMembersEntity {
 
         DepartmentsHasMembersEntity that = (DepartmentsHasMembersEntity) o;
 
-        if (department != that.department) return false;
-        if (member != that.member) return false;
+        if (getDepartment() != that.getDepartment()) return false;
+        if (getMember() != that.getMember()) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = department;
-        result = 31 * result + member;
+        int result = getDepartment().getId();
+        result = 31 * result + getMember().getId();
         return result;
+    }
+
+    @Override
+    public int getId() {
+        return 0;
+    }
+
+    public void setId(int id) {
     }
 }

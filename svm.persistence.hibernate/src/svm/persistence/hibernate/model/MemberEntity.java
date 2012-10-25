@@ -1,5 +1,6 @@
 package svm.persistence.hibernate.model;
 
+import svm.persistence.abstraction.model.IDepartmentsHasMembersEntity;
 import svm.persistence.abstraction.model.IMemberEntity;
 import svm.persistence.abstraction.model.ITeamsHasMembersEntity;
 
@@ -240,18 +241,16 @@ public class MemberEntity implements IMemberEntity {
         return result;
     }
 
-    //TODO
-
-    private List<DepartmentsHasMembersEntity> departmentHasMembers;
+    private List<IDepartmentsHasMembersEntity> departmentHasMembers;
 
     @Override
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = DepartmentsHasMembersEntity.class, mappedBy = "pk.member", fetch = FetchType.LAZY)
-    public List<DepartmentsHasMembersEntity> getDepartmentHasMembers() {
+    public List<IDepartmentsHasMembersEntity> getDepartmentHasMembers() {
         return departmentHasMembers;
     }
 
     @Override
-    public void setDepartmentHasMembers(List<DepartmentsHasMembersEntity> departmentHasMembers) {
+    public void setDepartmentHasMembers(List<IDepartmentsHasMembersEntity> departmentHasMembers) {
         this.departmentHasMembers = departmentHasMembers;
     }
 
