@@ -1,35 +1,38 @@
 package svm.persistence.hibernate.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import svm.persistence.abstraction.model.IMemberEntity;
+import svm.persistence.abstraction.model.ITeamEntity;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Projectteam: Team C
  * Date: 24.10.12
  */
+@Embeddable
 public class TeamsHasMembersEntityPK implements Serializable {
-    private int team;
+    private ITeamEntity team;
 
-    @Id
-    @Column(name = "team")
-    public int getTeam() {
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = TeamEntity.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "team")
+    public ITeamEntity getTeam() {
         return team;
     }
 
-    public void setTeam(int team) {
+    public void setTeam(ITeamEntity team) {
         this.team = team;
     }
 
-    private int member;
+    private IMemberEntity member;
 
-    @Id
-    @Column(name = "member")
-    public int getMember() {
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberEntity.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "member")
+    public IMemberEntity getMember() {
         return member;
     }
 
-    public void setMember(int member) {
+    public void setMember(IMemberEntity member) {
         this.member = member;
     }
 
@@ -48,8 +51,8 @@ public class TeamsHasMembersEntityPK implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = team;
-        result = 31 * result + member;
+        int result = getTeam().getId();
+        result = 31 * result + getMember().getId();
         return result;
     }
 }

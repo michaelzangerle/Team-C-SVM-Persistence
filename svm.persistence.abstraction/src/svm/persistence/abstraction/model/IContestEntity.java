@@ -26,7 +26,7 @@ public interface IContestEntity extends IEntity {
 
     void setFee(float fee);
 
-    List<IContestsHasTeamsEntity> getTeams();
+    List<IContestsHasTeamsEntity> getContestsHasTeams();
 
-    void setTeams(List<IContestsHasTeamsEntity> teams);
+    void setContestsHasTeams(List<IContestsHasTeamsEntity> teams);
 }

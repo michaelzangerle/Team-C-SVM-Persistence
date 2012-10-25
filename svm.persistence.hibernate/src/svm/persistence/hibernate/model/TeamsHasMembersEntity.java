@@ -1,38 +1,54 @@
 package svm.persistence.hibernate.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import svm.persistence.abstraction.model.IMemberEntity;
+import svm.persistence.abstraction.model.ITeamEntity;
+import svm.persistence.abstraction.model.ITeamsHasMembersEntity;
+
+import javax.persistence.*;
 
 /**
- * Projectteam: Team C
+ * ProjectTeam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.IdClass(svm.persistence.hibernate.model.TeamsHasMembersEntityPK.class)
-@javax.persistence.Table(name = "teams_has_members", schema = "", catalog = "svm")
 @Entity
-public class TeamsHasMembersEntity {
-    private int team;
+@javax.persistence.Table(name = "teams_has_members", schema = "", catalog = "svm")
+@AssociationOverrides({
+        @AssociationOverride(name = "pk.member", joinColumns = @JoinColumn(name = "member")),
+        @AssociationOverride(name = "pk.team", joinColumns = @JoinColumn(name = "team"))
+})
+public class TeamsHasMembersEntity implements ITeamsHasMembersEntity {
 
-    @javax.persistence.Column(name = "team")
-    @Id
-    public int getTeam() {
-        return team;
+    private TeamsHasMembersEntityPK pk = new TeamsHasMembersEntityPK();
+
+    @EmbeddedId()
+    public TeamsHasMembersEntityPK getPk() {
+        return pk;
     }
 
-    public void setTeam(int team) {
-        this.team = team;
+    public void setPk(TeamsHasMembersEntityPK pk) {
+        this.pk = pk;
     }
 
-    private int member;
-
-    @javax.persistence.Column(name = "member")
-    @Id
-    public int getMember() {
-        return member;
+    @Override
+    @Transient
+    public ITeamEntity getTeam() {
+        return getPk().getTeam();
     }
 
-    public void setMember(int member) {
-        this.member = member;
+    @Override
+    public void setTeam(ITeamEntity team) {
+        getPk().setTeam(team);
+    }
+
+    @Override
+    @Transient
+    public IMemberEntity getMember() {
+        return getPk().getMember();
+    }
+
+    @Override
+    public void setMember(IMemberEntity member) {
+        getPk().setMember(member);
     }
 
     @Override
@@ -42,16 +58,24 @@ public class TeamsHasMembersEntity {
 
         TeamsHasMembersEntity that = (TeamsHasMembersEntity) o;
 
-        if (member != that.member) return false;
-        if (team != that.team) return false;
+        if (getMember() != that.getMember()) return false;
+        if (getTeam() != that.getTeam()) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = team;
-        result = 31 * result + member;
+        int result = getTeam().getId();
+        result = 31 * result + getMember().getId();
         return result;
+    }
+
+    @Override
+    public int getId() {
+        return 0;
+    }
+
+    public void setId(int id) {
     }
 }

@@ -38,17 +38,13 @@ public interface ITeamEntity extends IEntity {
 
     void setContactPerson(MemberEntity contactPerson);
 
-    List<TeamsHasMembersEntity> getTeamsHasMembers();
+    List<ITeamsHasMembersEntity> getTeamsHasMembers();
 
-    void setTeamsHasMembers(List<TeamsHasMembersEntity> teamsHasMembers);
+    void setTeamsHasMembers(List<ITeamsHasMembersEntity> teamsHasMembers);
 
-    List<ContestsHasTeamsEntity> getContestsHasTeams();
+    List<SubTeamEntity> getSubTeams();
 
-    void setContestsHasTeams(List<ContestsHasTeamsEntity> contestsHasTeams);
-
-    List<SubTeamEntity> getSubteams();
-
-    void setSubteams(List<SubTeamEntity> subteams);
+    void setSubTeams(List<SubTeamEntity> subteams);
 
     List<ContestantEntity> getContestants();
 
@@ -57,4 +53,9 @@ public interface ITeamEntity extends IEntity {
     TeamTypeEntity getTeamType();
 
     void setTeamType(TeamTypeEntity teamType);
+
+    void setContestsHasTeams(List<IContestsHasTeamsEntity> contests);
+
+    List<IContestsHasTeamsEntity> getContestsHasTeams();
+
 }

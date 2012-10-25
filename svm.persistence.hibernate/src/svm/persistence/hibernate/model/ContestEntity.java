@@ -107,17 +107,17 @@ public class ContestEntity implements IContestEntity {
         this.externalTeams = externalTeams;
     }
 
-    private List<IContestsHasTeamsEntity> teams;
+    private List<IContestsHasTeamsEntity> contestsHasTeams;
 
     @Override
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
-    public List<IContestsHasTeamsEntity> getTeams() {
-        return teams;
+    public List<IContestsHasTeamsEntity> getContestsHasTeams() {
+        return contestsHasTeams;
     }
 
     @Override
-    public void setTeams(List<IContestsHasTeamsEntity> teams) {
-        this.teams = teams;
+    public void setContestsHasTeams(List<IContestsHasTeamsEntity> contestsHasTeams) {
+        this.contestsHasTeams = contestsHasTeams;
     }
 
     // TODO WARUM ? MANY 2 MANY Match - Contest

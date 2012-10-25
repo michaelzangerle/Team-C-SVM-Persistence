@@ -1,6 +1,7 @@
 package svm.persistence.hibernate.model;
 
 import svm.persistence.abstraction.model.IMemberEntity;
+import svm.persistence.abstraction.model.ITeamsHasMembersEntity;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -254,18 +255,16 @@ public class MemberEntity implements IMemberEntity {
         this.departmentHasMembers = departmentHasMembers;
     }
 
-    //TODO
-
-    private List<TeamsHasMembersEntity> teamsHasMembers;
+    private List<ITeamsHasMembersEntity> teamsHasMembers;
 
     @Override
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamsHasMembersEntity.class, mappedBy = "pk.member", fetch = FetchType.LAZY)
-    public List<TeamsHasMembersEntity> getTeamsHasMembers() {
+    public List<ITeamsHasMembersEntity> getTeamsHasMembers() {
         return teamsHasMembers;
     }
 
     @Override
-    public void setTeamsHasMembers(List<TeamsHasMembersEntity> teamsHasMembers) {
+    public void setTeamsHasMembers(List<ITeamsHasMembersEntity> teamsHasMembers) {
         this.teamsHasMembers = teamsHasMembers;
     }
 

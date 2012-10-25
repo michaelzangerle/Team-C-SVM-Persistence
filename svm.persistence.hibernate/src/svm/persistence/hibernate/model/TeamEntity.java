@@ -1,13 +1,15 @@
 package svm.persistence.hibernate.model;
 
+import svm.persistence.abstraction.model.IContestsHasTeamsEntity;
 import svm.persistence.abstraction.model.ITeamEntity;
+import svm.persistence.abstraction.model.ITeamsHasMembersEntity;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
 /**
- * Projectteam: Team C
+ * ProjectTeam: Team C
  * Date: 24.10.12
  */
 @javax.persistence.Table(name = "teams", schema = "", catalog = "svm")
@@ -121,46 +123,44 @@ public class TeamEntity implements ITeamEntity {
         this.contactPerson = contactPerson;
     }
 
-    private List<TeamsHasMembersEntity> teamsHasMembers;
+    private List<ITeamsHasMembersEntity> teamsHasMembers;
 
-    // TODO
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamsHasMembersEntity.class, fetch = FetchType.LAZY)
-    public List<TeamsHasMembersEntity> getTeamsHasMembers() {
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamsHasMembersEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
+    public List<ITeamsHasMembersEntity> getTeamsHasMembers() {
         return teamsHasMembers;
     }
 
     @Override
-    public void setTeamsHasMembers(List<TeamsHasMembersEntity> teamsHasMembers) {
+    public void setTeamsHasMembers(List<ITeamsHasMembersEntity> teamsHasMembers) {
         this.teamsHasMembers = teamsHasMembers;
     }
 
-    private List<ContestsHasTeamsEntity> contestsHasTeams;
+    private List<IContestsHasTeamsEntity> contestsHasTeams;
 
-    // TODO
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
-    public List<ContestsHasTeamsEntity> getContestsHasTeams() {
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
+    public List<IContestsHasTeamsEntity> getContestsHasTeams() {
         return contestsHasTeams;
     }
 
     @Override
-    public void setContestsHasTeams(List<ContestsHasTeamsEntity> contestsHasTeams) {
+    public void setContestsHasTeams(List<IContestsHasTeamsEntity> contestsHasTeams) {
         this.contestsHasTeams = contestsHasTeams;
     }
 
-    private List<SubTeamEntity> subteams;
+    private List<SubTeamEntity> subTeams;
 
     @Override
     @OneToMany(cascade = CascadeType.DETACH, targetEntity = SubTeamEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "team")
-    public List<SubTeamEntity> getSubteams() {
-        return subteams;
+    public List<SubTeamEntity> getSubTeams() {
+        return subTeams;
     }
 
     @Override
-    public void setSubteams(List<SubTeamEntity> subteams) {
-        this.subteams = subteams;
+    public void setSubTeams(List<SubTeamEntity> subTeams) {
+        this.subTeams = subTeams;
     }
 
     private List<ContestantEntity> contestants;

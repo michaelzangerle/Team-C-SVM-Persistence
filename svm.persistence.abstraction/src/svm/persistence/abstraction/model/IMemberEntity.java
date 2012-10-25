@@ -65,9 +65,9 @@ public interface IMemberEntity extends IEntity {
 
     void setDepartmentHasMembers(List<DepartmentsHasMembersEntity> departmentHasMembers);
 
-    List<TeamsHasMembersEntity> getTeamsHasMembers();
+    List<ITeamsHasMembersEntity> getTeamsHasMembers();
 
-    void setTeamsHasMembers(List<TeamsHasMembersEntity> teamsHasMembers);
+    void setTeamsHasMembers(List<ITeamsHasMembersEntity> teamsHasMembers);
 
     List<TeamEntity> getTeams();
 
