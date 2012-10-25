@@ -27,7 +27,6 @@
         <mapping class="svm.persistence.hibernate.model.MatchTypeEntity"/>
         <mapping class="svm.persistence.hibernate.model.MemberRoleEntity"/>
         <mapping class="svm.persistence.hibernate.model.MemberEntity"/>
-        <mapping class="svm.persistence.hibernate.model.MembersHasUserpriviledgesEntity"/>
         <mapping class="svm.persistence.hibernate.model.MemberFeeEntity"/>
         <mapping class="svm.persistence.hibernate.model.PartResultEntity"/>
         <mapping class="svm.persistence.hibernate.model.SportEntity"/>

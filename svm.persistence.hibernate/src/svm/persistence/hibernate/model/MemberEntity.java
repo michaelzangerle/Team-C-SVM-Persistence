@@ -1,9 +1,6 @@
 package svm.persistence.hibernate.model;
 
-import svm.persistence.abstraction.model.IDepartmentsHasMembersEntity;
-import svm.persistence.abstraction.model.IMemberEntity;
-import svm.persistence.abstraction.model.ISubTeamsHasMembersEntity;
-import svm.persistence.abstraction.model.ITeamsHasMembersEntity;
+import svm.persistence.abstraction.model.*;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -309,19 +306,19 @@ public class MemberEntity implements IMemberEntity {
         this.subTeamHasMember = subTeamHasMember;
     }
 
-    private List<MembersHasUserpriviledgesEntity> privileges;
+    private List<IUserPrivilegeEntity> privileges;
 
     @Override
-    @ManyToMany(cascade = CascadeType.DETACH, targetEntity = MembersHasUserpriviledgesEntity.class)
+    @ManyToMany(cascade = CascadeType.DETACH, targetEntity = UserPrivilegeEntity.class)
     @JoinTable(name = "members_has_userPriviledges",
             joinColumns = {@JoinColumn(name = "member")},
             inverseJoinColumns = {@JoinColumn(name = "userPriviledge")})
-    public List<MembersHasUserpriviledgesEntity> getPrivileges() {
+    public List<IUserPrivilegeEntity> getPrivileges() {
         return privileges;
     }
 
     @Override
-    public void setPrivileges(List<MembersHasUserpriviledgesEntity> privileges) {
+    public void setPrivileges(List<IUserPrivilegeEntity> privileges) {
         this.privileges = privileges;
     }
 }

@@ -81,7 +81,7 @@ public interface IMemberEntity extends IEntity {
 
     void setSubTeamHasMember(List<ISubTeamsHasMembersEntity> subTeamHasMember);
 
-    List<MembersHasUserpriviledgesEntity> getPrivileges();
+    List<IUserPrivilegeEntity> getPrivileges();
 
-    void setPrivileges(List<MembersHasUserpriviledgesEntity> privileges);
+    void setPrivileges(List<IUserPrivilegeEntity> privileges);
 }
