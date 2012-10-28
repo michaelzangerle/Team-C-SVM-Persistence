@@ -2,6 +2,7 @@ package svm.persistence.hibernate.dao;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import svm.persistence.abstraction.dao.FindQualifiers;
 import svm.persistence.abstraction.dao.IDAO;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.model.IEntity;
@@ -11,9 +12,11 @@ import javax.persistence.Table;
 import java.util.List;
 
 /**
+ * Abstract Data Access Object
  * Projectteam: Team C
  * Date: 19.10.12
- * Abstract Data Access Object
+ *
+ * @param <T> Type of Entity
  */
 public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
     private Class clazz;
@@ -35,7 +38,26 @@ public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
     @Override
     public List<T> getAll(Integer sessionId) throws NoSessionFoundException {
         Session session = HibernateUtil.getSession(sessionId);
+        String hql = String.format("FROM %s", clazz.getName());
         Query query = session.createQuery("from " + clazz.getName());
+        return query.list();
+    }
+
+    /**
+     * Returns List of all Objects compares to the WHERE clause
+     *
+     * @param sessionId Session ID
+     * @param column    PropertyName
+     * @param qualifier LogicalOperator
+     * @param value     Value to Compare
+     * @return List of Objects
+     * @throws NoSessionFoundException No Session found for this Id
+     */
+    @Override
+    public List<T> find(Integer sessionId, String column, FindQualifiers qualifier, String value) throws NoSessionFoundException {
+        Session session = HibernateUtil.getSession(sessionId);
+        String hql = String.format("FROM %s WHERE %s %s '%s'", clazz.getName(), column, qualifier.toString(), value);
+        Query query = session.createQuery(hql);
         return query.list();
     }
 

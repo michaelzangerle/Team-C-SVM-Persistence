@@ -30,6 +30,17 @@ public interface IDAO<T extends IEntity> {
      */
     public void saveOrUpdate(Integer sessionId, T obj) throws NoSessionFoundException;
 
+    /**
+     * Returns List of all Objects compares to the WHERE clause
+     *
+     * @param sessionId Session ID
+     * @param column    PropertyName
+     * @param qualifier LogicalOperator
+     * @param value     Value to Compare
+     * @return List of Objects
+     * @throws NoSessionFoundException No Session found for this Id
+     */
+    List<T> find(Integer sessionId, String column, FindQualifiers qualifier, String value) throws NoSessionFoundException;
 
     /**
      * Generates a new Object

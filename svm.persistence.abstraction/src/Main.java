@@ -1,14 +1,11 @@
 import svm.persistence.PersistenceFacade;
 import svm.persistence.abstraction.model.IContactDetailsEntity;
-import svm.persistence.hibernate.dao.ContactDetailsDAO;
-import svm.persistence.hibernate.model.ContactDetailsEntity;
+
+import java.util.Date;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Administrator
- * Date: 18.10.12
- * Time: 16:39
- * To change this template use File | Settings | File Templates.
+ * ProjectTeam: Team C
+ * Date: 28.10.12
  */
 public class Main {
 
@@ -19,12 +16,14 @@ public class Main {
     public static void main(final String[] args) throws Exception {
         Integer sessionId = PersistenceFacade.generateSessionId();
 
-        ContactDetailsDAO dao = new ContactDetailsDAO();
-
-        for (IContactDetailsEntity entity : dao.getAll(sessionId)) {
+        Long t1 = new Date().getTime();
+        for (IContactDetailsEntity entity : PersistenceFacade.getContactDetailsDAO().getAll(sessionId)) {
             System.out.println(entity.getLocationEntity().getPlaceName());
         }
+        Long t2 = new Date().getTime();
 
         PersistenceFacade.closeSession(sessionId);
+
+        System.out.println(t2 - t1);
     }
 }
