@@ -1,10 +1,9 @@
 package svm.persistence.hibernate.model;
 
 import svm.persistence.abstraction.model.IMatchRulesEntity;
+import svm.persistence.abstraction.model.IMatchTypeEntity;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * ProjectTeam: Team C
@@ -52,6 +51,20 @@ public class MatchRulesEntity implements IMatchRulesEntity {
     @Override
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    private IMatchTypeEntity matchType;
+
+    @Override
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MatchTypeEntity.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "matchType")
+    public IMatchTypeEntity getMatchType() {
+        return matchType;
+    }
+
+    @Override
+    public void setMatchType(IMatchTypeEntity matchType) {
+        this.matchType = matchType;
     }
 
     @Override

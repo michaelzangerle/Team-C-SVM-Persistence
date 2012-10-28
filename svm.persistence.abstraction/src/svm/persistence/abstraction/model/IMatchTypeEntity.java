@@ -35,9 +35,9 @@ public interface IMatchTypeEntity extends IEntity {
 
     void setWin(int win);
 
-    int getLoose();
+    int getLose();
 
-    void setLoose(int loose);
+    void setLose(int loose);
 
     List<IMatchRulesEntity> getMatchRules();
 

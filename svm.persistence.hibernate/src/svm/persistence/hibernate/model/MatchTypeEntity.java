@@ -97,18 +97,18 @@ public class MatchTypeEntity implements IMatchTypeEntity {
         this.win = win;
     }
 
-    private int loose;
+    private int lose;
 
     @Override
     @javax.persistence.Column(name = "loose")
     @Basic
-    public int getLoose() {
-        return loose;
+    public int getLose() {
+        return lose;
     }
 
     @Override
-    public void setLoose(int loose) {
-        this.loose = loose;
+    public void setLose(int lose) {
+        this.lose = lose;
     }
 
     private List<IMatchRulesEntity> matchRules;
@@ -135,7 +135,7 @@ public class MatchTypeEntity implements IMatchTypeEntity {
         if (alias != that.alias) return false;
         if (draw != that.draw) return false;
         if (id != that.id) return false;
-        if (loose != that.loose) return false;
+        if (lose != that.lose) return false;
         if (win != that.win) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
@@ -151,7 +151,7 @@ public class MatchTypeEntity implements IMatchTypeEntity {
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + draw;
         result = 31 * result + win;
-        result = 31 * result + loose;
+        result = 31 * result + lose;
         return result;
     }
 }

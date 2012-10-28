@@ -14,4 +14,8 @@ public interface IMatchRulesEntity extends IEntity {
     String getDescription();
 
     void setDescription(String description);
+
+    IMatchTypeEntity getMatchType();
+
+    void setMatchType(IMatchTypeEntity matchType);
 }
