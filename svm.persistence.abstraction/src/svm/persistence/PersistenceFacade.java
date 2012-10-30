@@ -4,6 +4,7 @@ import svm.persistence.abstraction.dao.*;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
+import svm.persistence.abstraction.model.IEntity;
 import svm.persistence.hibernate.HibernateUtil;
 
 /**
@@ -32,6 +33,16 @@ public class PersistenceFacade {
      */
     public static void closeSession(Integer sessionId) throws NoSessionFoundException {
         HibernateUtil.closeSession(sessionId);
+    }
+
+    /**
+     * Reattach Object to a Session
+     *
+     * @param sessionId SessionID
+     * @param entity    Entity
+     */
+    public static void reattachObjectToSession(Integer sessionId, IEntity entity) throws NoSessionFoundException {
+        HibernateUtil.reattachObjectToSession(sessionId, entity);
     }
 
     /**

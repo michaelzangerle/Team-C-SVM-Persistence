@@ -2,7 +2,7 @@ package svm.persistence.hibernate.dao;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import svm.persistence.abstraction.dao.FindQualifiers;
+import svm.persistence.abstraction.dao.CompareObject;
 import svm.persistence.abstraction.dao.IDAO;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.model.IEntity;
@@ -47,17 +47,35 @@ public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
      * Returns List of all Objects compares to the WHERE clause
      *
      * @param sessionId Session ID
-     * @param column    PropertyName
-     * @param qualifier LogicalOperator
-     * @param value     Value to Compare
+     * @param compare   column, qualifier, value
      * @return List of Objects
      * @throws NoSessionFoundException No Session found for this Id
      */
     @Override
-    public List<T> find(Integer sessionId, String column, FindQualifiers qualifier, String value) throws NoSessionFoundException {
+    public List<T> find(Integer sessionId, CompareObject compare) throws NoSessionFoundException {
         Session session = HibernateUtil.getSession(sessionId);
-        String hql = String.format("FROM %s WHERE %s %s '%s'", clazz.getName(), column, qualifier.toString(), value);
+        String hql = String.format("FROM %s WHERE %s %s '%s'", clazz.getName(), compare.getColumn(), compare.getQualifier().toString(), compare.getValue());
         Query query = session.createQuery(hql);
+        return query.list();
+    }
+
+    /**
+     * Returns List of all Objects compares to the WHERE clause
+     *
+     * @param sessionId Session ID
+     * @param compares  Array of column, qualifier, value
+     * @return List of Objects
+     * @throws NoSessionFoundException No Session found for this Id
+     */
+    @Override
+    public List<T> find(Integer sessionId, CompareObject[] compares) throws NoSessionFoundException {
+        Session session = HibernateUtil.getSession(sessionId);
+        StringBuffer hql = new StringBuffer();
+        hql.append(String.format("FROM %s WHERE ", clazz.getName()));
+        for (CompareObject compare : compares) {
+            hql.append(String.format(" %s %s '%s' ", compare.getColumn(), compare.getQualifier().toString(), compare.getValue()));
+        }
+        Query query = session.createQuery(hql.toString());
         return query.list();
     }
 

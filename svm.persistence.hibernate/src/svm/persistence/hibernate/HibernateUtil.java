@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 import svm.persistence.abstraction.exceptions.ExistingTransactionException;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NoTransactionException;
+import svm.persistence.abstraction.model.IEntity;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -71,6 +72,17 @@ public class HibernateUtil {
         } else {
             return generateSessionId();
         }
+    }
+
+    /**
+     * Reattach Object to a Session
+     *
+     * @param sessionId SessionID
+     * @param entity    Entity
+     */
+    public static void reattachObjectToSession(Integer sessionId, IEntity entity) throws NoSessionFoundException {
+        Session s = getSession(sessionId);
+        s.update(entity);
     }
 
     /**

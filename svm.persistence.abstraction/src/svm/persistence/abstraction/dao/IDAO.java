@@ -34,13 +34,21 @@ public interface IDAO<T extends IEntity> {
      * Returns List of all Objects compares to the WHERE clause
      *
      * @param sessionId Session ID
-     * @param column    PropertyName
-     * @param qualifier LogicalOperator
-     * @param value     Value to Compare
+     * @param compare   column, qualifier, value
      * @return List of Objects
      * @throws NoSessionFoundException No Session found for this Id
      */
-    List<T> find(Integer sessionId, String column, FindQualifiers qualifier, String value) throws NoSessionFoundException;
+    List<T> find(Integer sessionId, CompareObject compare) throws NoSessionFoundException;
+
+    /**
+     * Returns List of all Objects compares to the WHERE clause
+     *
+     * @param sessionId Session ID
+     * @param compares  Array of column, qualifier, value
+     * @return List of Objects
+     * @throws NoSessionFoundException No Session found for this Id
+     */
+    List<T> find(Integer sessionId, CompareObject[] compares) throws NoSessionFoundException;
 
     /**
      * Generates a new Object
