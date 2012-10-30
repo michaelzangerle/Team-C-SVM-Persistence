@@ -118,6 +118,15 @@ public class DAOFactory {
     }
 
     /**
+     * Returns a Member DAO
+     *
+     * @return IMemberDAO
+     */
+    public IMemberDAO getMemberDAO() {
+        return (IMemberDAO) getDAO(MemberDAO.class);
+    }
+
+    /**
      * Returns a MemberRole DAO
      *
      * @return IMemberRoleDAO

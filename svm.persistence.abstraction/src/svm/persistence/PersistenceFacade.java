@@ -159,8 +159,17 @@ public class PersistenceFacade {
      *
      * @return IMemberFeeDAO
      */
-    public IMemberFeeDAO getMemberFeeDAO() {
+    public static IMemberFeeDAO getMemberFeeDAO() {
         return DAOFactory.getInstance().getMemberFeeDAO();
+    }
+
+    /**
+     * Returns a Member DAO
+     *
+     * @return IMemberDAO
+     */
+    public static IMemberDAO getMemberDAO() {
+        return DAOFactory.getInstance().getMemberDAO();
     }
 
     /**
@@ -168,7 +177,7 @@ public class PersistenceFacade {
      *
      * @return IMemberRoleDAO
      */
-    public IMemberRoleDAO getMemberRoleDAO() {
+    public static IMemberRoleDAO getMemberRoleDAO() {
         return DAOFactory.getInstance().getMemberRoleDAO();
     }
 
@@ -177,7 +186,7 @@ public class PersistenceFacade {
      *
      * @return IPartResultDAO
      */
-    public IPartResultDAO getPartResultDAO() {
+    public static IPartResultDAO getPartResultDAO() {
         return DAOFactory.getInstance().getPartResultDAO();
     }
 
@@ -186,7 +195,7 @@ public class PersistenceFacade {
      *
      * @return ISubTeamDAO
      */
-    public ISubTeamDAO getSubTeamDAO() {
+    public static ISubTeamDAO getSubTeamDAO() {
         return DAOFactory.getInstance().getSubTeamDAO();
     }
 
@@ -195,7 +204,7 @@ public class PersistenceFacade {
      *
      * @return ITeamTypeDAO
      */
-    public ITeamTypeDAO getTeamTypeDAO() {
+    public static ITeamTypeDAO getTeamTypeDAO() {
         return DAOFactory.getInstance().getTeamTypeDAO();
     }
 
@@ -204,7 +213,7 @@ public class PersistenceFacade {
      *
      * @return IUserPrivilegeDAO
      */
-    public IUserPrivilegeDAO getUserPrivilegeDAO() {
+    public static IUserPrivilegeDAO getUserPrivilegeDAO() {
         return DAOFactory.getInstance().getUserPrivilegeDAO();
     }
     //endregion
