@@ -11,7 +11,8 @@ public enum FindQualifiers {
     GREATER_EQUALS(">="),
     SMALLER("<"),
     SMALLER_EQUALS("<="),
-    NOT_EQUALS("!=");
+    NOT_EQUALS("!="),
+    BETWEEN("BETWEEN");
 
     /**
      * @param text

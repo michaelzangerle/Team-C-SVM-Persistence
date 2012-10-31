@@ -303,6 +303,19 @@ public class MemberEntity implements IMemberEntity {
         return privileges;
     }
 
+    private List<ITeamEntity> teamForContactPerson;
+
+    @Override
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamEntity.class, mappedBy = "contactPerson", fetch = FetchType.LAZY)
+    public List<ITeamEntity> getTeamForContactPerson() {
+        return teamForContactPerson;
+    }
+
+    @Override
+    public void setTeamForContactPerson(List<ITeamEntity> teamForContactPerson) {
+        this.teamForContactPerson = teamForContactPerson;
+    }
+
     @Override
     public void setPrivileges(List<IUserPrivilegeEntity> privileges) {
         this.privileges = privileges;

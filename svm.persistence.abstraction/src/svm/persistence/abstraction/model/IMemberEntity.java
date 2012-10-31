@@ -78,4 +78,8 @@ public interface IMemberEntity extends IEntity {
     List<IUserPrivilegeEntity> getPrivileges();
 
     void setPrivileges(List<IUserPrivilegeEntity> privileges);
+
+    List<ITeamEntity> getTeamForContactPerson();
+
+    void setTeamForContactPerson(List<ITeamEntity> teamForContactPerson);
 }

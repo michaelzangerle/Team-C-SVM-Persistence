@@ -3,6 +3,7 @@ package svm.persistence.hibernate.dao;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import svm.persistence.abstraction.dao.CompareObject;
+import svm.persistence.abstraction.dao.FindQualifiers;
 import svm.persistence.abstraction.dao.IDAO;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.model.IEntity;
@@ -73,7 +74,9 @@ public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
         StringBuffer hql = new StringBuffer();
         hql.append(String.format("FROM %s WHERE %s %s '%s'", clazz.getName(), compares[0].getColumn(), compares[0].getQualifier().toString(), compares[0].getValue()));
         for (int i = 1; i < compares.length; i++) {
-            hql.append(String.format(" AND %s %s '%s' ", compares[i].getColumn(), compares[i].getQualifier().toString(), compares[i].getValue()));
+            String val = compares[i].getValue();
+            if (compares[i].getQualifier() != FindQualifiers.BETWEEN) val = "'" + val + "'";
+            hql.append(String.format(" %s %s %s %s ", compares[i].getBefore(), compares[i].getColumn(), compares[i].getQualifier().toString(), val));
         }
         Query query = session.createQuery(hql.toString());
         return query.list();
