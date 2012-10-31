@@ -1,8 +1,9 @@
 package svm.persistence.hibernate.dao;
 
+import svm.persistence.DAOFactory;
 import svm.persistence.abstraction.dao.IDepartmentDAO;
+import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.model.IDepartmentEntity;
-import svm.persistence.hibernate.model.ContestEntity;
 import svm.persistence.hibernate.model.DepartmentEntity;
 
 /**
@@ -13,5 +14,12 @@ public class DepartmentDAO extends AbstractDAO<IDepartmentEntity> implements IDe
 
     public DepartmentDAO() {
         super(DepartmentEntity.class);
+    }
+
+    @Override
+    public IDepartmentEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException {
+        IDepartmentEntity entity = new DepartmentEntity();
+        entity.setContactDetails(DAOFactory.getInstance().getContactDetailsDAO().generateObject());
+        return entity;
     }
 }
