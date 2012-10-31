@@ -1,5 +1,6 @@
 package svm.persistence.hibernate.dao;
 
+import svm.persistence.DAOFactory;
 import svm.persistence.abstraction.dao.IMemberRoleDAO;
 import svm.persistence.abstraction.model.IMemberRoleEntity;
 import svm.persistence.hibernate.model.MemberRoleEntity;
@@ -12,5 +13,11 @@ public class MemberRoleDAO  extends AbstractDAO<IMemberRoleEntity> implements IM
 
     public MemberRoleDAO() {
         super(MemberRoleEntity.class);
+    }
+
+    @Override
+    public IMemberRoleEntity generateObject() throws InstantiationException, IllegalAccessException {
+        IMemberRoleEntity entity = new MemberRoleEntity();
+        return entity;
     }
 }

@@ -1,5 +1,6 @@
 package svm.persistence.hibernate.dao;
 
+import svm.persistence.DAOFactory;
 import svm.persistence.abstraction.dao.IMemberFeeDAO;
 import svm.persistence.abstraction.model.IMemberFeeEntity;
 import svm.persistence.hibernate.model.MemberFeeEntity;
@@ -12,5 +13,11 @@ public class MemberFeeDAO extends AbstractDAO<IMemberFeeEntity> implements IMemb
 
     public MemberFeeDAO() {
         super(MemberFeeEntity.class);
+    }
+
+    @Override
+    public IMemberFeeEntity generateObject() throws InstantiationException, IllegalAccessException {
+        IMemberFeeEntity entity = new MemberFeeEntity();
+        return entity;
     }
 }

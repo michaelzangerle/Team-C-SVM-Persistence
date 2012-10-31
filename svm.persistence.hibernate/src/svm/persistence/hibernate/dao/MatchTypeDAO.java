@@ -1,5 +1,6 @@
 package svm.persistence.hibernate.dao;
 
+import svm.persistence.DAOFactory;
 import svm.persistence.abstraction.dao.IMatchTypeDAO;
 import svm.persistence.abstraction.model.IMatchTypeEntity;
 import svm.persistence.hibernate.model.MatchTypeEntity;
@@ -12,5 +13,11 @@ public class MatchTypeDAO extends AbstractDAO<IMatchTypeEntity> implements IMatc
 
     public MatchTypeDAO() {
         super(MatchTypeEntity.class);
+    }
+
+    @Override
+    public IMatchTypeEntity generateObject() throws InstantiationException, IllegalAccessException {
+        IMatchTypeEntity entity = new MatchTypeEntity();
+        return entity;
     }
 }
