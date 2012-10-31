@@ -82,8 +82,8 @@ public class HibernateUtil {
      */
     public static void reattachObjectToSession(Integer sessionId, IEntity entity) throws NoSessionFoundException {
         Session s = getSession(sessionId);
-        s.update(entity);
         if (entity.getId() > 0) {
+            s.update(entity);
             s.refresh(entity);
         }
     }
