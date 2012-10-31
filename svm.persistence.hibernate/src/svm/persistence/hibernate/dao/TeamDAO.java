@@ -13,4 +13,9 @@ public class TeamDAO extends AbstractDAO<ITeamEntity> implements ITeamDAO {
     public TeamDAO() {
         super(TeamEntity.class);
     }
+
+    @Override
+    public ITeamEntity generateObject() throws InstantiationException, IllegalAccessException {
+        return new TeamEntity();
+    }
 }
