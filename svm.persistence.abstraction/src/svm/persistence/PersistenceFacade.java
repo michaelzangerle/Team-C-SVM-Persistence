@@ -227,5 +227,23 @@ public class PersistenceFacade {
     public static IUserPrivilegeDAO getUserPrivilegeDAO() {
         return DAOFactory.getInstance().getUserPrivilegeDAO();
     }
+
+    /**
+     * Returns a ContestHasTeams DAO
+     *
+     * @return IContestsHasTeamsDAO
+     */
+    public static IContestsHasTeamsDAO getContestHasTeamsDAO() {
+        return DAOFactory.getInstance().getContestHasTeamsDAO();
+    }
+
+    /**
+     * Returns a ContestHasExternalTeams DAO
+     *
+     * @return IContestsHasExternalTeamsDAO
+     */
+    public static IContestsHasExternalTeamsDAO getContestHasExternalTeamsDAO() {
+        return DAOFactory.getInstance().getContestHasExternalTeamsDAO();
+    }
     //endregion
 }
