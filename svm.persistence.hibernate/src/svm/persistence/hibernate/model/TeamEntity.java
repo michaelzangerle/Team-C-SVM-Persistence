@@ -10,14 +10,14 @@ import java.util.List;
  * ProjectTeam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "teams", schema = "", catalog = "svm")
+@Table(name = "teams", schema = "", catalog = "svm")
 @Entity
 public class TeamEntity implements ITeamEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
     @GeneratedValue
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -30,7 +30,7 @@ public class TeamEntity implements ITeamEntity {
     private String name;
 
     @Override
-    @javax.persistence.Column(name = "name")
+    @Column(name = "name")
     @Basic
     public String getName() {
         return name;
@@ -44,7 +44,7 @@ public class TeamEntity implements ITeamEntity {
     private String alias;
 
     @Override
-    @javax.persistence.Column(name = "alias")
+    @Column(name = "alias")
     @Basic
     public String getAlias() {
         return alias;
@@ -58,7 +58,7 @@ public class TeamEntity implements ITeamEntity {
     private Date founded;
 
     @Override
-    @javax.persistence.Column(name = "founded")
+    @Column(name = "founded")
     @Basic
     public Date getFounded() {
         return founded;

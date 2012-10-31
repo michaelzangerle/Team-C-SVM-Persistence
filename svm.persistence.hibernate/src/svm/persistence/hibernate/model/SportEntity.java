@@ -11,14 +11,14 @@ import java.util.List;
  * Projectteam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "sports", schema = "", catalog = "svm")
+@Table(name = "sports", schema = "", catalog = "svm")
 @Entity
 public class SportEntity implements ISportEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
     @GeneratedValue
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -31,7 +31,7 @@ public class SportEntity implements ISportEntity {
     private String name;
 
     @Override
-    @javax.persistence.Column(name = "name")
+    @Column(name = "name")
     @Basic
     public String getName() {
         return name;
@@ -45,7 +45,7 @@ public class SportEntity implements ISportEntity {
     private String alias;
 
     @Override
-    @javax.persistence.Column(name = "alias")
+    @Column(name = "alias")
     @Basic
     public String getAlias() {
         return alias;
@@ -59,7 +59,7 @@ public class SportEntity implements ISportEntity {
     private String description;
 
     @Override
-    @javax.persistence.Column(name = "description")
+    @Column(name = "description")
     @Basic
     public String getDescription() {
         return description;

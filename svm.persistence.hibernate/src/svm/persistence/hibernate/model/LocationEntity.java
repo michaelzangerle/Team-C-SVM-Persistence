@@ -10,13 +10,13 @@ import java.util.List;
  * Projectteam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "locations", schema = "", catalog = "svm")
+@Table(name = "locations", schema = "", catalog = "svm")
 @Entity
 public class LocationEntity implements ILocationEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -29,7 +29,7 @@ public class LocationEntity implements ILocationEntity {
     private String countryCode;
 
     @Override
-    @javax.persistence.Column(name = "countrycode")
+    @Column(name = "countrycode")
     @Basic
     public String getCountryCode() {
         return countryCode;
@@ -43,7 +43,7 @@ public class LocationEntity implements ILocationEntity {
     private String postalCode;
 
     @Override
-    @javax.persistence.Column(name = "postalcode")
+    @Column(name = "postalcode")
     @Basic
     public String getPostalCode() {
         return postalCode;
@@ -57,7 +57,7 @@ public class LocationEntity implements ILocationEntity {
     private String placeName;
 
     @Override
-    @javax.persistence.Column(name = "placename")
+    @Column(name = "placename")
     @Basic
     public String getPlaceName() {
         return placeName;
@@ -71,7 +71,7 @@ public class LocationEntity implements ILocationEntity {
     private String district;
 
     @Override
-    @javax.persistence.Column(name = "district")
+    @Column(name = "district")
     @Basic
     public String getDistrict() {
         return district;
@@ -85,7 +85,7 @@ public class LocationEntity implements ILocationEntity {
     private String districtId;
 
     @Override
-    @javax.persistence.Column(name = "districtid")
+    @Column(name = "districtid")
     @Basic
     public String getDistrictId() {
         return districtId;
@@ -99,7 +99,7 @@ public class LocationEntity implements ILocationEntity {
     private String province;
 
     @Override
-    @javax.persistence.Column(name = "province")
+    @Column(name = "province")
     @Basic
     public String getProvince() {
         return province;
@@ -113,7 +113,7 @@ public class LocationEntity implements ILocationEntity {
     private String provinceId;
 
     @Override
-    @javax.persistence.Column(name = "provinceid")
+    @Column(name = "provinceid")
     @Basic
     public String getProvinceId() {
         return provinceId;
@@ -127,7 +127,7 @@ public class LocationEntity implements ILocationEntity {
     private String community;
 
     @Override
-    @javax.persistence.Column(name = "community")
+    @Column(name = "community")
     @Basic
     public String getCommunity() {
         return community;
@@ -141,7 +141,7 @@ public class LocationEntity implements ILocationEntity {
     private String communityId;
 
     @Override
-    @javax.persistence.Column(name = "communityid")
+    @Column(name = "communityid")
     @Basic
     public String getCommunityId() {
         return communityId;
@@ -155,7 +155,7 @@ public class LocationEntity implements ILocationEntity {
     private String latitude;
 
     @Override
-    @javax.persistence.Column(name = "latitude")
+    @Column(name = "latitude")
     @Basic
     public String getLatitude() {
         return latitude;
@@ -169,7 +169,7 @@ public class LocationEntity implements ILocationEntity {
     private String longitude;
 
     @Override
-    @javax.persistence.Column(name = "longitude")
+    @Column(name = "longitude")
     @Basic
     public String getLongitude() {
         return longitude;
@@ -183,7 +183,7 @@ public class LocationEntity implements ILocationEntity {
     private String accuracy;
 
     @Override
-    @javax.persistence.Column(name = "accuracy")
+    @Column(name = "accuracy")
     @Basic
     public String getAccuracy() {
         return accuracy;

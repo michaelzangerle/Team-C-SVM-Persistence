@@ -9,12 +9,12 @@ import javax.persistence.*;
  * Projectteam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "contactdetails", schema = "", catalog = "svm")
+@Table(name = "contactdetails", schema = "", catalog = "svm")
 @Entity
 public class ContactDetailsEntity implements IContactDetailsEntity {
-    private Integer id;
+    private Integer id = 0;
 
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @GeneratedValue
     @Id
     @Override
@@ -29,7 +29,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
     private String phone1;
 
     @Override
-    @javax.persistence.Column(name = "phone1")
+    @Column(name = "phone1")
     @Basic
     public String getPhone1() {
         return phone1;
@@ -43,7 +43,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
     private String phone2;
 
     @Override
-    @javax.persistence.Column(name = "phone2")
+    @Column(name = "phone2")
     @Basic
     public String getPhone2() {
         return phone2;
@@ -57,7 +57,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
     private String email1;
 
     @Override
-    @javax.persistence.Column(name = "email1")
+    @Column(name = "email1")
     @Basic
     public String getEmail1() {
         return email1;
@@ -71,7 +71,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
     private String email2;
 
     @Override
-    @javax.persistence.Column(name = "email2")
+    @Column(name = "email2")
     @Basic
     public String getEmail2() {
         return email2;
@@ -85,7 +85,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
     private String fax;
 
     @Override
-    @javax.persistence.Column(name = "fax")
+    @Column(name = "fax")
     @Basic
     public String getFax() {
         return fax;
@@ -99,7 +99,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
     private String street;
 
     @Override
-    @javax.persistence.Column(name = "street")
+    @Column(name = "street")
     @Basic
     public String getStreet() {
         return street;
@@ -113,7 +113,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
     private String streetNumber;
 
     @Override
-    @javax.persistence.Column(name = "streetnumber")
+    @Column(name = "streetnumber")
     @Basic
     public String getStreetNumber() {
         return streetNumber;
@@ -127,7 +127,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
     private String coordLat;
 
     @Override
-    @javax.persistence.Column(name = "coordlat")
+    @Column(name = "coordlat")
     @Basic
     public String getCoordLat() {
         return coordLat;
@@ -141,7 +141,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
     private String coordLong;
 
     @Override
-    @javax.persistence.Column(name = "coordlong")
+    @Column(name = "coordlong")
     @Basic
     public String getCoordLong() {
         return coordLong;

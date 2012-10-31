@@ -10,14 +10,14 @@ import java.util.List;
  * ProjectTeam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "matchtypes", schema = "", catalog = "svm")
+@Table(name = "matchtypes", schema = "", catalog = "svm")
 @Entity
 public class MatchTypeEntity implements IMatchTypeEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
     @GeneratedValue
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -30,7 +30,7 @@ public class MatchTypeEntity implements IMatchTypeEntity {
     private int alias;
 
     @Override
-    @javax.persistence.Column(name = "alias")
+    @Column(name = "alias")
     @Basic
     public int getAlias() {
         return alias;
@@ -44,7 +44,7 @@ public class MatchTypeEntity implements IMatchTypeEntity {
     private String name;
 
     @Override
-    @javax.persistence.Column(name = "name")
+    @Column(name = "name")
     @Basic
     public String getName() {
         return name;
@@ -58,7 +58,7 @@ public class MatchTypeEntity implements IMatchTypeEntity {
     private String description;
 
     @Override
-    @javax.persistence.Column(name = "description")
+    @Column(name = "description")
     @Basic
     public String getDescription() {
         return description;
@@ -72,7 +72,7 @@ public class MatchTypeEntity implements IMatchTypeEntity {
     private int draw;
 
     @Override
-    @javax.persistence.Column(name = "draw")
+    @Column(name = "draw")
     @Basic
     public int getDraw() {
         return draw;
@@ -86,7 +86,7 @@ public class MatchTypeEntity implements IMatchTypeEntity {
     private int win;
 
     @Override
-    @javax.persistence.Column(name = "win")
+    @Column(name = "win")
     @Basic
     public int getWin() {
         return win;
@@ -100,7 +100,7 @@ public class MatchTypeEntity implements IMatchTypeEntity {
     private int lose;
 
     @Override
-    @javax.persistence.Column(name = "loose")
+    @Column(name = "loose")
     @Basic
     public int getLose() {
         return lose;

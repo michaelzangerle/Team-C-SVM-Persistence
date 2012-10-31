@@ -10,14 +10,14 @@ import javax.persistence.*;
  * Projectteam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "teamrules", schema = "", catalog = "svm")
+@Table(name = "teamrules", schema = "", catalog = "svm")
 @Entity
 public class TeamRuleEntity implements ITeamRuleEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
     @GeneratedValue
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -30,7 +30,7 @@ public class TeamRuleEntity implements ITeamRuleEntity {
     private int amount;
 
     @Override
-    @javax.persistence.Column(name = "amount")
+    @Column(name = "amount")
     @Basic
     public int getAmount() {
         return amount;
@@ -44,7 +44,7 @@ public class TeamRuleEntity implements ITeamRuleEntity {
     private String operator;
 
     @Override
-    @javax.persistence.Column(name = "operator")
+    @Column(name = "operator")
     @Basic
     public String getOperator() {
         return operator;
@@ -58,7 +58,7 @@ public class TeamRuleEntity implements ITeamRuleEntity {
     private String description;
 
     @Override
-    @javax.persistence.Column(name = "description")
+    @Column(name = "description")
     @Basic
     public String getDescription() {
         return description;

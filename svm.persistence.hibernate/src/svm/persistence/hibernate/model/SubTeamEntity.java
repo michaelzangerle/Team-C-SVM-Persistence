@@ -12,14 +12,14 @@ import java.util.List;
  * ProjectTeam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "subteams", schema = "", catalog = "svm")
+@Table(name = "subteams", schema = "", catalog = "svm")
 @Entity
 public class SubTeamEntity implements ISubTeamEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
     @GeneratedValue
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -32,7 +32,7 @@ public class SubTeamEntity implements ISubTeamEntity {
     private String name;
 
     @Override
-    @javax.persistence.Column(name = "name")
+    @Column(name = "name")
     @Basic
     public String getName() {
         return name;

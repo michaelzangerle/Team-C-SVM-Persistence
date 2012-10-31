@@ -9,14 +9,14 @@ import javax.persistence.*;
  * Projectteam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "partresult", schema = "", catalog = "svm")
+@Table(name = "partresult", schema = "", catalog = "svm")
 @Entity
 public class PartResultEntity implements IPartResultEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
     @GeneratedValue
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -29,7 +29,7 @@ public class PartResultEntity implements IPartResultEntity {
     private float result;
 
     @Override
-    @javax.persistence.Column(name = "result")
+    @Column(name = "result")
     @Basic
     public float getResult() {
         return result;
@@ -43,7 +43,7 @@ public class PartResultEntity implements IPartResultEntity {
     private String comment;
 
     @Override
-    @javax.persistence.Column(name = "comment")
+    @Column(name = "comment")
     @Basic
     public String getComment() {
         return comment;

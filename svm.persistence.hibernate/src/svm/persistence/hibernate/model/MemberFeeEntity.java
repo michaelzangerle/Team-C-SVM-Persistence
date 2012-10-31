@@ -10,14 +10,14 @@ import java.sql.Date;
  * Projectteam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "membersfee", schema = "", catalog = "svm")
+@Table(name = "membersfee", schema = "", catalog = "svm")
 @Entity
 public class MemberFeeEntity implements IMemberFeeEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
     @GeneratedValue
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -30,7 +30,7 @@ public class MemberFeeEntity implements IMemberFeeEntity {
     private Date date;
 
     @Override
-    @javax.persistence.Column(name = "date")
+    @Column(name = "date")
     @Basic
     public Date getDate() {
         return date;
@@ -44,7 +44,7 @@ public class MemberFeeEntity implements IMemberFeeEntity {
     private float amount;
 
     @Override
-    @javax.persistence.Column(name = "amount")
+    @Column(name = "amount")
     @Basic
     public float getAmount() {
         return amount;

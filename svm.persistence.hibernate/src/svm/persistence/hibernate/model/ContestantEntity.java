@@ -9,13 +9,13 @@ import java.util.List;
  * ProjectTeam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "contestants", schema = "", catalog = "svm")
+@Table(name = "contestants", schema = "", catalog = "svm")
 @Entity
 public class ContestantEntity implements IContestantEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;

@@ -10,14 +10,14 @@ import java.util.List;
  * Projectteam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "userprivileges", schema = "", catalog = "svm")
+@Table(name = "userprivileges", schema = "", catalog = "svm")
 @Entity
 public class UserPrivilegeEntity implements IUserPrivilegeEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
     @GeneratedValue
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -30,7 +30,7 @@ public class UserPrivilegeEntity implements IUserPrivilegeEntity {
     private int alias;
 
     @Override
-    @javax.persistence.Column(name = "alias")
+    @Column(name = "alias")
     @Basic
     public int getAlias() {
         return alias;
@@ -44,7 +44,7 @@ public class UserPrivilegeEntity implements IUserPrivilegeEntity {
     private String name;
 
     @Override
-    @javax.persistence.Column(name = "name")
+    @Column(name = "name")
     @Basic
     public String getName() {
         return name;
@@ -58,7 +58,7 @@ public class UserPrivilegeEntity implements IUserPrivilegeEntity {
     private String description;
 
     @Override
-    @javax.persistence.Column(name = "description")
+    @Column(name = "description")
     @Basic
     public String getDescription() {
         return description;

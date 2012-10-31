@@ -2,23 +2,20 @@ package svm.persistence.hibernate.model;
 
 import svm.persistence.abstraction.model.IMemberRoleEntity;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Projectteam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "memberroles", schema = "", catalog = "svm")
+@Table(name = "memberroles", schema = "", catalog = "svm")
 @Entity
 public class MemberRoleEntity implements IMemberRoleEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
     @GeneratedValue
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -31,7 +28,7 @@ public class MemberRoleEntity implements IMemberRoleEntity {
     private int alias;
 
     @Override
-    @javax.persistence.Column(name = "alias")
+    @Column(name = "alias")
     @Basic
     public int getAlias() {
         return alias;
@@ -45,7 +42,7 @@ public class MemberRoleEntity implements IMemberRoleEntity {
     private String name;
 
     @Override
-    @javax.persistence.Column(name = "name")
+    @Column(name = "name")
     @Basic
     public String getName() {
         return name;
@@ -59,7 +56,7 @@ public class MemberRoleEntity implements IMemberRoleEntity {
     private String description;
 
     @Override
-    @javax.persistence.Column(name = "description")
+    @Column(name = "description")
     @Basic
     public String getDescription() {
         return description;

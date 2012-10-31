@@ -11,13 +11,13 @@ import java.util.List;
  * ProjectTeam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "departments", schema = "", catalog = "svm")
+@Table(name = "departments", schema = "", catalog = "svm")
 @Entity
 public class DepartmentEntity implements IDepartmentEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -30,7 +30,7 @@ public class DepartmentEntity implements IDepartmentEntity {
     private String name;
 
     @Override
-    @javax.persistence.Column(name = "name")
+    @Column(name = "name")
     @Basic
     public String getName() {
         return name;
@@ -44,7 +44,7 @@ public class DepartmentEntity implements IDepartmentEntity {
     private String alias;
 
     @Override
-    @javax.persistence.Column(name = "alias")
+    @Column(name = "alias")
     @Basic
     public String getAlias() {
         return alias;
@@ -58,7 +58,7 @@ public class DepartmentEntity implements IDepartmentEntity {
     private String description;
 
     @Override
-    @javax.persistence.Column(name = "description")
+    @Column(name = "description")
     @Basic
     public String getDescription() {
         return description;

@@ -10,13 +10,13 @@ import java.util.List;
  * Projectteam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "contests", schema = "", catalog = "svm")
+@Table(name = "contests", schema = "", catalog = "svm")
 @Entity
 public class ContestEntity implements IContestEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -29,7 +29,7 @@ public class ContestEntity implements IContestEntity {
     private String name;
 
     @Override
-    @javax.persistence.Column(name = "name")
+    @Column(name = "name")
     @Basic
     public String getName() {
         return name;
@@ -43,7 +43,7 @@ public class ContestEntity implements IContestEntity {
     private Date start;
 
     @Override
-    @javax.persistence.Column(name = "start")
+    @Column(name = "start")
     @Basic
     public Date getStart() {
         return start;
@@ -57,7 +57,7 @@ public class ContestEntity implements IContestEntity {
     private Date end;
 
     @Override
-    @javax.persistence.Column(name = "end")
+    @Column(name = "end")
     @Basic
     public Date getEnd() {
         return end;
@@ -71,7 +71,7 @@ public class ContestEntity implements IContestEntity {
     private float fee;
 
     @Override
-    @javax.persistence.Column(name = "fee")
+    @Column(name = "fee")
     @Basic
     public float getFee() {
         return fee;

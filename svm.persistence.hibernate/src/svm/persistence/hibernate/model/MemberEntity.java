@@ -10,14 +10,14 @@ import java.util.List;
  * Projectteam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "members", schema = "", catalog = "svm")
+@Table(name = "members", schema = "", catalog = "svm")
 @Entity
 public class MemberEntity implements IMemberEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
     @GeneratedValue
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -30,7 +30,7 @@ public class MemberEntity implements IMemberEntity {
     private String title;
 
     @Override
-    @javax.persistence.Column(name = "title")
+    @Column(name = "title")
     @Basic
     public String getTitle() {
         return title;
@@ -44,7 +44,7 @@ public class MemberEntity implements IMemberEntity {
     private String firstname;
 
     @Override
-    @javax.persistence.Column(name = "firstname")
+    @Column(name = "firstname")
     @Basic
     public String getFirstName() {
         return firstname;
@@ -58,7 +58,7 @@ public class MemberEntity implements IMemberEntity {
     private String lastname;
 
     @Override
-    @javax.persistence.Column(name = "lastname")
+    @Column(name = "lastname")
     @Basic
     public String getLastName() {
         return lastname;
@@ -72,7 +72,7 @@ public class MemberEntity implements IMemberEntity {
     private String socialnumber;
 
     @Override
-    @javax.persistence.Column(name = "socialnumber")
+    @Column(name = "socialnumber")
     @Basic
     public String getSocialNumber() {
         return socialnumber;
@@ -86,7 +86,7 @@ public class MemberEntity implements IMemberEntity {
     private Date birthdate;
 
     @Override
-    @javax.persistence.Column(name = "birthdate")
+    @Column(name = "birthdate")
     @Basic
     public Date getBirthDate() {
         return birthdate;
@@ -100,7 +100,7 @@ public class MemberEntity implements IMemberEntity {
     private String gender;
 
     @Override
-    @javax.persistence.Column(name = "gender")
+    @Column(name = "gender")
     @Basic
     public String getGender() {
         return gender;
@@ -114,7 +114,7 @@ public class MemberEntity implements IMemberEntity {
     private Date entrydate;
 
     @Override
-    @javax.persistence.Column(name = "entrydate")
+    @Column(name = "entrydate")
     @Basic
     public Date getEntryDate() {
         return entrydate;
@@ -128,7 +128,7 @@ public class MemberEntity implements IMemberEntity {
     private String avatar;
 
     @Override
-    @javax.persistence.Column(name = "avatar")
+    @Column(name = "avatar")
     @Basic
     public String getAvatar() {
         return avatar;
@@ -142,7 +142,7 @@ public class MemberEntity implements IMemberEntity {
     private String url;
 
     @Override
-    @javax.persistence.Column(name = "url")
+    @Column(name = "url")
     @Basic
     public String getUrl() {
         return url;
@@ -156,7 +156,7 @@ public class MemberEntity implements IMemberEntity {
     private String username;
 
     @Override
-    @javax.persistence.Column(name = "username")
+    @Column(name = "username")
     @Basic
     public String getUsername() {
         return username;
@@ -170,7 +170,7 @@ public class MemberEntity implements IMemberEntity {
     private double fee;
 
     @Override
-    @javax.persistence.Column(name = "fee")
+    @Column(name = "fee")
     @Basic
     public double getFee() {
         return fee;

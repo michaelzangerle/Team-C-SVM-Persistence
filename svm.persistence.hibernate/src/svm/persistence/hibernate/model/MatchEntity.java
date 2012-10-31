@@ -10,13 +10,13 @@ import java.util.List;
  * ProjectTeam: Team C
  * Date: 24.10.12
  */
-@javax.persistence.Table(name = "matches", schema = "", catalog = "svm")
+@Table(name = "matches", schema = "", catalog = "svm")
 @Entity
 public class MatchEntity implements IMatchEntity {
-    private Integer id;
+    private Integer id = 0;
 
     @Override
-    @javax.persistence.Column(name = "id")
+    @Column(name = "id")
     @Id
     public Integer getId() {
         return id;
@@ -29,7 +29,7 @@ public class MatchEntity implements IMatchEntity {
     private String name;
 
     @Override
-    @javax.persistence.Column(name = "name")
+    @Column(name = "name")
     @Basic
     public String getName() {
         return name;
@@ -43,7 +43,7 @@ public class MatchEntity implements IMatchEntity {
     private Timestamp start;
 
     @Override
-    @javax.persistence.Column(name = "start")
+    @Column(name = "start")
     @Basic
     public Timestamp getStart() {
         return start;
@@ -57,7 +57,7 @@ public class MatchEntity implements IMatchEntity {
     private Timestamp end;
 
     @Override
-    @javax.persistence.Column(name = "end")
+    @Column(name = "end")
     @Basic
     public Timestamp getEnd() {
         return end;
@@ -71,7 +71,7 @@ public class MatchEntity implements IMatchEntity {
     private boolean canceled;
 
     @Override
-    @javax.persistence.Column(name = "canceled")
+    @Column(name = "canceled")
     @Basic
     public boolean isCanceled() {
         return canceled;
@@ -85,7 +85,7 @@ public class MatchEntity implements IMatchEntity {
     private String remarks;
 
     @Override
-    @javax.persistence.Column(name = "remarks")
+    @Column(name = "remarks")
     @Basic
     public String getRemarks() {
         return remarks;
@@ -99,7 +99,7 @@ public class MatchEntity implements IMatchEntity {
     private String description;
 
     @Override
-    @javax.persistence.Column(name = "description")
+    @Column(name = "description")
     @Basic
     public String getDescription() {
         return description;
