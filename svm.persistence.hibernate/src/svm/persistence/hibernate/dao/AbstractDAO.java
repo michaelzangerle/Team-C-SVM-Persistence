@@ -45,6 +45,20 @@ public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
     }
 
     /**
+     * Returns a Object with the ID
+     *
+     * @param sessionId Session ID
+     * @param id        ID
+     * @return List of all Object
+     * @throws NoSessionFoundException No Session found for this Id
+     */
+    public T getById(Integer sessionId, Integer id) throws NoSessionFoundException {
+        Session session = HibernateUtil.getSession(sessionId);
+
+        return (T) session.load(clazz, id);
+    }
+
+    /**
      * Returns List of all Objects compares to the WHERE clause
      *
      * @param sessionId Session ID

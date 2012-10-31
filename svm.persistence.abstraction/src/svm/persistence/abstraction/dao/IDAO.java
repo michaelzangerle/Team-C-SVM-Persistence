@@ -22,6 +22,16 @@ public interface IDAO<T extends IEntity> {
     public List<T> getAll(Integer sessionId) throws NoSessionFoundException;
 
     /**
+     * Returns a Object with the ID
+     *
+     * @param sessionId Session ID
+     * @param id        ID
+     * @return List of all Object
+     * @throws NoSessionFoundException No Session found for this Id
+     */
+    public T getById(Integer sessionId, Integer id) throws NoSessionFoundException;
+
+    /**
      * Saves given Object
      *
      * @param sessionId Session ID

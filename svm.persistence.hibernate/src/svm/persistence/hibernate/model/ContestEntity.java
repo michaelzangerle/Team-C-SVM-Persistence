@@ -13,6 +13,11 @@ import java.util.List;
 @Table(name = "contests", schema = "", catalog = "svm")
 @Entity
 public class ContestEntity implements IContestEntity {
+
+    public ContestEntity() {
+        setContactDetails(new ContactDetailsEntity());
+    }
+
     private Integer id = 0;
 
     @Override
