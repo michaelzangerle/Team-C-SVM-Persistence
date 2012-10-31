@@ -1,18 +1,12 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.hibernate.model.DepartmentsHasMembersEntity;
-import svm.persistence.hibernate.model.TeamRuleEntity;
-import svm.persistence.hibernate.model.TeamsHasMembersEntity;
-
-import java.util.List;
-
 /**
  * Projectteam: Team C
  * Date: 24.10.12
  */
 public interface IMemberRoleEntity extends IEntity {
 
-    int getId();
+    Integer getId();
 
     int getAlias();
 

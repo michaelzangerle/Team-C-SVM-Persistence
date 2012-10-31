@@ -5,7 +5,7 @@ package svm.persistence.abstraction.model;
  * Date: 24.10.12
  */
 public interface IMatchRulesEntity extends IEntity {
-    int getId();
+    Integer getId();
 
     String getName();
 

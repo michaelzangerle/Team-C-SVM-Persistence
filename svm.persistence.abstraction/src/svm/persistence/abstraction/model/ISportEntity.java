@@ -1,8 +1,5 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.hibernate.model.DepartmentEntity;
-import svm.persistence.hibernate.model.TeamEntity;
-
 import java.util.List;
 
 /**
@@ -11,7 +8,7 @@ import java.util.List;
  */
 public interface ISportEntity extends IEntity {
 
-    int getId();
+    Integer getId();
 
     String getName();
 

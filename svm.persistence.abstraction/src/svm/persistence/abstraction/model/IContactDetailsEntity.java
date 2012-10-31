@@ -1,13 +1,11 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.hibernate.model.LocationEntity;
-
 /**
  * ProjectTeam: Team C
  * Date: 24.10.12
  */
 public interface IContactDetailsEntity extends IEntity {
-    int getId();
+    Integer getId();
 
     String getPhone1();
 

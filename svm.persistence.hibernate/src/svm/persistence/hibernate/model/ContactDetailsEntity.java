@@ -12,17 +12,17 @@ import javax.persistence.*;
 @javax.persistence.Table(name = "contactdetails", schema = "", catalog = "svm")
 @Entity
 public class ContactDetailsEntity implements IContactDetailsEntity {
-    private int id;
+    private Integer id;
 
     @javax.persistence.Column(name = "id")
     @GeneratedValue
     @Id
     @Override
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -13,17 +13,17 @@ import javax.persistence.*;
 @javax.persistence.Table(name = "teamrules", schema = "", catalog = "svm")
 @Entity
 public class TeamRuleEntity implements ITeamRuleEntity {
-    private int id;
+    private Integer id;
 
     @Override
     @GeneratedValue
     @javax.persistence.Column(name = "id")
     @Id
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -93,7 +93,7 @@ public class TeamRuleEntity implements ITeamRuleEntity {
         return result;
     }
 
-     private ITeamTypeEntity teamType;
+    private ITeamTypeEntity teamType;
 
     @Override
     @ManyToOne(cascade = CascadeType.DETACH, targetEntity = TeamTypeEntity.class, fetch = FetchType.LAZY)

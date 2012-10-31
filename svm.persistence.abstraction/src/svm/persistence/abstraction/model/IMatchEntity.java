@@ -1,6 +1,5 @@
 package svm.persistence.abstraction.model;
 
-import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -10,7 +9,7 @@ import java.util.List;
  */
 public interface IMatchEntity extends IEntity {
 
-    int getId();
+    Integer getId();
 
     String getName();
 

@@ -1,6 +1,9 @@
 package svm.persistence.hibernate.model;
 
-import svm.persistence.abstraction.model.*;
+import svm.persistence.abstraction.model.IDepartmentEntity;
+import svm.persistence.abstraction.model.IDepartmentsHasMembersEntity;
+import svm.persistence.abstraction.model.IMemberEntity;
+import svm.persistence.abstraction.model.IMemberRoleEntity;
 
 import javax.persistence.*;
 
@@ -84,10 +87,10 @@ public class DepartmentsHasMembersEntity implements IDepartmentsHasMembersEntity
     }
 
     @Override
-    public int getId() {
+    public Integer getId() {
         return 0;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
     }
 }

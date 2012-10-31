@@ -14,17 +14,17 @@ import java.util.List;
 @javax.persistence.Table(name = "sports", schema = "", catalog = "svm")
 @Entity
 public class SportEntity implements ISportEntity {
-    private int id;
+    private Integer id;
 
     @Override
     @GeneratedValue
     @javax.persistence.Column(name = "id")
     @Id
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

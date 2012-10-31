@@ -27,5 +27,5 @@ public interface IContestsHasTeamsEntity extends IEntity {
     void setPaid(boolean paid);
 
     @Override
-    int getId();
+    Integer getId();
 }

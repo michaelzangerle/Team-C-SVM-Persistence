@@ -1,14 +1,12 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.hibernate.model.ContestantEntity;
-
 /**
  * ProjectTeam: Team C
  * Date: 25.10.12
  */
 public interface IPartResultEntity extends IEntity {
 
-    int getId();
+    Integer getId();
 
     float getResult();
 

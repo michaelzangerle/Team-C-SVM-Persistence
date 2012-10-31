@@ -8,5 +8,5 @@ package svm.persistence.abstraction.model;
  * To change this template use File | Settings | File Templates.
  */
 public interface IEntity {
-    public int getId();
+    public Integer getId();
 }

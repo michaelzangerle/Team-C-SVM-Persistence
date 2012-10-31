@@ -1,7 +1,5 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.hibernate.model.*;
-
 import java.sql.Date;
 import java.util.List;
 
@@ -11,7 +9,7 @@ import java.util.List;
  */
 public interface ITeamEntity extends IEntity {
 
-    int getId();
+    Integer getId();
 
 
     String getName();

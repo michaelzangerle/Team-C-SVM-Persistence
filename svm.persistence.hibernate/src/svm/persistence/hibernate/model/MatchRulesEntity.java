@@ -17,7 +17,7 @@ public class MatchRulesEntity implements IMatchRulesEntity {
     @Override
     @javax.persistence.Column(name = "id")
     @Id
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

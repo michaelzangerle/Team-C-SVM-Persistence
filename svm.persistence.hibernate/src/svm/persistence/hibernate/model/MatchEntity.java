@@ -13,16 +13,16 @@ import java.util.List;
 @javax.persistence.Table(name = "matches", schema = "", catalog = "svm")
 @Entity
 public class MatchEntity implements IMatchEntity {
-    private int id;
+    private Integer id;
 
     @Override
     @javax.persistence.Column(name = "id")
     @Id
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

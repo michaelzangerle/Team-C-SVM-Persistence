@@ -1,10 +1,5 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.abstraction.model.IEntity;
-import svm.persistence.abstraction.model.IMatchRulesEntity;
-import svm.persistence.hibernate.model.MatchRulesEntity;
-
-import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -13,7 +8,7 @@ import java.util.List;
  */
 public interface IMatchTypeEntity extends IEntity {
 
-    int getId();
+    Integer getId();
 
     int getAlias();
 

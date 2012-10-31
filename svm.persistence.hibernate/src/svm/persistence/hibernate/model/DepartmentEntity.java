@@ -14,16 +14,16 @@ import java.util.List;
 @javax.persistence.Table(name = "departments", schema = "", catalog = "svm")
 @Entity
 public class DepartmentEntity implements IDepartmentEntity {
-    private int id;
+    private Integer id;
 
     @Override
     @javax.persistence.Column(name = "id")
     @Id
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

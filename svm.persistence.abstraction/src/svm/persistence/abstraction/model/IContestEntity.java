@@ -8,7 +8,7 @@ import java.util.List;
  * Date: 24.10.12
  */
 public interface IContestEntity extends IEntity {
-    int getId();
+    Integer getId();
 
     String getName();
 

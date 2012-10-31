@@ -72,10 +72,10 @@ public class TeamsHasMembersEntity implements ITeamsHasMembersEntity {
     }
 
     @Override
-    public int getId() {
+    public Integer getId() {
         return 0;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
     }
 }

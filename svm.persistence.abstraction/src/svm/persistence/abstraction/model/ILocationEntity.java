@@ -1,9 +1,5 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.abstraction.model.IContactDetailsEntity;
-import svm.persistence.abstraction.model.IEntity;
-
-import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -12,7 +8,7 @@ import java.util.List;
  */
 public interface ILocationEntity extends IEntity {
 
-    int getId();
+    Integer getId();
 
     String getCountryCode();
 

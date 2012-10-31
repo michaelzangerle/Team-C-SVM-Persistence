@@ -18,5 +18,5 @@ public interface IContestsHasExternalTeamsEntity extends IEntity {
 
     void setPaid(float paid);
 
-    int getId();
+    Integer getId();
 }

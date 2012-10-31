@@ -1,7 +1,5 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.hibernate.model.PartResultEntity;
-
 import java.util.List;
 
 /**
@@ -10,7 +8,7 @@ import java.util.List;
  */
 public interface IContestantEntity extends IEntity {
 
-    int getId();
+    Integer getId();
 
     ITeamEntity getInternalTeam();
 

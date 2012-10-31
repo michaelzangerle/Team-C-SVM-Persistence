@@ -1,14 +1,12 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.hibernate.model.TeamTypeEntity;
-
 /**
  * Projectteam: Team C
  * Date: 24.10.12
  */
 public interface ITeamRuleEntity extends IEntity {
 
-    int getId();
+    Integer getId();
 
     int getAmount();
 

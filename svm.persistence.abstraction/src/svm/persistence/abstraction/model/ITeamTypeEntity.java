@@ -1,9 +1,5 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.hibernate.model.TeamEntity;
-import svm.persistence.hibernate.model.TeamRuleEntity;
-
-import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -12,7 +8,7 @@ import java.util.List;
  */
 public interface ITeamTypeEntity extends IEntity {
 
-    int getId();
+    Integer getId();
 
 
     String getName();

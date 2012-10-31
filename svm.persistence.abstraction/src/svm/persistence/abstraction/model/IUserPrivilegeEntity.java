@@ -8,7 +8,7 @@ import java.util.List;
  */
 public interface IUserPrivilegeEntity extends IEntity {
 
-    int getId();
+    Integer getId();
 
     int getAlias();
 
