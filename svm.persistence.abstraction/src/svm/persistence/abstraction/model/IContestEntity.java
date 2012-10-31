@@ -33,4 +33,8 @@ public interface IContestEntity extends IEntity {
     IContactDetailsEntity getContactDetails();
 
     void setContactDetails(IContactDetailsEntity contactDetails);
+
+    List<IContestsHasExternalTeamsEntity> getContestsHasExternalTeams();
+
+    void setContestsHasExternalTeams(List<IContestsHasExternalTeamsEntity> contestsHasExternalTeams);
 }

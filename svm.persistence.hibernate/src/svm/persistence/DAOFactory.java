@@ -170,4 +170,22 @@ public class DAOFactory {
     public IUserPrivilegeDAO getUserPrivilegeDAO() {
         return (IUserPrivilegeDAO) getDAO(UserPrivilegeDAO.class);
     }
+
+    /**
+     * Returns a ContestHasTeams DAO
+     *
+     * @return IContestsHasTeamsDAO
+     */
+    public IContestsHasTeamsDAO getContestHasTeamsDAO() {
+        return (IContestsHasTeamsDAO) getDAO(ContestHasTeamsDAO.class);
+    }
+
+    /**
+     * Returns a ContestHasExternalTeams DAO
+     *
+     * @return IContestsHasExternalTeamsDAO
+     */
+    public IContestsHasExternalTeamsDAO getContestHasExternalTeamsDAO() {
+        return (IContestsHasExternalTeamsDAO) getDAO(ContestHasExternalTeamsDAO.class);
+    }
 }

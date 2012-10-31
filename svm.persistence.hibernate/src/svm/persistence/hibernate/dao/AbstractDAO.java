@@ -71,9 +71,9 @@ public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
     public List<T> find(Integer sessionId, CompareObject[] compares) throws NoSessionFoundException {
         Session session = HibernateUtil.getSession(sessionId);
         StringBuffer hql = new StringBuffer();
-        hql.append(String.format("FROM %s WHERE ", clazz.getName()));
-        for (CompareObject compare : compares) {
-            hql.append(String.format(" %s %s '%s' ", compare.getColumn(), compare.getQualifier().toString(), compare.getValue()));
+        hql.append(String.format("FROM %s WHERE %s %s '%s'", clazz.getName()));
+        for (int i = 1; i < compares.length; i++) {
+            hql.append(String.format(" AND %s %s '%s' ", compares[i].getColumn(), compares[i].getQualifier().toString(), compares[i].getValue()));
         }
         Query query = session.createQuery(hql.toString());
         return query.list();

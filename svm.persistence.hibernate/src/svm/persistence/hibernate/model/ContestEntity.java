@@ -2,6 +2,7 @@ package svm.persistence.hibernate.model;
 
 import svm.persistence.abstraction.model.IContactDetailsEntity;
 import svm.persistence.abstraction.model.IContestEntity;
+import svm.persistence.abstraction.model.IContestsHasExternalTeamsEntity;
 import svm.persistence.abstraction.model.IContestsHasTeamsEntity;
 
 import javax.persistence.*;
@@ -118,6 +119,19 @@ public class ContestEntity implements IContestEntity {
     @Override
     public void setContestsHasTeams(List<IContestsHasTeamsEntity> contestsHasTeams) {
         this.contestsHasTeams = contestsHasTeams;
+    }
+
+    private List<IContestsHasExternalTeamsEntity> contestsHasExternalTeams;
+
+    @Override
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = ContestsHasExternalTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
+    public List<IContestsHasExternalTeamsEntity> getContestsHasExternalTeams() {
+        return contestsHasExternalTeams;
+    }
+
+    @Override
+    public void setContestsHasExternalTeams(List<IContestsHasExternalTeamsEntity> contestsHasExternalTeams) {
+        this.contestsHasExternalTeams = contestsHasExternalTeams;
     }
 
     // TODO WARUM ? MANY 2 MANY Match - Contest
