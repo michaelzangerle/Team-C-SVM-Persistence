@@ -184,7 +184,7 @@ public class MemberEntity implements IMemberEntity {
     private IContactDetailsEntity contactDetails;
 
     @Override
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "contactdetails")
     public IContactDetailsEntity getContactDetails() {
         return contactDetails;
@@ -268,7 +268,7 @@ public class MemberEntity implements IMemberEntity {
     private List<IMemberFeeEntity> fees;
 
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = MemberFeeEntity.class, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = MemberFeeEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "member")
     public List<IMemberFeeEntity> getFees() {
         return fees;

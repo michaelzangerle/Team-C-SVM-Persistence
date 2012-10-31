@@ -111,7 +111,7 @@ public class SportEntity implements ISportEntity {
     private List<ITeamEntity> teams;
 
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamEntity.class, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = TeamEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "sport")
     public List<ITeamEntity> getTeams() {
         return teams;

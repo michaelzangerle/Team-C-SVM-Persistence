@@ -113,7 +113,7 @@ public class MatchEntity implements IMatchEntity {
     private IContactDetailsEntity contactDetails;
 
     @Override
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "contactdetails")
     public IContactDetailsEntity getContactDetails() {
         return contactDetails;
@@ -129,7 +129,7 @@ public class MatchEntity implements IMatchEntity {
     private List<IContestantEntity> contestants;
 
     @Override
-    @ManyToMany(cascade = CascadeType.DETACH, targetEntity = ContestantEntity.class)
+    @ManyToMany(cascade = CascadeType.ALL, targetEntity = ContestantEntity.class)
     @JoinTable(name = "matches_has_contestants",
             joinColumns = {@JoinColumn(name = "match")},
             inverseJoinColumns = {@JoinColumn(name = "contestant")})

@@ -72,7 +72,7 @@ public class DepartmentEntity implements IDepartmentEntity {
     private IContactDetailsEntity contactDetails;
 
     @Override
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "contactdetails")
     public IContactDetailsEntity getContactDetails() {
         return contactDetails;
@@ -86,7 +86,7 @@ public class DepartmentEntity implements IDepartmentEntity {
     private List<ISportEntity> sports;
 
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = SportEntity.class, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = SportEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "department")
     public List<ISportEntity> getSports() {
         return sports;

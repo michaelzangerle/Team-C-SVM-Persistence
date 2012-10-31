@@ -85,7 +85,7 @@ public class ContestEntity implements IContestEntity {
 
     private IContactDetailsEntity contactDetails;
 
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "contactdetails")
     public IContactDetailsEntity getContactDetails() {
         return contactDetails;
@@ -97,7 +97,7 @@ public class ContestEntity implements IContestEntity {
 
     private List<ContestsHasExternalTeamsEntity> externalTeams;
 
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = ContestsHasExternalTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = ContestsHasExternalTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
     public List<ContestsHasExternalTeamsEntity> getExternalTeams() {
         return externalTeams;
     }
@@ -109,7 +109,7 @@ public class ContestEntity implements IContestEntity {
     private List<IContestsHasTeamsEntity> contestsHasTeams;
 
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
     public List<IContestsHasTeamsEntity> getContestsHasTeams() {
         return contestsHasTeams;
     }
@@ -136,7 +136,7 @@ public class ContestEntity implements IContestEntity {
 
     public List<IMatchEntity> matches;
 
-    @ManyToMany(cascade = CascadeType.DETACH, targetEntity = MatchEntity.class)
+    @ManyToMany(cascade = CascadeType.ALL, targetEntity = MatchEntity.class)
     @JoinTable(name = "contests_has_matches",
             joinColumns = {@JoinColumn(name = "contest")},
             inverseJoinColumns = {@JoinColumn(name = "match")})

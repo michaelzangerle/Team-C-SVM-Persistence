@@ -124,7 +124,7 @@ public class TeamEntity implements ITeamEntity {
     private List<ITeamsHasMembersEntity> teamsHasMembers;
 
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamsHasMembersEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = TeamsHasMembersEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
     public List<ITeamsHasMembersEntity> getTeamsHasMembers() {
         return teamsHasMembers;
     }
@@ -137,7 +137,7 @@ public class TeamEntity implements ITeamEntity {
     private List<IContestsHasTeamsEntity> contestsHasTeams;
 
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
     public List<IContestsHasTeamsEntity> getContestsHasTeams() {
         return contestsHasTeams;
     }
@@ -150,7 +150,7 @@ public class TeamEntity implements ITeamEntity {
     private List<ISubTeamEntity> subTeams;
 
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = SubTeamEntity.class, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = SubTeamEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "team")
     public List<ISubTeamEntity> getSubTeams() {
         return subTeams;

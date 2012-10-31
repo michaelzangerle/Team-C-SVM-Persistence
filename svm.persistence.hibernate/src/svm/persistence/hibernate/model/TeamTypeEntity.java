@@ -110,7 +110,7 @@ public class TeamTypeEntity implements ITeamTypeEntity {
     private List<ITeamRuleEntity> teamRules;
 
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = TeamRuleEntity.class, mappedBy = "teamType", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = TeamRuleEntity.class, mappedBy = "teamType", fetch = FetchType.LAZY)
     public List<ITeamRuleEntity> getTeamRules() {
         return teamRules;
     }

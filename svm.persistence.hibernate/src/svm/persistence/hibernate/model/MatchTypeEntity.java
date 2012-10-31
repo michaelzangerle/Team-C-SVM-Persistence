@@ -114,7 +114,7 @@ public class MatchTypeEntity implements IMatchTypeEntity {
     private List<IMatchRulesEntity> matchRules;
 
     @Override
-    @OneToMany(cascade = CascadeType.REMOVE, targetEntity = MatchRulesEntity.class, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = MatchRulesEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "matchType")
     public List<IMatchRulesEntity> getMatchRules() {
         return matchRules;
