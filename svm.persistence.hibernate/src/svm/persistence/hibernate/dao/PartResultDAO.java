@@ -13,4 +13,11 @@ public class PartResultDAO extends AbstractDAO<IPartResultEntity> implements IPa
     public PartResultDAO() {
         super(PartResultEntity.class);
     }
+
+    @Override
+    public IPartResultEntity generateObject() throws InstantiationException, IllegalAccessException {
+         return new PartResultEntity();
+
+
+    }
 }
