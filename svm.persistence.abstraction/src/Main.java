@@ -15,6 +15,9 @@ public class Main {
      * @throws Exception
      */
     public static void main(final String[] args) throws Exception {
+        PersistenceFacade.getContestDAO().generateObject();
+
+
         // Generate a session
         Integer sessionId = PersistenceFacade.generateSessionId();
 

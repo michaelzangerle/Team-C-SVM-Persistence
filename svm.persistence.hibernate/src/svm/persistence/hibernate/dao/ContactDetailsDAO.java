@@ -13,4 +13,10 @@ public class ContactDetailsDAO extends AbstractDAO<IContactDetailsEntity> implem
     public ContactDetailsDAO() {
         super(ContactDetailsEntity.class);
     }
+
+    @Override
+    public IContactDetailsEntity generateObject() throws InstantiationException, IllegalAccessException {
+        IContactDetailsEntity entity = new ContactDetailsEntity();
+        entity.setLocationEntity();
+    }
 }

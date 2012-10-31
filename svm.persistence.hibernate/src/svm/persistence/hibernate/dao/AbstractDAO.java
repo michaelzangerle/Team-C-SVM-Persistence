@@ -115,7 +115,5 @@ public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
-    public T generateObject() throws InstantiationException, IllegalAccessException {
-        return (T) clazz.newInstance();
-    }
+    public abstract T generateObject() throws InstantiationException, IllegalAccessException;
 }

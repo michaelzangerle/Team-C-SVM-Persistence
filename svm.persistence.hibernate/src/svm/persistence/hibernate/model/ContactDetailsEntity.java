@@ -1,10 +1,7 @@
 package svm.persistence.hibernate.model;
 
-import svm.persistence.DAOFactory;
-import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.model.IContactDetailsEntity;
 import svm.persistence.abstraction.model.ILocationEntity;
-import svm.persistence.hibernate.HibernateUtil;
 
 import javax.persistence.*;
 
@@ -15,11 +12,6 @@ import javax.persistence.*;
 @Table(name = "contactdetails", schema = "", catalog = "svm")
 @Entity
 public class ContactDetailsEntity implements IContactDetailsEntity {
-    public ContactDetailsEntity() throws NoSessionFoundException {
-        Integer sessionId = HibernateUtil.generateSessionId();
-        setLocationEntity(DAOFactory.getInstance().getLocationDAO().getById(sessionId, 1));
-        HibernateUtil.closeSession(sessionId);
-    }
 
     private Integer id = 0;
 
