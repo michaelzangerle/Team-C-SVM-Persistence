@@ -1,9 +1,6 @@
 package svm.persistence.hibernate.model;
 
-import svm.persistence.abstraction.model.IContactDetailsEntity;
-import svm.persistence.abstraction.model.IContestEntity;
-import svm.persistence.abstraction.model.IContestsHasExternalTeamsEntity;
-import svm.persistence.abstraction.model.IContestsHasTeamsEntity;
+import svm.persistence.abstraction.model.*;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -136,17 +133,17 @@ public class ContestEntity implements IContestEntity {
 
     // TODO WARUM ? MANY 2 MANY Match - Contest
 
-    public List<MatchEntity> matches;
+    public List<IMatchEntity> matches;
 
     @ManyToMany(cascade = CascadeType.DETACH, targetEntity = MatchEntity.class)
     @JoinTable(name = "contests_has_matches",
             joinColumns = {@JoinColumn(name = "contest")},
             inverseJoinColumns = {@JoinColumn(name = "match")})
-    public List<MatchEntity> getMatches() {
+    public List<IMatchEntity> getMatches() {
         return matches;
     }
 
-    public void setMatches(List<MatchEntity> matches) {
+    public void setMatches(List<IMatchEntity> matches) {
         this.matches = matches;
     }
 

@@ -1,7 +1,5 @@
 package svm.persistence.abstraction.model;
 
-import svm.persistence.hibernate.model.MatchEntity;
-
 import java.sql.Date;
 import java.util.List;
 
@@ -40,7 +38,7 @@ public interface IContestEntity extends IEntity {
 
     void setContestsHasExternalTeams(List<IContestsHasExternalTeamsEntity> contestsHasExternalTeams);
 
-    void setMatches(List<MatchEntity> matches);
+    void setMatches(List<IMatchEntity> matches);
 
-    List<MatchEntity> getMatches();
+    List<IMatchEntity> getMatches();
 }
