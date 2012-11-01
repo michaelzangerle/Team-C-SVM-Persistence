@@ -245,5 +245,14 @@ public class PersistenceFacade {
     public static IContestsHasExternalTeamsDAO getContestHasExternalTeamsDAO() {
         return DAOFactory.getInstance().getContestHasExternalTeamsDAO();
     }
+
+    /**
+     * Returns a SubTeamsHasMembers DAO
+     *
+     * @return ISubTeamsHasMembersDAO
+     */
+    public static ISubTeamsHasMembersDAO getSubTeamsHasMembersDAO() {
+        return DAOFactory.getInstance().getSubTeamsHasMembersDAO();
+    }
     //endregion
 }

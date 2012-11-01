@@ -188,4 +188,13 @@ public class DAOFactory {
     public IContestsHasExternalTeamsDAO getContestHasExternalTeamsDAO() {
         return (IContestsHasExternalTeamsDAO) getDAO(ContestHasExternalTeamsDAO.class);
     }
+
+    /**
+     * Returns a SubTeamsHasMembers DAO
+     *
+     * @return ISubTeamsHasMembersDAO
+     */
+    public ISubTeamsHasMembersDAO getSubTeamsHasMembersDAO() {
+        return (ISubTeamsHasMembersDAO) getDAO(SubTeamsHasMembersDAO.class);
+    }
 }
