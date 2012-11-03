@@ -1,6 +1,7 @@
 package svm.persistence.abstraction.model;
 
 import java.io.Serializable;
+import java.rmi.Remote;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,6 +10,6 @@ import java.io.Serializable;
  * Time: 16:57
  * To change this template use File | Settings | File Templates.
  */
-public interface IEntity extends Serializable {
+public interface IEntity extends Serializable,Remote {
     public Integer getId();
 }
