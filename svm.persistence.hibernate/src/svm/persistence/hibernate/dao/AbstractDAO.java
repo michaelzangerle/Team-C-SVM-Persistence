@@ -69,7 +69,7 @@ public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
     @Override
     public List<T> find(Integer sessionId, CompareObject compare) throws NoSessionFoundException {
         Session session = HibernateUtil.getSession(sessionId);
-        String hql = String.format("FROM %s WHERE %s %s '%s'", clazz.getName(), compare.getColumn(), compare.getQualifier().toString(), compare.getValue());
+        String hql = String.format("FROM %s WHERE %s", clazz.getName(), compare.toString());
         Query query = session.createQuery(hql);
         return query.list();
     }
@@ -86,11 +86,11 @@ public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
     public List<T> find(Integer sessionId, CompareObject[] compares) throws NoSessionFoundException {
         Session session = HibernateUtil.getSession(sessionId);
         StringBuffer hql = new StringBuffer();
-        hql.append(String.format("FROM %s WHERE %s %s '%s'", clazz.getName(), compares[0].getColumn(), compares[0].getQualifier().toString(), compares[0].getValue()));
+        hql.append(String.format("FROM %s WHERE %s ", clazz.getName(), compares[0].toString()));
         for (int i = 1; i < compares.length; i++) {
             String val = compares[i].getValue();
             if (compares[i].getQualifier() != FindQualifiers.BETWEEN) val = "'" + val + "'";
-            hql.append(String.format(" %s %s %s %s ", compares[i].getBefore(), compares[i].getColumn(), compares[i].getQualifier().toString(), val));
+            hql.append(String.format(" %s ", compares[i].toString(i)));
         }
         Query query = session.createQuery(hql.toString());
         return query.list();

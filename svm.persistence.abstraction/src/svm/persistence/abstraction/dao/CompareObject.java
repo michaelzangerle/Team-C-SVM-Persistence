@@ -52,4 +52,19 @@ public class CompareObject {
         this.value = value;
         this.before = before;
     }
+
+    @Override
+    public String toString() {
+        String val = getValue();
+        if (this.getQualifier() != FindQualifiers.BETWEEN) val = "'" + val + "'";
+        return String.format("%s %s %s", getColumn(), getQualifier().toString(), val);
+    }
+
+    public String toString(int i) {
+        if (i > 0) {
+            return String.format("%s %s", getBefore(), toString());
+        } else {
+            return toString();
+        }
+    }
 }
