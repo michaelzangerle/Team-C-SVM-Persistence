@@ -200,9 +200,19 @@ public class DAOFactory {
 
     /**
      * Team Dao
+     *
      * @return ITeamDAO
      */
     public ITeamDAO getTeamDAO() {
         return (ITeamDAO) getDAO(TeamDAO.class);
+    }
+
+    /**
+     * Team Dao
+     *
+     * @return ITeamDAO
+     */
+    public IContestantDAO getContestantDAO() {
+        return (IContestantDAO) getDAO(ContestantDAO.class);
     }
 }
