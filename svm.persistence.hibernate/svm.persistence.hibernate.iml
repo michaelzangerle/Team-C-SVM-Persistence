@@ -37,6 +37,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="svm.exceptions" level="project" />
   </component>
 </module>
 

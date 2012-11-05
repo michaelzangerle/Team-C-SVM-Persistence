@@ -199,11 +199,10 @@ public class DAOFactory {
     }
 
     /**
-     * Returns a Contestant DAO
-     *
-     * @return IContestantDAO
+     * Team Dao
+     * @return ITeamDAO
      */
-    public IContestantDAO getContestantDAO() {
-        return (IContestantDAO) getDAO(ContestantDAO.class);
+    public ITeamDAO getTeamDAO() {
+        return (ITeamDAO) getDAO(TeamDAO.class);
     }
 }
