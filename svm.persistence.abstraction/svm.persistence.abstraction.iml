@@ -10,6 +10,7 @@
     <orderEntry type="module" module-name="svm.persistence.hibernate" exported="" />
     <orderEntry type="library" name="testng-jdk15" level="application" />
     <orderEntry type="library" exported="" name="junit-4.10" level="project" />
+    <orderEntry type="library" name="svm.exceptions" level="project" />
   </component>
 </module>
 
