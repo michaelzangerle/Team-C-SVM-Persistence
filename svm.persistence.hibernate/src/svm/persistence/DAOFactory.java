@@ -197,4 +197,12 @@ public class DAOFactory {
     public ISubTeamsHasMembersDAO getSubTeamsHasMembersDAO() {
         return (ISubTeamsHasMembersDAO) getDAO(SubTeamsHasMembersDAO.class);
     }
+
+    /**
+     * Team Dao
+     * @return ITeamDAO
+     */
+    public ITeamDAO getTeamDAO() {
+        return (ITeamDAO) getDAO(TeamDAO.class);
+    }
 }
