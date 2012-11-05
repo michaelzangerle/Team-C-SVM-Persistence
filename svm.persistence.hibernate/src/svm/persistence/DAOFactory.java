@@ -197,4 +197,13 @@ public class DAOFactory {
     public ISubTeamsHasMembersDAO getSubTeamsHasMembersDAO() {
         return (ISubTeamsHasMembersDAO) getDAO(SubTeamsHasMembersDAO.class);
     }
+
+    /**
+     * Returns a Contestant DAO
+     *
+     * @return IContestantDAO
+     */
+    public IContestantDAO getContestantDAO() {
+        return (IContestantDAO) getDAO(ContestantDAO.class);
+    }
 }
