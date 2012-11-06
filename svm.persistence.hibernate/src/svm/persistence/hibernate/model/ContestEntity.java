@@ -109,7 +109,7 @@ public class ContestEntity implements IContestEntity {
     private List<IContestsHasTeamsEntity> contestsHasTeams;
 
     @Override
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
+    @OneToMany(cascade =CascadeType.ALL, orphanRemoval=true, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
     public List<IContestsHasTeamsEntity> getContestsHasTeams() {
         return contestsHasTeams;
     }
@@ -122,7 +122,7 @@ public class ContestEntity implements IContestEntity {
     private List<IContestsHasExternalTeamsEntity> contestsHasExternalTeams;
 
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = ContestsHasExternalTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true, targetEntity = ContestsHasExternalTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
     public List<IContestsHasExternalTeamsEntity> getContestsHasExternalTeams() {
         return contestsHasExternalTeams;
     }

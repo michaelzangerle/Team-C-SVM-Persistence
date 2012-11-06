@@ -124,7 +124,7 @@ public class TeamEntity implements ITeamEntity {
     private List<ITeamsHasMembersEntity> teamsHasMembers;
 
     @Override
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = TeamsHasMembersEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true, targetEntity = TeamsHasMembersEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
     public List<ITeamsHasMembersEntity> getTeamsHasMembers() {
         return teamsHasMembers;
     }
@@ -137,7 +137,7 @@ public class TeamEntity implements ITeamEntity {
     private List<IContestsHasTeamsEntity> contestsHasTeams;
 
     @Override
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
     public List<IContestsHasTeamsEntity> getContestsHasTeams() {
         return contestsHasTeams;
     }
