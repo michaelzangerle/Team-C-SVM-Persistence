@@ -1,0 +1,1 @@
+robocopy out\artifacts ..\Team-C-SVM-Domain\svm.domain.implementation\lib
