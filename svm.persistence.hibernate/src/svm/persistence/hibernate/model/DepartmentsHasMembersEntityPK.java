@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class DepartmentsHasMembersEntityPK implements Serializable {
     private IDepartmentEntity department;
 
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = DepartmentEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = DepartmentEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "department")
     public IDepartmentEntity getDepartment() {
         return department;
@@ -26,7 +26,7 @@ public class DepartmentsHasMembersEntityPK implements Serializable {
 
     private IMemberEntity member;
 
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "member")
     public IMemberEntity getMember() {
         return member;
