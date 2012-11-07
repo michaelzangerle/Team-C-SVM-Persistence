@@ -132,14 +132,9 @@ public class ContestEntity implements IContestEntity {
         this.contestsHasExternalTeams = contestsHasExternalTeams;
     }
 
-    // TODO WARUM ? MANY 2 MANY Match - Contest
-
     public List<IMatchEntity> matches;
 
-    @ManyToMany(cascade = CascadeType.ALL, targetEntity = MatchEntity.class)
-    @JoinTable(name = "contests_has_matches",
-            joinColumns = {@JoinColumn(name = "contest")},
-            inverseJoinColumns = {@JoinColumn(name = "match")})
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = MatchEntity.class, mappedBy = "contest")
     public List<IMatchEntity> getMatches() {
         return matches;
     }
