@@ -61,6 +61,14 @@ public interface IDAO<T extends IEntity> {
     List<T> find(Integer sessionId, CompareObject[] compares) throws NoSessionFoundException;
 
     /**
+     * Removes Object from DataBase
+     *
+     * @param sessionId SessionId
+     * @param entity    Object to remove
+     */
+    void removeObject(Integer sessionId, T entity) throws NoSessionFoundException;
+
+    /**
      * Generates a new Object
      *
      * @return new Object
