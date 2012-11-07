@@ -44,10 +44,6 @@ public interface ITeamEntity extends IEntity {
 
     void setSubTeams(List<ISubTeamEntity> subTeams);
 
-    List<IContestantEntity> getContestants();
-
-    void setContestants(List<IContestantEntity> contestants);
-
     ITeamTypeEntity getTeamType();
 
     void setTeamType(ITeamTypeEntity teamType);

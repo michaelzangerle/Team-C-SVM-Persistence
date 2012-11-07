@@ -135,14 +135,6 @@ public class DAOFactory {
         return (IMemberRoleDAO) getDAO(MemberRoleDAO.class);
     }
 
-    /**
-     * Returns a PartResult DAO
-     *
-     * @return IPartResultDAO
-     */
-    public IPartResultDAO getPartResultDAO() {
-        return (IPartResultDAO) getDAO(PartResultDAO.class);
-    }
 
     /**
      * Returns a SubTeam DAO
@@ -207,12 +199,4 @@ public class DAOFactory {
         return (ITeamDAO) getDAO(TeamDAO.class);
     }
 
-    /**
-     * Team Dao
-     *
-     * @return ITeamDAO
-     */
-    public IContestantDAO getContestantDAO() {
-        return (IContestantDAO) getDAO(ContestantDAO.class);
-    }
 }

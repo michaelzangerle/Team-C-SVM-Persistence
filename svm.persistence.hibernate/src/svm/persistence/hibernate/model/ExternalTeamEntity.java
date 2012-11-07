@@ -1,11 +1,9 @@
 package svm.persistence.hibernate.model;
 
 import svm.persistence.abstraction.model.IContactDetailsEntity;
-import svm.persistence.abstraction.model.IContestantEntity;
 import svm.persistence.abstraction.model.IExternalTeamEntity;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Projectteam: Team C
@@ -67,20 +65,6 @@ public class ExternalTeamEntity implements IExternalTeamEntity {
     @Override
     public void setContactDetails(IContactDetailsEntity contactDetails) {
         this.contactDetails = contactDetails;
-    }
-
-    private List<IContestantEntity> contestant;
-
-    @Override
-    @OneToMany(cascade = CascadeType.REMOVE, targetEntity = ContestantEntity.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "externalteam")
-    public List<IContestantEntity> getContestant() {
-        return contestant;
-    }
-
-    @Override
-    public void setContestant(List<IContestantEntity> contestant) {
-        this.contestant = contestant;
     }
 
     @Override

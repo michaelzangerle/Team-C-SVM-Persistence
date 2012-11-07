@@ -1,7 +1,5 @@
 package svm.persistence.abstraction.model;
 
-import java.util.List;
-
 /**
  * ProjectTeam: Team C
  * Date: 24.10.12
@@ -20,9 +18,5 @@ public interface IExternalTeamEntity extends IEntity {
     IContactDetailsEntity getContactDetails();
 
     void setContactDetails(IContactDetailsEntity contactDetails);
-
-    List<IContestantEntity> getContestant();
-
-    void setContestant(List<IContestantEntity> contestant);
 
 }

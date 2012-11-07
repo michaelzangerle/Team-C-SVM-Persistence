@@ -201,14 +201,6 @@ public class PersistenceFacade {
         return DAOFactory.getInstance().getMemberRoleDAO();
     }
 
-    /**
-     * Returns a PartResult DAO
-     *
-     * @return IPartResultDAO
-     */
-    public static IPartResultDAO getPartResultDAO() {
-        return DAOFactory.getInstance().getPartResultDAO();
-    }
 
     /**
      * Returns a SubTeam DAO
@@ -264,13 +256,5 @@ public class PersistenceFacade {
         return DAOFactory.getInstance().getSubTeamsHasMembersDAO();
     }
 
-    /**
-     * Returns a Contestant DAO
-     *
-     * @return IContestantDAO
-     */
-    public static IContestantDAO getContestantDAO() {
-        return DAOFactory.getInstance().getContestantDAO();
-    }
     //endregion
 }

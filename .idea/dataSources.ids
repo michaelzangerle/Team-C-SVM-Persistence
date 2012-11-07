@@ -509,16 +509,6 @@
       <foreign-key name="fk_contactdetails_locations1" columns="location" ref-table="locations" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <index name="fk_contactdetails_locations1_idx" unique="false" columns="location" />
     </table>
-    <table name="contestants" schema="" catalog="svm" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
-      <column name="internalteam" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
-      <column name="externalteam" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
-      <primary-key name="PRIMARY" columns="id" />
-      <foreign-key name="fk_matchContestant_externalTeam1" columns="externalteam" ref-table="externalteams" ref-schema="" ref-catalog="svm" ref-columns="id" />
-      <foreign-key name="fk_matchContestant_teams1" columns="internalteam" ref-table="teams" ref-schema="" ref-catalog="svm" ref-columns="id" />
-      <index name="fk_matchContestant_teams1_idx" unique="false" columns="internalteam" />
-      <index name="fk_matchContestant_externalTeam1_idx" unique="false" columns="externalteam" />
-    </table>
     <table name="contests" schema="" catalog="svm" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
       <column name="name" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12" />
@@ -534,20 +524,12 @@
       <column name="contest" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <column name="externalTeam" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <column name="paid" sqlType="FLOAT" length="12" precision="0" nullable="false" jdbcType="7" />
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA==" />
       <primary-key name="PRIMARY" columns="contest,externalteam" />
       <foreign-key name="fk_contests_has_externalTeams_contests1" columns="contest" ref-table="contests" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <foreign-key name="fk_contests_has_externalTeams_externalTeams1" columns="externalTeam" ref-table="externalteams" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <index name="fk_contests_has_externalTeams_externalTeams1_idx" unique="false" columns="externalTeam" />
       <index name="fk_contests_has_externalTeams_contests1_idx" unique="false" columns="contest" />
-    </table>
-    <table name="contests_has_matches" schema="" catalog="svm" type="TABLE">
-      <column name="contest" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
-      <column name="match" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
-      <primary-key name="PRIMARY" columns="contest,match" />
-      <foreign-key name="fk_contests_has_matches_contests1" columns="contest" ref-table="contests" ref-schema="" ref-catalog="svm" ref-columns="id" />
-      <foreign-key name="fk_contests_has_matches_matches1" columns="match" ref-table="matches" ref-schema="" ref-catalog="svm" ref-columns="id" />
-      <index name="fk_contests_has_matches_matches1_idx" unique="false" columns="match" />
-      <index name="fk_contests_has_matches_contests1_idx" unique="false" columns="contest" />
     </table>
     <table name="contests_has_teams" schema="" catalog="svm" type="TABLE">
       <column name="contest" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
@@ -555,6 +537,7 @@
       <column name="confirmed" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
       <column name="comment" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1" />
       <column name="paid" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" />
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA==" />
       <primary-key name="PRIMARY" columns="contest,team" />
       <foreign-key name="fk_contests_has_teams_contests1" columns="contest" ref-table="contests" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <foreign-key name="fk_contests_has_teams_teams1" columns="team" ref-table="teams" ref-schema="" ref-catalog="svm" ref-columns="id" />
@@ -575,10 +558,11 @@
       <column name="department" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <column name="member" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <column name="memberRole" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA==" />
       <primary-key name="PRIMARY" columns="department,member" />
       <foreign-key name="fk_departments_has_members_departments" columns="department" ref-table="departments" ref-schema="" ref-catalog="svm" ref-columns="id" />
-      <foreign-key name="fk_departments_has_members_memberRoles1" columns="memberRole" ref-table="memberroles" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <foreign-key name="fk_departments_has_members_members1" columns="member" ref-table="members" ref-schema="" ref-catalog="svm" ref-columns="id" />
+      <foreign-key name="fk_departments_has_members_memberRoles1" columns="memberRole" ref-table="memberroles" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <index name="fk_departments_has_members_members1_idx" unique="false" columns="member" />
       <index name="fk_departments_has_members_departments_idx" unique="false" columns="department" />
       <index name="fk_departments_has_members_memberRoles1_idx" unique="false" columns="memberRole" />
@@ -616,22 +600,30 @@
       <column name="canceled" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" />
       <column name="remarks" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12" />
       <column name="contactdetails" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
-      <column name="matchType" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="matchType" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
       <column name="description" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1" />
+      <column name="contest" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="homeExternal" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="homeInternal" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="awayExternal" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="awayInternal" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="awayResult" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="LTE=" />
+      <column name="homeResult" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="LTE=" />
       <primary-key name="PRIMARY" columns="id" />
       <foreign-key name="fk_matches_addresses1" columns="contactdetails" ref-table="contactdetails" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <foreign-key name="fk_matches_matchTypes1" columns="matchType" ref-table="matchtypes" ref-schema="" ref-catalog="svm" ref-columns="id" />
+      <foreign-key name="fk_matches_contests1" columns="contest" ref-table="contests" ref-schema="" ref-catalog="svm" ref-columns="id" />
+      <foreign-key name="fk_matches_externalTeams1" columns="homeExternal" ref-table="externalteams" ref-schema="" ref-catalog="svm" ref-columns="id" />
+      <foreign-key name="fk_matches_externalTeams2" columns="awayExternal" ref-table="externalteams" ref-schema="" ref-catalog="svm" ref-columns="id" />
+      <foreign-key name="fk_matches_teams1" columns="awayInternal" ref-table="teams" ref-schema="" ref-catalog="svm" ref-columns="id" />
+      <foreign-key name="fk_matches_teams2" columns="homeInternal" ref-table="teams" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <index name="fk_matches_addresses1_idx" unique="false" columns="contactdetails" />
       <index name="fk_matches_matchTypes1_idx" unique="false" columns="matchType" />
-    </table>
-    <table name="matches_has_contestants" schema="" catalog="svm" type="TABLE">
-      <column name="match" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
-      <column name="contestant" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
-      <primary-key name="PRIMARY" columns="match,contestant" />
-      <foreign-key name="fk_matches_has_contestants_contestants1" columns="contestant" ref-table="contestants" ref-schema="" ref-catalog="svm" ref-columns="id" />
-      <foreign-key name="fk_matches_has_contestants_matches1" columns="match" ref-table="matches" ref-schema="" ref-catalog="svm" ref-columns="id" />
-      <index name="fk_matches_has_contestants_contestants1_idx" unique="false" columns="contestant" />
-      <index name="fk_matches_has_contestants_matches1_idx" unique="false" columns="match" />
+      <index name="fk_matches_contests1_idx" unique="false" columns="contest" />
+      <index name="fk_matches_externalTeams1_idx" unique="false" columns="homeExternal" />
+      <index name="fk_matches_externalTeams2_idx" unique="false" columns="awayExternal" />
+      <index name="fk_matches_teams1_idx" unique="false" columns="awayInternal" />
+      <index name="fk_matches_teams2_idx" unique="false" columns="homeInternal" />
     </table>
     <table name="matchrules" schema="" catalog="svm" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
@@ -696,15 +688,6 @@
       <foreign-key name="fk_membersFee_members1" columns="member" ref-table="members" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <index name="fk_membersFee_members1_idx" unique="false" columns="member" />
     </table>
-    <table name="partresult" schema="" catalog="svm" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
-      <column name="result" sqlType="FLOAT" length="12" precision="0" nullable="false" jdbcType="7" />
-      <column name="contestant" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
-      <column name="comment" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1" />
-      <primary-key name="PRIMARY" columns="id" />
-      <foreign-key name="fk_partResult_contestants1" columns="contestant" ref-table="contestants" ref-schema="" ref-catalog="svm" ref-columns="id" />
-      <index name="fk_partResult_contestants1_idx" unique="false" columns="contestant" />
-    </table>
     <table name="sports" schema="" catalog="svm" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
       <column name="name" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12" />
@@ -721,8 +704,8 @@
       <column name="team" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <column name="contest" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <primary-key name="PRIMARY" columns="id" />
-      <foreign-key name="fk_subteams_contests1" columns="contest" ref-table="contests" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <foreign-key name="fk_subteams_teams1" columns="team" ref-table="teams" ref-schema="" ref-catalog="svm" ref-columns="id" />
+      <foreign-key name="fk_subteams_contests1" columns="contest" ref-table="contests" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <index name="fk_subteams_teams1_idx" unique="false" columns="team" />
       <index name="fk_subteams_contests1_idx" unique="false" columns="contest" />
     </table>
@@ -731,9 +714,10 @@
       <column name="member" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <column name="confirmed" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
       <column name="comment" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1" />
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA==" />
       <primary-key name="PRIMARY" columns="subteam,member" />
-      <foreign-key name="fk_subteams_has_members_members1" columns="member" ref-table="members" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <foreign-key name="fk_subteams_has_members_subteams1" columns="subteam" ref-table="subteams" ref-schema="" ref-catalog="svm" ref-columns="id" />
+      <foreign-key name="fk_subteams_has_members_members1" columns="member" ref-table="members" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <index name="fk_subteams_has_members_members1_idx" unique="false" columns="member" />
       <index name="fk_subteams_has_members_subteams1_idx" unique="false" columns="subteam" />
     </table>
@@ -759,9 +743,9 @@
       <column name="teamtype" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <column name="contactperson" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <primary-key name="PRIMARY" columns="id" />
-      <foreign-key name="fk_teams_members1" columns="contactperson" ref-table="members" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <foreign-key name="fk_teams_sports1" columns="sport" ref-table="sports" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <foreign-key name="fk_teams_teamtypes1" columns="teamtype" ref-table="teamtypes" ref-schema="" ref-catalog="svm" ref-columns="id" />
+      <foreign-key name="fk_teams_members1" columns="contactperson" ref-table="members" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <index name="fk_teams_sports1_idx" unique="false" columns="sport" />
       <index name="fk_teams_teamtypes1_idx" unique="false" columns="teamtype" />
       <index name="fk_teams_members1_idx" unique="false" columns="contactperson" />
@@ -770,10 +754,11 @@
       <column name="team" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <column name="member" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <column name="memberRole" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA==" />
       <primary-key name="PRIMARY" columns="team,member" />
-      <foreign-key name="fk_teams_has_members_memberRoles1" columns="memberRole" ref-table="memberroles" ref-schema="" ref-catalog="svm" ref-columns="id" />
-      <foreign-key name="fk_teams_has_members_members1" columns="member" ref-table="members" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <foreign-key name="fk_teams_has_members_teams1" columns="team" ref-table="teams" ref-schema="" ref-catalog="svm" ref-columns="id" />
+      <foreign-key name="fk_teams_has_members_members1" columns="member" ref-table="members" ref-schema="" ref-catalog="svm" ref-columns="id" />
+      <foreign-key name="fk_teams_has_members_memberRoles1" columns="memberRole" ref-table="memberroles" ref-schema="" ref-catalog="svm" ref-columns="id" />
       <index name="fk_teams_has_members_members1_idx" unique="false" columns="member" />
       <index name="fk_teams_has_members_teams1_idx" unique="false" columns="team" />
       <index name="fk_teams_has_members_memberRoles1_idx" unique="false" columns="memberRole" />

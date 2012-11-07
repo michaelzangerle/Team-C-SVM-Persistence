@@ -4,7 +4,6 @@ import svm.persistence.abstraction.model.*;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 
 /**
  * ProjectTeam: Team C
@@ -124,40 +123,18 @@ public class MatchEntity implements IMatchEntity {
         this.contactDetails = contactDetails;
     }
 
-    // TODO WARUM ? MANY 2 MANY Match - Contestants
-
-    private List<IContestantEntity> contestants;
+    private IContestEntity contest;
 
     @Override
-    @ManyToMany(cascade = CascadeType.ALL, targetEntity = ContestantEntity.class)
-    @JoinTable(name = "matches_has_contestants",
-            joinColumns = {@JoinColumn(name = "match")},
-            inverseJoinColumns = {@JoinColumn(name = "contestant")})
-    public List<IContestantEntity> getContestants() {
-        return contestants;
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContestEntity.class)
+    @JoinColumn(name = "contest")
+    public IContestEntity getContest() {
+        return contest;
     }
 
     @Override
-    public void setContestants(List<IContestantEntity> contestants) {
-        this.contestants = contestants;
-    }
-
-    // TODO WARUM ? MANY 2 MANY Match - Contest
-
-    private List<IContestEntity> contests;
-
-    @Override
-    @ManyToMany(cascade = CascadeType.DETACH, targetEntity = ContestEntity.class)
-    @JoinTable(name = "contests_has_matches",
-            joinColumns = {@JoinColumn(name = "match")},
-            inverseJoinColumns = {@JoinColumn(name = "contest")})
-    public List<IContestEntity> getContests() {
-        return contests;
-    }
-
-    @Override
-    public void setContests(List<IContestEntity> contests) {
-        this.contests = contests;
+    public void setContest(IContestEntity contest) {
+        this.contest = contest;
     }
 
     private IMatchTypeEntity matchType;
@@ -203,4 +180,90 @@ public class MatchEntity implements IMatchEntity {
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
+
+    IExternalTeamEntity awayExternal;
+
+    @Override
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ExternalTeamEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "awayExternal")
+    public IExternalTeamEntity getAwayExternal() {
+        return awayExternal;
+    }
+
+    @Override
+    public void setAwayExternal(IExternalTeamEntity awayExternal) {
+        this.awayExternal = awayExternal;
+    }
+
+    IExternalTeamEntity homeExternal;
+
+    @Override
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ExternalTeamEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "homeExternal")
+    public IExternalTeamEntity getHomeExternal() {
+        return homeExternal;
+    }
+
+    @Override
+    public void setHomeExternal(IExternalTeamEntity homeExternal) {
+        this.homeExternal = homeExternal;
+    }
+
+    ITeamEntity awayInternal;
+
+    @Override
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = TeamEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "awayInternal")
+    public ITeamEntity getAwayInternal() {
+        return awayInternal;
+    }
+
+    @Override
+    public void setAwayInternal(ITeamEntity awayInternal) {
+        this.awayInternal = awayInternal;
+    }
+
+    ITeamEntity homeInternal;
+
+    @Override
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = TeamEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "homeInternal")
+    public ITeamEntity getHomeInternal() {
+        return homeInternal;
+    }
+
+    @Override
+    public void setHomeInternal(ITeamEntity homeInternal) {
+        this.homeInternal = homeInternal;
+    }
+
+    private int awayResult;
+
+    @Override
+    @Column(name = "awayResult")
+    @Basic
+    public int getAwayResult() {
+        return awayResult;
+    }
+
+    @Override
+    public void setAwayResult(int awayResult) {
+        this.awayResult = awayResult;
+    }
+
+    private int homeResult;
+
+    @Override
+    @Column(name = "homeResult")
+    @Basic
+    public int getHomeResult() {
+        return homeResult;
+    }
+
+    @Override
+    public void setHomeResult(int homeResult) {
+        this.homeResult = homeResult;
+    }
+
+
 }

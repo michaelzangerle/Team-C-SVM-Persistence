@@ -161,20 +161,6 @@ public class TeamEntity implements ITeamEntity {
         this.subTeams = subTeams;
     }
 
-    private List<IContestantEntity> contestants;
-
-    @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = ContestantEntity.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "internalteam")
-    public List<IContestantEntity> getContestants() {
-        return contestants;
-    }
-
-    @Override
-    public void setContestants(List<IContestantEntity> contestants) {
-        this.contestants = contestants;
-    }
-
     private ITeamTypeEntity teamType;
 
     @Override
