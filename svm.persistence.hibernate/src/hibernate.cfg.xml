@@ -15,7 +15,6 @@
         <!-- <property name="hbm2ddl.auto">validate</property> -->
 
         <mapping class="svm.persistence.hibernate.model.ContactDetailsEntity"/>
-        <mapping class="svm.persistence.hibernate.model.ContestantEntity"/>
         <mapping class="svm.persistence.hibernate.model.ContestEntity"/>
         <mapping class="svm.persistence.hibernate.model.ContestsHasExternalTeamsEntity"/>
         <mapping class="svm.persistence.hibernate.model.DepartmentEntity"/>
@@ -28,7 +27,6 @@
         <mapping class="svm.persistence.hibernate.model.MemberRoleEntity"/>
         <mapping class="svm.persistence.hibernate.model.MemberEntity"/>
         <mapping class="svm.persistence.hibernate.model.MemberFeeEntity"/>
-        <mapping class="svm.persistence.hibernate.model.PartResultEntity"/>
         <mapping class="svm.persistence.hibernate.model.SportEntity"/>
         <mapping class="svm.persistence.hibernate.model.SubTeamEntity"/>
         <mapping class="svm.persistence.hibernate.model.SubTeamsHasMembersEntity"/>
