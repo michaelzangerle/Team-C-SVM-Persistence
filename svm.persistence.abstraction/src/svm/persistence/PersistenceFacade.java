@@ -140,10 +140,10 @@ public class PersistenceFacade {
 
     /**
      * Get Team Dao
-     * @return  ITeamDAO
+     *
+     * @return ITeamDAO
      */
-    public  static ITeamDAO getTeamDAO()
-    {
+    public static ITeamDAO getTeamDAO() {
         return DAOFactory.getInstance().getTeamDAO();
     }
 

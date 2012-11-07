@@ -10,6 +10,6 @@ import java.rmi.Remote;
  * Time: 16:57
  * To change this template use File | Settings | File Templates.
  */
-public interface IEntity extends Serializable,Remote {
+public interface IEntity extends Serializable, Remote {
     public int getId();
 }
