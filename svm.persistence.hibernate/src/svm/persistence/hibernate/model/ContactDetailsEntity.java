@@ -189,6 +189,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
     }
 
 
+    @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + (phone1 != null ? phone1.hashCode() : 0);
