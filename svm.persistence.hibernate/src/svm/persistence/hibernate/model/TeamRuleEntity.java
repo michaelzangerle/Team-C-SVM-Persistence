@@ -2,7 +2,6 @@ package svm.persistence.hibernate.model;
 
 import svm.persistence.abstraction.model.IMemberRoleEntity;
 import svm.persistence.abstraction.model.ITeamRuleEntity;
-import svm.persistence.abstraction.model.ITeamTypeEntity;
 
 import javax.persistence.*;
 
@@ -23,7 +22,7 @@ public class TeamRuleEntity implements ITeamRuleEntity {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 

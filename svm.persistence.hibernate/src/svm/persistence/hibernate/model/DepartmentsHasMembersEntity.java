@@ -91,6 +91,6 @@ public class DepartmentsHasMembersEntity implements IDepartmentsHasMembersEntity
         return 0;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
     }
 }

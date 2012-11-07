@@ -1,6 +1,5 @@
 package svm.persistence.hibernate.dao;
 
-import svm.persistence.DAOFactory;
 import svm.persistence.abstraction.dao.IMatchTypeDAO;
 import svm.persistence.abstraction.model.IMatchTypeEntity;
 import svm.persistence.hibernate.model.MatchTypeEntity;

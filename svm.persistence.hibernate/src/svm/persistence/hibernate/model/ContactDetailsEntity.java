@@ -23,7 +23,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 

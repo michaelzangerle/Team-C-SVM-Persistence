@@ -1,6 +1,5 @@
 package svm.persistence.hibernate.model;
 
-import svm.persistence.abstraction.model.IMemberEntity;
 import svm.persistence.abstraction.model.IMemberFeeEntity;
 
 import javax.persistence.*;
@@ -23,7 +22,7 @@ public class MemberFeeEntity implements IMemberFeeEntity {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 

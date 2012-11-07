@@ -1,7 +1,6 @@
 package svm.persistence.hibernate.dao;
 
 import svm.persistence.abstraction.dao.IUserPrivilegeDAO;
-
 import svm.persistence.abstraction.model.IUserPrivilegeEntity;
 import svm.persistence.hibernate.model.UserPrivilegeEntity;
 
@@ -11,9 +10,9 @@ import svm.persistence.hibernate.model.UserPrivilegeEntity;
  */
 public class UserPrivilegeDAO extends AbstractDAO<IUserPrivilegeEntity> implements IUserPrivilegeDAO {
 
-public UserPrivilegeDAO() {
+    public UserPrivilegeDAO() {
         super(UserPrivilegeEntity.class);
-}
+    }
 
     @Override
     public IUserPrivilegeEntity generateObject() throws InstantiationException, IllegalAccessException {

@@ -23,7 +23,7 @@ public class UserPrivilegeEntity implements IUserPrivilegeEntity {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 

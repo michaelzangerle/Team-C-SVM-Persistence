@@ -124,6 +124,6 @@ public class ContestsHasTeamsEntity implements IContestsHasTeamsEntity {
         return 0;
     }
 
-    private void setId(int id){
+    private void setId(int id) {
     }
 }

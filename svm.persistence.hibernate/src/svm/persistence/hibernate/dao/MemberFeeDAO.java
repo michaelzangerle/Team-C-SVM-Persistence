@@ -1,6 +1,5 @@
 package svm.persistence.hibernate.dao;
 
-import svm.persistence.DAOFactory;
 import svm.persistence.abstraction.dao.IMemberFeeDAO;
 import svm.persistence.abstraction.model.IMemberFeeEntity;
 import svm.persistence.hibernate.model.MemberFeeEntity;

@@ -16,6 +16,6 @@ public class SportDAO extends AbstractDAO<ISportEntity> implements ISportDAO {
 
     @Override
     public ISportEntity generateObject() throws InstantiationException, IllegalAccessException {
-        return  new SportEntity();
+        return new SportEntity();
     }
 }

@@ -108,6 +108,6 @@ public class SubTeamsHasMembersEntity implements ISubTeamsHasMembersEntity {
         return 0;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
     }
 }
