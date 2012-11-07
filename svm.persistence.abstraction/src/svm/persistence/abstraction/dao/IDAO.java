@@ -66,7 +66,7 @@ public interface IDAO<T extends IEntity> {
      * @param sessionId SessionId
      * @param entity    Object to remove
      */
-    void removeObject(Integer sessionId, T entity);
+    void removeObject(Integer sessionId, T entity) throws NoSessionFoundException;
 
     /**
      * Generates a new Object

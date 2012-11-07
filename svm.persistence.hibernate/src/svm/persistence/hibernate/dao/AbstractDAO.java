@@ -109,6 +109,17 @@ public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
     }
 
     /**
+     * Removes Object from DataBase
+     *
+     * @param sessionId SessionId
+     * @param entity    Object to remove
+     */
+    public void removeObject(Integer sessionId, T entity) throws NoSessionFoundException {
+        Session session = HibernateUtil.getSession(sessionId);
+        session.delete(entity);
+    }
+
+    /**
      * Generates a new Object
      *
      * @return new Object
