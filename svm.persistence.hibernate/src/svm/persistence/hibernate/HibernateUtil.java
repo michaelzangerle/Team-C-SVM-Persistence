@@ -84,12 +84,12 @@ public class HibernateUtil {
         Session s = getSession(sessionId);
         //s.merge(entity);
         // TODO Check Reattachment
-        //if (entity.getId() > 0) {
+        if (entity.getId() > 0) {
 
-        s.update(entity);
-        s.refresh(entity);
+            s.update(entity);
+            s.refresh(entity);
 
-        //}
+        }
     }
 
     /**
