@@ -2,10 +2,9 @@ package svm.persistence.hibernate.dao;
 
 import svm.persistence.abstraction.dao.IMemberFeeDAO;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.persistence.abstraction.model.IMemberFeeEntity;
 import svm.persistence.hibernate.model.MemberFeeEntity;
-
-import javax.transaction.NotSupportedException;
 
 /**
  * Projectteam: Team C

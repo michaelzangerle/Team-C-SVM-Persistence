@@ -2,10 +2,9 @@ package svm.persistence.hibernate.dao;
 
 import svm.persistence.abstraction.dao.IUserPrivilegeDAO;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.persistence.abstraction.model.IUserPrivilegeEntity;
 import svm.persistence.hibernate.model.UserPrivilegeEntity;
-
-import javax.transaction.NotSupportedException;
 
 /**
  * ProjectTeam: Team C

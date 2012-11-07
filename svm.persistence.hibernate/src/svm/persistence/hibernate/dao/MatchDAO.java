@@ -3,10 +3,9 @@ package svm.persistence.hibernate.dao;
 import svm.persistence.DAOFactory;
 import svm.persistence.abstraction.dao.IMatchDAO;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.persistence.abstraction.model.IMatchEntity;
 import svm.persistence.hibernate.model.MatchEntity;
-
-import javax.transaction.NotSupportedException;
 
 /**
  * ProjectTeam: Team C
@@ -27,6 +26,6 @@ public class MatchDAO extends AbstractDAO<IMatchEntity> implements IMatchDAO {
 
     @Override
     public IMatchEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException {
-        throw new NotSupportedException("");
+        throw new NotSupportedException();
     }
 }

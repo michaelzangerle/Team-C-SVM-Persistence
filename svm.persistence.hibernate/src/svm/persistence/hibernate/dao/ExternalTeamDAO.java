@@ -3,10 +3,9 @@ package svm.persistence.hibernate.dao;
 import svm.persistence.DAOFactory;
 import svm.persistence.abstraction.dao.IExternalTeamDAO;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.persistence.abstraction.model.IExternalTeamEntity;
 import svm.persistence.hibernate.model.ExternalTeamEntity;
-
-import javax.transaction.NotSupportedException;
 
 /**
  * ProjectTeam: Team C
@@ -27,6 +26,6 @@ public class ExternalTeamDAO extends AbstractDAO<IExternalTeamEntity> implements
 
     @Override
     public IExternalTeamEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException {
-        throw new NotSupportedException("");
+        throw new NotSupportedException();
     }
 }

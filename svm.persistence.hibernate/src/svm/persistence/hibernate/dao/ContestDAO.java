@@ -3,10 +3,9 @@ package svm.persistence.hibernate.dao;
 import svm.persistence.DAOFactory;
 import svm.persistence.abstraction.dao.IContestDAO;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.persistence.abstraction.model.IContestEntity;
 import svm.persistence.hibernate.model.ContestEntity;
-
-import javax.transaction.NotSupportedException;
 
 /**
  * ProjectTeam: Team C
@@ -27,6 +26,6 @@ public class ContestDAO extends AbstractDAO<IContestEntity> implements IContestD
 
     @Override
     public IContestEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException {
-        throw new NotSupportedException("");
+        throw new NotSupportedException();
     }
 }
