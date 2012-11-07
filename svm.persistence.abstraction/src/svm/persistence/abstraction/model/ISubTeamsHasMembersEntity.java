@@ -23,5 +23,5 @@ public interface ISubTeamsHasMembersEntity extends IEntity {
     void setComment(String comment);
 
     @Override
-    Integer getId();
+    int getId();
 }

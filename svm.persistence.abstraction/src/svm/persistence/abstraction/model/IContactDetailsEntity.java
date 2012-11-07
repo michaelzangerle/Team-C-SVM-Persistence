@@ -5,7 +5,7 @@ package svm.persistence.abstraction.model;
  * Date: 24.10.12
  */
 public interface IContactDetailsEntity extends IEntity {
-    Integer getId();
+    int getId();
 
     String getPhone1();
 

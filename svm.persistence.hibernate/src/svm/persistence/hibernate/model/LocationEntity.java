@@ -1,10 +1,8 @@
 package svm.persistence.hibernate.model;
 
-import svm.persistence.abstraction.model.IContactDetailsEntity;
 import svm.persistence.abstraction.model.ILocationEntity;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Projectteam: Team C
@@ -13,16 +11,16 @@ import java.util.List;
 @Table(name = "locations", schema = "", catalog = "svm")
 @Entity
 public class LocationEntity implements ILocationEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -192,20 +190,6 @@ public class LocationEntity implements ILocationEntity {
     @Override
     public void setAccuracy(String accuracy) {
         this.accuracy = accuracy;
-    }
-
-    private List<IContactDetailsEntity> contactDetails;
-
-    @Override
-    @OneToMany(cascade = CascadeType.REMOVE, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "location")
-    public List<IContactDetailsEntity> getContactDetails() {
-        return contactDetails;
-    }
-
-    @Override
-    public void setContactDetails(List<IContactDetailsEntity> contactDetails) {
-        this.contactDetails = contactDetails;
     }
 
     @Override

@@ -88,10 +88,10 @@ public class ContestsHasExternalTeamsEntity implements IContestsHasExternalTeams
     }
 
     @Override
-    public Integer getId() {
+    public int getId() {
         return 0;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
     }
 }

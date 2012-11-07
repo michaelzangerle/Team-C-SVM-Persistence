@@ -14,17 +14,17 @@ import java.util.List;
 @Table(name = "sports", schema = "", catalog = "svm")
 @Entity
 public class SportEntity implements ISportEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @GeneratedValue
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -97,7 +97,7 @@ public class SportEntity implements ISportEntity {
     private IDepartmentEntity department;
 
     @Override
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = DepartmentEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = DepartmentEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "department")
     public IDepartmentEntity getDepartment() {
         return department;

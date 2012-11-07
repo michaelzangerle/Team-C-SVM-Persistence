@@ -8,7 +8,7 @@ import java.util.List;
  */
 public interface IContestantEntity extends IEntity {
 
-    Integer getId();
+    int getId();
 
     ITeamEntity getInternalTeam();
 

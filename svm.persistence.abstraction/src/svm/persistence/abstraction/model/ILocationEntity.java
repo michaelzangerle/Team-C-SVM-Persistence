@@ -1,14 +1,12 @@
 package svm.persistence.abstraction.model;
 
-import java.util.List;
-
 /**
  * Projectteam: Team C
  * Date: 24.10.12
  */
 public interface ILocationEntity extends IEntity {
 
-    Integer getId();
+    int getId();
 
     String getCountryCode();
 
@@ -58,7 +56,4 @@ public interface ILocationEntity extends IEntity {
 
     void setAccuracy(String accuracy);
 
-    List<IContactDetailsEntity> getContactDetails();
-
-    void setContactDetails(List<IContactDetailsEntity> contactDetails);
 }

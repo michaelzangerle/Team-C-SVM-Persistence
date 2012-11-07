@@ -14,16 +14,16 @@ import java.util.List;
 @Table(name = "departments", schema = "", catalog = "svm")
 @Entity
 public class DepartmentEntity implements IDepartmentEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -72,7 +72,7 @@ public class DepartmentEntity implements IDepartmentEntity {
     private IContactDetailsEntity contactDetails;
 
     @Override
-    @ManyToOne(cascade = CascadeType.ALL, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = ContactDetailsEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "contactdetails")
     public IContactDetailsEntity getContactDetails() {
         return contactDetails;

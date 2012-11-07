@@ -29,7 +29,7 @@ public interface IDAO<T extends IEntity> {
      * @return List of all Object
      * @throws NoSessionFoundException No Session found for this Id
      */
-    public T getById(Integer sessionId, Integer id) throws NoSessionFoundException;
+    public T getById(Integer sessionId, int id) throws NoSessionFoundException;
 
     /**
      * Saves given Object

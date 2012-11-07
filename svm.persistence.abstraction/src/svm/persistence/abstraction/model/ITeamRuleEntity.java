@@ -6,7 +6,7 @@ package svm.persistence.abstraction.model;
  */
 public interface ITeamRuleEntity extends IEntity {
 
-    Integer getId();
+    int getId();
 
     int getAmount();
 
@@ -20,7 +20,4 @@ public interface ITeamRuleEntity extends IEntity {
 
     void setDescription(String description);
 
-    ITeamTypeEntity getTeamType();
-
-    void setTeamType(ITeamTypeEntity teamType);
 }

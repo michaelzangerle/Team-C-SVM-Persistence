@@ -12,17 +12,17 @@ import javax.persistence.*;
 @Table(name = "partresult", schema = "", catalog = "svm")
 @Entity
 public class PartResultEntity implements IPartResultEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @GeneratedValue
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 

@@ -13,17 +13,17 @@ import javax.persistence.*;
 @Table(name = "teamrules", schema = "", catalog = "svm")
 @Entity
 public class TeamRuleEntity implements ITeamRuleEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @GeneratedValue
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -91,20 +91,6 @@ public class TeamRuleEntity implements ITeamRuleEntity {
         result = 31 * result + (operator != null ? operator.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
-    }
-
-    private ITeamTypeEntity teamType;
-
-    @Override
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = TeamTypeEntity.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "teamtype")
-    public ITeamTypeEntity getTeamType() {
-        return teamType;
-    }
-
-    @Override
-    public void setTeamType(ITeamTypeEntity teamType) {
-        this.teamType = teamType;
     }
 
     private IMemberRoleEntity memberRole;

@@ -7,7 +7,7 @@ import java.util.List;
  * Date: 24.10.12
  */
 public interface IExternalTeamEntity extends IEntity {
-    Integer getId();
+    int getId();
 
     String getName();
 
@@ -25,7 +25,4 @@ public interface IExternalTeamEntity extends IEntity {
 
     void setContestant(List<IContestantEntity> contestant);
 
-    List<IContestsHasExternalTeamsEntity> getExternalTeams();
-
-    void setExternalTeams(List<IContestsHasExternalTeamsEntity> externalTeams);
 }

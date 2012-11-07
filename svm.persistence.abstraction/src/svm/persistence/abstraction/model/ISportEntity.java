@@ -8,7 +8,7 @@ import java.util.List;
  */
 public interface ISportEntity extends IEntity {
 
-    Integer getId();
+    int getId();
 
     String getName();
 

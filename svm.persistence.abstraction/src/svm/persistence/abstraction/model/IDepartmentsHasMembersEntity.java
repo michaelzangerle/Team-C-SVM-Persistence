@@ -18,5 +18,5 @@ public interface IDepartmentsHasMembersEntity extends IEntity {
     void setMemberRole(IMemberRoleEntity memberRole);
 
     @Override
-    Integer getId();
+    int getId();
 }

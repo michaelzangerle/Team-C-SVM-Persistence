@@ -15,5 +15,5 @@ public interface ITeamsHasMembersEntity extends IEntity {
     void setMember(IMemberEntity member);
 
     @Override
-    Integer getId();
+    int getId();
 }

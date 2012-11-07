@@ -2,7 +2,6 @@ package svm.persistence.hibernate.model;
 
 import svm.persistence.abstraction.model.IContactDetailsEntity;
 import svm.persistence.abstraction.model.IContestantEntity;
-import svm.persistence.abstraction.model.IContestsHasExternalTeamsEntity;
 import svm.persistence.abstraction.model.IExternalTeamEntity;
 
 import javax.persistence.*;
@@ -15,16 +14,16 @@ import java.util.List;
 @Table(name = "externalteams", schema = "", catalog = "svm")
 @Entity
 public class ExternalTeamEntity implements IExternalTeamEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -59,7 +58,7 @@ public class ExternalTeamEntity implements IExternalTeamEntity {
     private IContactDetailsEntity contactDetails;
 
     @Override
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContactDetailsEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "contactdetails")
     public IContactDetailsEntity getContactDetails() {
         return contactDetails;
@@ -82,19 +81,6 @@ public class ExternalTeamEntity implements IExternalTeamEntity {
     @Override
     public void setContestant(List<IContestantEntity> contestant) {
         this.contestant = contestant;
-    }
-
-    private List<IContestsHasExternalTeamsEntity> externalTeams;
-
-    @Override
-    @OneToMany(cascade = CascadeType.DETACH, targetEntity = ContestsHasExternalTeamsEntity.class, mappedBy = "pk.externalTeam", fetch = FetchType.LAZY)
-    public List<IContestsHasExternalTeamsEntity> getExternalTeams() {
-        return externalTeams;
-    }
-
-    @Override
-    public void setExternalTeams(List<IContestsHasExternalTeamsEntity> externalTeams) {
-        this.externalTeams = externalTeams;
     }
 
     @Override

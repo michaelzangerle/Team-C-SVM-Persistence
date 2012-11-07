@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface ITeamEntity extends IEntity {
 
-    Integer getId();
+    int getId();
 
 
     String getName();

@@ -13,17 +13,17 @@ import java.util.List;
 @Table(name = "matchtypes", schema = "", catalog = "svm")
 @Entity
 public class MatchTypeEntity implements IMatchTypeEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @GeneratedValue
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 

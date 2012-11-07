@@ -14,16 +14,16 @@ import java.util.List;
 @Entity
 public class ContestEntity implements IContestEntity {
 
-    private Integer id = 0;
+    private int id;
 
     @Override
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -85,7 +85,7 @@ public class ContestEntity implements IContestEntity {
 
     private IContactDetailsEntity contactDetails;
 
-    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = ContactDetailsEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "contactdetails")
     public IContactDetailsEntity getContactDetails() {
         return contactDetails;
@@ -109,7 +109,7 @@ public class ContestEntity implements IContestEntity {
     private List<IContestsHasTeamsEntity> contestsHasTeams;
 
     @Override
-    @OneToMany(cascade =CascadeType.ALL, orphanRemoval=true, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
     public List<IContestsHasTeamsEntity> getContestsHasTeams() {
         return contestsHasTeams;
     }
@@ -122,7 +122,7 @@ public class ContestEntity implements IContestEntity {
     private List<IContestsHasExternalTeamsEntity> contestsHasExternalTeams;
 
     @Override
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true, targetEntity = ContestsHasExternalTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = ContestsHasExternalTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
     public List<IContestsHasExternalTeamsEntity> getContestsHasExternalTeams() {
         return contestsHasExternalTeams;
     }

@@ -15,17 +15,17 @@ import java.util.List;
 @Table(name = "subteams", schema = "", catalog = "svm")
 @Entity
 public class SubTeamEntity implements ISubTeamEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @GeneratedValue
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -94,7 +94,7 @@ public class SubTeamEntity implements ISubTeamEntity {
     private List<ISubTeamsHasMembersEntity> subTeamsHasMembers;
 
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, orphanRemoval=true, targetEntity = SubTeamsHasMembersEntity.class, mappedBy = "pk.subTeam", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.DETACH, orphanRemoval = true, targetEntity = SubTeamsHasMembersEntity.class, mappedBy = "pk.subTeam", fetch = FetchType.LAZY)
     public List<ISubTeamsHasMembersEntity> getSubTeamsHasMembers() {
         return subTeamsHasMembers;
     }

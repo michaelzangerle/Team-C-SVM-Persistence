@@ -13,17 +13,17 @@ import java.sql.Date;
 @Table(name = "membersfee", schema = "", catalog = "svm")
 @Entity
 public class MemberFeeEntity implements IMemberFeeEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @GeneratedValue
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -77,17 +77,4 @@ public class MemberFeeEntity implements IMemberFeeEntity {
         return result;
     }
 
-    private IMemberEntity member;
-
-    @Override
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberEntity.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "member")
-    public IMemberEntity getMember() {
-        return member;
-    }
-
-    @Override
-    public void setMember(IMemberEntity member) {
-        this.member = member;
-    }
 }

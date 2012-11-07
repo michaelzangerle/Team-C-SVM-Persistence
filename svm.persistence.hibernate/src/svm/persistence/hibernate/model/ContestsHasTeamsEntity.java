@@ -120,10 +120,10 @@ public class ContestsHasTeamsEntity implements IContestsHasTeamsEntity {
     }
 
     @Override
-    public Integer getId() {
+    public int getId() {
         return 0;
     }
 
-    private void setId(Integer id) {
+    private void setId(int id){
     }
 }

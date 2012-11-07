@@ -13,17 +13,17 @@ import java.util.List;
 @Table(name = "teams", schema = "", catalog = "svm")
 @Entity
 public class TeamEntity implements ITeamEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @GeneratedValue
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -110,7 +110,7 @@ public class TeamEntity implements ITeamEntity {
     private IMemberEntity contactPerson;
 
     @Override
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MemberEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "contactperson")
     public IMemberEntity getContactPerson() {
         return contactPerson;
@@ -124,7 +124,7 @@ public class TeamEntity implements ITeamEntity {
     private List<ITeamsHasMembersEntity> teamsHasMembers;
 
     @Override
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true, targetEntity = TeamsHasMembersEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = TeamsHasMembersEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
     public List<ITeamsHasMembersEntity> getTeamsHasMembers() {
         return teamsHasMembers;
     }
@@ -137,7 +137,7 @@ public class TeamEntity implements ITeamEntity {
     private List<IContestsHasTeamsEntity> contestsHasTeams;
 
     @Override
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = ContestsHasTeamsEntity.class, mappedBy = "pk.team", fetch = FetchType.LAZY)
     public List<IContestsHasTeamsEntity> getContestsHasTeams() {
         return contestsHasTeams;
     }

@@ -82,10 +82,12 @@ public class HibernateUtil {
      */
     public static void reattachObjectToSession(Integer sessionId, IEntity entity) throws NoSessionFoundException {
         Session s = getSession(sessionId);
-        if (entity.getId() > 0) {
-            s.update(entity);
-            s.refresh(entity);
-        }
+        s.merge(entity);
+        // TODO Check Reattachment
+//        if (entity.getId() > 0) {
+//            s.update(entity);
+//            s.refresh(entity);
+//        }
     }
 
     /**

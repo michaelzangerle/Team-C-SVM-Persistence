@@ -8,7 +8,7 @@ import java.sql.Date;
  */
 public interface IMemberFeeEntity extends IEntity {
 
-    Integer getId();
+    int getId();
 
     Date getDate();
 
@@ -18,7 +18,4 @@ public interface IMemberFeeEntity extends IEntity {
 
     void setAmount(float amount);
 
-    IMemberEntity getMember();
-
-    void setMember(IMemberEntity member);
 }

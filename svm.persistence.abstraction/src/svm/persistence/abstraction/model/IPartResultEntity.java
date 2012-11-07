@@ -6,7 +6,7 @@ package svm.persistence.abstraction.model;
  */
 public interface IPartResultEntity extends IEntity {
 
-    Integer getId();
+    int getId();
 
     float getResult();
 

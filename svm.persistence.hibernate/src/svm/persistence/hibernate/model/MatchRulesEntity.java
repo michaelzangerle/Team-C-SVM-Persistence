@@ -17,7 +17,7 @@ public class MatchRulesEntity implements IMatchRulesEntity {
     @Override
     @javax.persistence.Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
@@ -51,20 +51,6 @@ public class MatchRulesEntity implements IMatchRulesEntity {
     @Override
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    private IMatchTypeEntity matchType;
-
-    @Override
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MatchTypeEntity.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "matchType")
-    public IMatchTypeEntity getMatchType() {
-        return matchType;
-    }
-
-    @Override
-    public void setMatchType(IMatchTypeEntity matchType) {
-        this.matchType = matchType;
     }
 
     @Override

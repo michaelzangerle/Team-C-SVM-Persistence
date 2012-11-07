@@ -13,16 +13,16 @@ import java.util.List;
 @Table(name = "matches", schema = "", catalog = "svm")
 @Entity
 public class MatchEntity implements IMatchEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -113,7 +113,7 @@ public class MatchEntity implements IMatchEntity {
     private IContactDetailsEntity contactDetails;
 
     @Override
-    @ManyToOne(cascade = CascadeType.ALL, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = ContactDetailsEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "contactdetails")
     public IContactDetailsEntity getContactDetails() {
         return contactDetails;
@@ -163,7 +163,7 @@ public class MatchEntity implements IMatchEntity {
     private IMatchTypeEntity matchType;
 
     @Override
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MatchTypeEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = MatchTypeEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "matchType")
     public IMatchTypeEntity getMatchType() {
         return matchType;

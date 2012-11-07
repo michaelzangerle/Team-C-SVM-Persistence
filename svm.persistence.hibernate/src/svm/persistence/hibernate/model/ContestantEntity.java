@@ -12,16 +12,16 @@ import java.util.List;
 @Table(name = "contestants", schema = "", catalog = "svm")
 @Entity
 public class ContestantEntity implements IContestantEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 

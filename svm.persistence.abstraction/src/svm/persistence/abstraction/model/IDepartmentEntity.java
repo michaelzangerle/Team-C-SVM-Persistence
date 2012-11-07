@@ -7,7 +7,7 @@ import java.util.List;
  * Date: 24.10.12
  */
 public interface IDepartmentEntity extends IEntity {
-    Integer getId();
+    int getId();
 
     String getName();
 

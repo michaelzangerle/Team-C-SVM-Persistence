@@ -8,7 +8,7 @@ import java.util.List;
  */
 public interface ITeamTypeEntity extends IEntity {
 
-    Integer getId();
+    int getId();
 
 
     String getName();

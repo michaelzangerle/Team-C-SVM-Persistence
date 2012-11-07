@@ -13,17 +13,17 @@ import java.util.List;
 @Table(name = "members", schema = "", catalog = "svm")
 @Entity
 public class MemberEntity implements IMemberEntity {
-    private Integer id = 0;
+    private int id;
 
     @Override
     @GeneratedValue
     @Column(name = "id")
     @Id
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -184,7 +184,7 @@ public class MemberEntity implements IMemberEntity {
     private IContactDetailsEntity contactDetails;
 
     @Override
-    @ManyToOne(cascade = CascadeType.ALL, targetEntity = ContactDetailsEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = ContactDetailsEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "contactdetails")
     public IContactDetailsEntity getContactDetails() {
         return contactDetails;
@@ -268,7 +268,7 @@ public class MemberEntity implements IMemberEntity {
     private List<IMemberFeeEntity> fees;
 
     @Override
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = MemberFeeEntity.class, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = MemberFeeEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "member")
     public List<IMemberFeeEntity> getFees() {
         return fees;

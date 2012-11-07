@@ -52,7 +52,7 @@ public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
      * @return List of all Object
      * @throws NoSessionFoundException No Session found for this Id
      */
-    public T getById(Integer sessionId, Integer id) throws NoSessionFoundException {
+    public T getById(Integer sessionId, int id) throws NoSessionFoundException {
         Session session = HibernateUtil.getSession(sessionId);
 
         return (T) session.load(clazz, id);

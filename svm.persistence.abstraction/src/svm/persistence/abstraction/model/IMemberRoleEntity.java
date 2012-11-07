@@ -6,7 +6,7 @@ package svm.persistence.abstraction.model;
  */
 public interface IMemberRoleEntity extends IEntity {
 
-    Integer getId();
+    int getId();
 
     int getAlias();
 

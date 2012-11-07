@@ -13,17 +13,17 @@ import javax.persistence.*;
 @Entity
 public class ContactDetailsEntity implements IContactDetailsEntity {
 
-    private Integer id = 0;
+    private int id;
 
     @Column(name = "id")
     @GeneratedValue
     @Id
     @Override
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -156,7 +156,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
     private ILocationEntity locationEntity;
 
     @Override
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = LocationEntity.class, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = LocationEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "location")
     public ILocationEntity getLocationEntity() {
         return locationEntity;
