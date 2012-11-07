@@ -3,6 +3,7 @@ package svm.persistence.abstraction.dao;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.model.IEntity;
 
+import javax.transaction.NotSupportedException;
 import java.util.List;
 
 /**
@@ -75,5 +76,14 @@ public interface IDAO<T extends IEntity> {
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
-    public T generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException;
+    public T generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException;
+
+    /**
+     * Generates a new Object
+     *
+     * @return new Object
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
+    public T generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException;
 }

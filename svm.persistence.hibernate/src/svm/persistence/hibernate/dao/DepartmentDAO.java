@@ -6,6 +6,8 @@ import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.model.IDepartmentEntity;
 import svm.persistence.hibernate.model.DepartmentEntity;
 
+import javax.transaction.NotSupportedException;
+
 /**
  * ProjectTeam: Team C
  * Date: 24.10.12
@@ -17,9 +19,14 @@ public class DepartmentDAO extends AbstractDAO<IDepartmentEntity> implements IDe
     }
 
     @Override
-    public IDepartmentEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException {
+    public IDepartmentEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException {
         IDepartmentEntity entity = new DepartmentEntity();
         entity.setContactDetails(DAOFactory.getInstance().getContactDetailsDAO().generateObject(sessionId));
         return entity;
+    }
+
+    @Override
+    public IDepartmentEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException {
+        throw new NotSupportedException("");
     }
 }

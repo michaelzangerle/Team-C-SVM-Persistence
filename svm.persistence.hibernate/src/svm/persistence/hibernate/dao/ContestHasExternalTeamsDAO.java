@@ -5,6 +5,8 @@ import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.model.IContestsHasExternalTeamsEntity;
 import svm.persistence.hibernate.model.ContestsHasExternalTeamsEntity;
 
+import javax.transaction.NotSupportedException;
+
 /**
  * ProjectTeam: Team C
  * Date: 24.10.12
@@ -16,7 +18,12 @@ public class ContestHasExternalTeamsDAO extends AbstractDAO<IContestsHasExternal
     }
 
     @Override
-    public IContestsHasExternalTeamsEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException {
+    public IContestsHasExternalTeamsEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException {
+        return generateObject();
+    }
+
+    @Override
+    public IContestsHasExternalTeamsEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException {
         return new ContestsHasExternalTeamsEntity();
     }
 }

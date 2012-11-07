@@ -10,6 +10,7 @@ import svm.persistence.abstraction.model.IEntity;
 import svm.persistence.hibernate.HibernateUtil;
 
 import javax.persistence.Table;
+import javax.transaction.NotSupportedException;
 import java.util.List;
 
 /**
@@ -126,5 +127,14 @@ public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
-    public abstract T generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException;
+    public abstract T generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException;
+
+    /**
+     * Generates a new Object
+     *
+     * @return new Object
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
+    public abstract T generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException;
 }

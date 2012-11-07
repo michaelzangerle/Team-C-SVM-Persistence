@@ -1,8 +1,11 @@
 package svm.persistence.hibernate.dao;
 
 import svm.persistence.abstraction.dao.IUserPrivilegeDAO;
+import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.model.IUserPrivilegeEntity;
 import svm.persistence.hibernate.model.UserPrivilegeEntity;
+
+import javax.transaction.NotSupportedException;
 
 /**
  * ProjectTeam: Team C
@@ -15,7 +18,12 @@ public class UserPrivilegeDAO extends AbstractDAO<IUserPrivilegeEntity> implemen
     }
 
     @Override
-    public IUserPrivilegeEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException {
+    public IUserPrivilegeEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NotSupportedException, NoSessionFoundException {
+        return generateObject();
+    }
+
+    @Override
+    public IUserPrivilegeEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException {
         return new UserPrivilegeEntity();
     }
 }

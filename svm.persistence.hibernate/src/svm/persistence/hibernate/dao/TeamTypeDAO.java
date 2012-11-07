@@ -1,8 +1,11 @@
 package svm.persistence.hibernate.dao;
 
 import svm.persistence.abstraction.dao.ITeamTypeDAO;
+import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.model.ITeamTypeEntity;
 import svm.persistence.hibernate.model.TeamTypeEntity;
+
+import javax.transaction.NotSupportedException;
 
 /**
  * Projectteam: Team C
@@ -15,7 +18,12 @@ public class TeamTypeDAO extends AbstractDAO<ITeamTypeEntity> implements ITeamTy
     }
 
     @Override
-    public ITeamTypeEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException {
+    public ITeamTypeEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NotSupportedException, NoSessionFoundException {
+        return generateObject();
+    }
+
+    @Override
+    public ITeamTypeEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException {
         return new TeamTypeEntity();
     }
 }

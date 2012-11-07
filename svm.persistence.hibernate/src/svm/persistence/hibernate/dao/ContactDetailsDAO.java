@@ -6,6 +6,8 @@ import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.model.IContactDetailsEntity;
 import svm.persistence.hibernate.model.ContactDetailsEntity;
 
+import javax.transaction.NotSupportedException;
+
 /**
  * ProjectTeam: Team C
  * Date: 24.10.12
@@ -21,5 +23,10 @@ public class ContactDetailsDAO extends AbstractDAO<IContactDetailsEntity> implem
         IContactDetailsEntity entity = new ContactDetailsEntity();
         entity.setLocationEntity(DAOFactory.getInstance().getLocationDAO().getById(sessionId, 1));
         return entity;
+    }
+
+    @Override
+    public IContactDetailsEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException, NotSupportedException {
+        throw new NotSupportedException("");
     }
 }
