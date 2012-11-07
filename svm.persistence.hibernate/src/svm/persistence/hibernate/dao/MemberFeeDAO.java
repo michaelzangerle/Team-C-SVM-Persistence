@@ -15,7 +15,7 @@ public class MemberFeeDAO extends AbstractDAO<IMemberFeeEntity> implements IMemb
     }
 
     @Override
-    public IMemberFeeEntity generateObject() throws InstantiationException, IllegalAccessException {
+    public IMemberFeeEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException {
         IMemberFeeEntity entity = new MemberFeeEntity();
         return entity;
     }

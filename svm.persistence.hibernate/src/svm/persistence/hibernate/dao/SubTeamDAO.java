@@ -16,7 +16,7 @@ public class SubTeamDAO extends AbstractDAO<ISubTeamEntity> implements ISubTeamD
     }
 
     @Override
-    public ISubTeamEntity generateObject() throws InstantiationException, IllegalAccessException {
+    public ISubTeamEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException {
         return new SubTeamEntity();
     }
 }

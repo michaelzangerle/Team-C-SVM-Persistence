@@ -17,9 +17,9 @@ public class ContestDAO extends AbstractDAO<IContestEntity> implements IContestD
     }
 
     @Override
-    public IContestEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException {
+    public IContestEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException {
         IContestEntity entity = new ContestEntity();
-        entity.setContactDetails(DAOFactory.getInstance().getContactDetailsDAO().generateObject());
+        entity.setContactDetails(DAOFactory.getInstance().getContactDetailsDAO().generateObject(sessionId));
         return entity;
     }
 }

@@ -17,9 +17,9 @@ public class MatchDAO extends AbstractDAO<IMatchEntity> implements IMatchDAO {
     }
 
     @Override
-    public IMatchEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException {
+    public IMatchEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException {
         IMatchEntity entity = new MatchEntity();
-        entity.setContactDetails(DAOFactory.getInstance().getContactDetailsDAO().generateObject());
+        entity.setContactDetails(DAOFactory.getInstance().getContactDetailsDAO().generateObject(sessionId));
         return entity;
     }
 }

@@ -16,7 +16,7 @@ public class ContestHasTeamsDAO extends AbstractDAO<IContestsHasTeamsEntity> imp
     }
 
     @Override
-    public IContestsHasTeamsEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException {
+    public IContestsHasTeamsEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException {
         return new ContestsHasTeamsEntity();
     }
 }

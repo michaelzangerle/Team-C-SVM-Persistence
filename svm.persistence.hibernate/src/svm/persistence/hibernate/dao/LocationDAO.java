@@ -16,7 +16,7 @@ public class LocationDAO extends AbstractDAO<ILocationEntity> implements ILocati
     }
 
     @Override
-    public ILocationEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException {
+    public ILocationEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException {
         return new LocationEntity();
     }
 }

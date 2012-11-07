@@ -17,7 +17,7 @@ public class Main {
         // Generate a session
         Integer sessionId = PersistenceFacade.generateSessionId();
 
-        IContestEntity contest = PersistenceFacade.getContestDAO().generateObject();
+        IContestEntity contest = PersistenceFacade.getContestDAO().generateObject(sessionId);
         contest.setEnd(new Date(new java.util.Date().getTime()));
         contest.setStart(new Date(new java.util.Date().getTime()));
         contest.setFee(15);

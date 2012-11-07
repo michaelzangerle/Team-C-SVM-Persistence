@@ -15,7 +15,7 @@ public class MemberRoleDAO extends AbstractDAO<IMemberRoleEntity> implements IMe
     }
 
     @Override
-    public IMemberRoleEntity generateObject() throws InstantiationException, IllegalAccessException {
+    public IMemberRoleEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException {
         IMemberRoleEntity entity = new MemberRoleEntity();
         return entity;
     }

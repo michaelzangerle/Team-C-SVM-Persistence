@@ -17,9 +17,9 @@ public class ExternalTeamDAO extends AbstractDAO<IExternalTeamEntity> implements
     }
 
     @Override
-    public IExternalTeamEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException {
+    public IExternalTeamEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException {
         IExternalTeamEntity entity = new ExternalTeamEntity();
-        entity.setContactDetails(DAOFactory.getInstance().getContactDetailsDAO().generateObject());
+        entity.setContactDetails(DAOFactory.getInstance().getContactDetailsDAO().generateObject(sessionId));
         return entity;
     }
 }

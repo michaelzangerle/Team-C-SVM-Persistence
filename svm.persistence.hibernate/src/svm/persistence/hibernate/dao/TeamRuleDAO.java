@@ -15,7 +15,7 @@ public class TeamRuleDAO extends AbstractDAO<ITeamRuleEntity> implements ITeamRu
     }
 
     @Override
-    public ITeamRuleEntity generateObject() throws InstantiationException, IllegalAccessException {
+    public ITeamRuleEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException {
         return new TeamRuleEntity();
     }
 }

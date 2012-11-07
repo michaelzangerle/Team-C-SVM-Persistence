@@ -15,7 +15,7 @@ public class MatchTypeDAO extends AbstractDAO<IMatchTypeEntity> implements IMatc
     }
 
     @Override
-    public IMatchTypeEntity generateObject() throws InstantiationException, IllegalAccessException {
+    public IMatchTypeEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException {
         IMatchTypeEntity entity = new MatchTypeEntity();
         return entity;
     }

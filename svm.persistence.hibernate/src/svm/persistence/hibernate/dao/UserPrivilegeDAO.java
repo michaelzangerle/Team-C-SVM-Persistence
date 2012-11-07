@@ -15,7 +15,7 @@ public class UserPrivilegeDAO extends AbstractDAO<IUserPrivilegeEntity> implemen
     }
 
     @Override
-    public IUserPrivilegeEntity generateObject() throws InstantiationException, IllegalAccessException {
+    public IUserPrivilegeEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException {
         return new UserPrivilegeEntity();
     }
 }

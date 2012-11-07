@@ -17,9 +17,9 @@ public class DepartmentDAO extends AbstractDAO<IDepartmentEntity> implements IDe
     }
 
     @Override
-    public IDepartmentEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException {
+    public IDepartmentEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException {
         IDepartmentEntity entity = new DepartmentEntity();
-        entity.setContactDetails(DAOFactory.getInstance().getContactDetailsDAO().generateObject());
+        entity.setContactDetails(DAOFactory.getInstance().getContactDetailsDAO().generateObject(sessionId));
         return entity;
     }
 }

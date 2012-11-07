@@ -75,5 +75,5 @@ public interface IDAO<T extends IEntity> {
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
-    public T generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException;
+    public T generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException;
 }

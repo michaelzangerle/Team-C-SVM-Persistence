@@ -17,9 +17,9 @@ public class MemberDAO extends AbstractDAO<IMemberEntity> implements IMemberDAO 
     }
 
     @Override
-    public IMemberEntity generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException {
+    public IMemberEntity generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException {
         IMemberEntity entity = new MemberEntity();
-        entity.setContactDetails(DAOFactory.getInstance().getContactDetailsDAO().generateObject());
+        entity.setContactDetails(DAOFactory.getInstance().getContactDetailsDAO().generateObject(sessionId));
         return entity;
     }
 }

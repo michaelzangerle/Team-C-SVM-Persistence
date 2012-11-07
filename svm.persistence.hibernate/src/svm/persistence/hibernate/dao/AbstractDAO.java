@@ -126,5 +126,5 @@ public abstract class AbstractDAO<T extends IEntity> implements IDAO<T> {
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
-    public abstract T generateObject() throws InstantiationException, IllegalAccessException, NoSessionFoundException;
+    public abstract T generateObject(Integer sessionId) throws InstantiationException, IllegalAccessException, NoSessionFoundException;
 }
