@@ -1,5 +1,6 @@
 package svm.persistence.hibernate.model;
 
+import svm.persistence.abstraction.model.IMemberEntity;
 import svm.persistence.abstraction.model.IMemberFeeEntity;
 
 import javax.persistence.*;
@@ -75,5 +76,20 @@ public class MemberFeeEntity implements IMemberFeeEntity {
         result = 31 * result + (amount != +0.0f ? Float.floatToIntBits(amount) : 0);
         return result;
     }
+
+    private IMemberEntity member;
+
+    @Override
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = MemberEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "member")
+    public IMemberEntity getMember() {
+        return member;
+    }
+
+    @Override
+    public void setMember(IMemberEntity member) {
+        this.member = member;
+    }
+
 
 }

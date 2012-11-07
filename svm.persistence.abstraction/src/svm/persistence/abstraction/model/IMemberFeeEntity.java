@@ -18,4 +18,7 @@ public interface IMemberFeeEntity extends IEntity {
 
     void setAmount(float amount);
 
+    void setMember(IMemberEntity member);
+
+    IMemberEntity getMember();
 }
