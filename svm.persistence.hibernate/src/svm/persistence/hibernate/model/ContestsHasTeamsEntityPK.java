@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class ContestsHasTeamsEntityPK implements Serializable {
     private IContestEntity contest;
 
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContestEntity.class, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = ContestEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "contest")
     public IContestEntity getContest() {
         return contest;
@@ -26,7 +26,7 @@ public class ContestsHasTeamsEntityPK implements Serializable {
 
     private ITeamEntity team;
 
-    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = TeamEntity.class, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = TeamEntity.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "team")
     public ITeamEntity getTeam() {
         return team;
