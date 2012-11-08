@@ -1,9 +1,9 @@
 package svm.persistence.abstraction.dao;
 
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.persistence.abstraction.model.IEntity;
 
-import javax.transaction.NotSupportedException;
 import java.util.List;
 
 /**

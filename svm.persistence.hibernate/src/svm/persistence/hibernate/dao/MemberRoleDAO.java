@@ -2,10 +2,9 @@ package svm.persistence.hibernate.dao;
 
 import svm.persistence.abstraction.dao.IMemberRoleDAO;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
+import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.persistence.abstraction.model.IMemberRoleEntity;
 import svm.persistence.hibernate.model.MemberRoleEntity;
-
-import javax.transaction.NotSupportedException;
 
 /**
  * Projectteam: Team C
