@@ -87,7 +87,8 @@ public class HibernateUtil {
         if (entity.getId() > 0) {
 
             s.update(entity);
-            s.refresh(entity);
+            // TODO Eventuell wider rein aber
+            // s.refresh(entity);
 
         }
     }
