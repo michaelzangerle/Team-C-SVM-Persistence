@@ -94,7 +94,7 @@ public class SubTeamEntity implements ISubTeamEntity {
     private List<ISubTeamsHasMembersEntity> subTeamsHasMembers;
 
     @Override
-    @OneToMany(cascade = CascadeType.DETACH, orphanRemoval = true, targetEntity = SubTeamsHasMembersEntity.class, mappedBy = "pk.subTeam", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = SubTeamsHasMembersEntity.class, mappedBy = "pk.subTeam", fetch = FetchType.LAZY)
     public List<ISubTeamsHasMembersEntity> getSubTeamsHasMembers() {
         return subTeamsHasMembers;
     }
