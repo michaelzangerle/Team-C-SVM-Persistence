@@ -2,9 +2,7 @@ package svm.persistence.hibernate.model;
 
 import svm.persistence.abstraction.model.IMatchRulesEntity;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * ProjectTeam: Team C
@@ -17,6 +15,7 @@ public class MatchRulesEntity implements IMatchRulesEntity {
 
     @Override
     @javax.persistence.Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public int getId() {
         return id;

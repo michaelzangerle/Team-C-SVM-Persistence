@@ -15,6 +15,7 @@ public class MatchEntity implements IMatchEntity {
     private int id;
 
     @Override
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
     public int getId() {

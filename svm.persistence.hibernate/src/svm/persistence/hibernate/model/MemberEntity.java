@@ -16,7 +16,7 @@ public class MemberEntity implements IMemberEntity {
     private int id;
 
     @Override
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
     public int getId() {

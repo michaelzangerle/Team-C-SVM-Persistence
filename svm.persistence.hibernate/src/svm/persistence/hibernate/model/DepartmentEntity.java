@@ -18,6 +18,7 @@ public class DepartmentEntity implements IDepartmentEntity {
 
     @Override
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public int getId() {
         return id;

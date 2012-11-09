@@ -16,6 +16,7 @@ public class ExternalTeamEntity implements IExternalTeamEntity {
 
     @Override
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public int getId() {
         return id;

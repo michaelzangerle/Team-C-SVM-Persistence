@@ -16,7 +16,7 @@ public class ContactDetailsEntity implements IContactDetailsEntity {
     private int id;
 
     @Column(name = "id")
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Override
     public int getId() {

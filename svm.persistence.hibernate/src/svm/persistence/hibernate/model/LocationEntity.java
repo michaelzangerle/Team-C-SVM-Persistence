@@ -15,6 +15,7 @@ public class LocationEntity implements ILocationEntity {
 
     @Override
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public int getId() {
         return id;

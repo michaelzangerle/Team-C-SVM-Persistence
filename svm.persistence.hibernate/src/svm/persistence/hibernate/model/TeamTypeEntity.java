@@ -17,7 +17,7 @@ public class TeamTypeEntity implements ITeamTypeEntity {
     private int id;
 
     @Override
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
     public int getId() {
