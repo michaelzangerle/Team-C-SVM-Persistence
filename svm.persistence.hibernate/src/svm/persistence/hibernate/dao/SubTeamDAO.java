@@ -4,7 +4,6 @@ import svm.persistence.abstraction.dao.ISubTeamDAO;
 import svm.persistence.abstraction.exceptions.NoSessionFoundException;
 import svm.persistence.abstraction.exceptions.NotSupportedException;
 import svm.persistence.abstraction.model.ISubTeamEntity;
-import svm.persistence.hibernate.model.MemberEntity;
 import svm.persistence.hibernate.model.SubTeamEntity;
 
 /**
@@ -14,7 +13,7 @@ import svm.persistence.hibernate.model.SubTeamEntity;
 public class SubTeamDAO extends AbstractDAO<ISubTeamEntity> implements ISubTeamDAO {
 
     public SubTeamDAO() {
-        super(MemberEntity.class);
+        super(SubTeamEntity.class);
     }
 
     @Override
