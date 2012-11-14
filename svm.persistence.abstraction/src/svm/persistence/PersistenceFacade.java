@@ -256,5 +256,14 @@ public class PersistenceFacade {
         return DAOFactory.getInstance().getSubTeamsHasMembersDAO();
     }
 
+    /**
+     * Sport Dao
+     *
+     * @return ISportDAO
+     */
+    public static ISportDAO getSportDAO() {
+        return DAOFactory.getInstance().getSportDAO();
+    }
+
     //endregion
 }

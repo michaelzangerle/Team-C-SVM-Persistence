@@ -199,4 +199,13 @@ public class DAOFactory {
         return (ITeamDAO) getDAO(TeamDAO.class);
     }
 
+    /**
+     * Sport Dao
+     *
+     * @return ISportDAO
+     */
+    public ISportDAO getSportDAO() {
+        return (ISportDAO) getDAO(SportDAO.class);
+    }
+
 }
