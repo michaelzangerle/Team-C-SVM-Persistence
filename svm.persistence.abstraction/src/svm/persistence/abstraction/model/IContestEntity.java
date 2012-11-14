@@ -1,5 +1,8 @@
 package svm.persistence.abstraction.model;
 
+import svm.persistence.hibernate.model.SportEntity;
+
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
@@ -41,4 +44,14 @@ public interface IContestEntity extends IEntity {
     void setMatches(List<IMatchEntity> matches);
 
     List<IMatchEntity> getMatches();
+
+    @ManyToOne(cascade = {CascadeType.DETACH}, targetEntity = SportEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "sport")
+    ISportEntity getSport();
+
+    @Column(name = "fee")
+    @Basic
+    boolean getFinished();
+
+    void setFinished(boolean finished);
 }

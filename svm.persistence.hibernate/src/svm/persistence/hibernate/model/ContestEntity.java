@@ -96,6 +96,19 @@ public class ContestEntity implements IContestEntity {
         this.contactDetails = contactDetails;
     }
 
+    private ISportEntity sport;
+
+    @Override
+    @ManyToOne(cascade = {CascadeType.DETACH}, targetEntity = SportEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "sport")
+    public ISportEntity getSport() {
+        return sport;
+    }
+
+    public void setSport(ISportEntity sport) {
+        this.sport = sport;
+    }
+
     private List<ContestsHasExternalTeamsEntity> externalTeams;
 
     @OneToMany(cascade = CascadeType.ALL, targetEntity = ContestsHasExternalTeamsEntity.class, mappedBy = "pk.contest", fetch = FetchType.LAZY)
@@ -142,6 +155,20 @@ public class ContestEntity implements IContestEntity {
 
     public void setMatches(List<IMatchEntity> matches) {
         this.matches = matches;
+    }
+
+    private boolean finished;
+
+    @Override
+    @Column(name = "finished")
+    @Basic
+    public boolean getFinished() {
+        return finished;
+    }
+
+    @Override
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 
     @Override
