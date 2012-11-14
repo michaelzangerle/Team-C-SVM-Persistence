@@ -105,6 +105,7 @@ public class ContestEntity implements IContestEntity {
         return sport;
     }
 
+    @Override
     public void setSport(ISportEntity sport) {
         this.sport = sport;
     }

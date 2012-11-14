@@ -54,4 +54,6 @@ public interface IContestEntity extends IEntity {
     boolean getFinished();
 
     void setFinished(boolean finished);
+
+    void setSport(ISportEntity sport);
 }
