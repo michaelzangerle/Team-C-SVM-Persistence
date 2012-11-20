@@ -82,4 +82,8 @@ public interface IMemberEntity extends IEntity {
     List<ITeamEntity> getTeamForContactPerson();
 
     void setTeamForContactPerson(List<ITeamEntity> teamForContactPerson);
+
+    void setSport(ISportEntity sport);
+
+    ISportEntity getSport();
 }

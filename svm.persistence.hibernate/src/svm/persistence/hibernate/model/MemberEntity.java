@@ -296,7 +296,7 @@ public class MemberEntity implements IMemberEntity {
 
     @Override
     @ManyToMany(cascade = CascadeType.DETACH, targetEntity = UserPrivilegeEntity.class)
-    @JoinTable(name = "members_has_userPriviledges",
+    @JoinTable(name = "members_has_userpriviledges",
             joinColumns = {@JoinColumn(name = "member")},
             inverseJoinColumns = {@JoinColumn(name = "userPriviledge")})
     public List<IUserPrivilegeEntity> getPrivileges() {
@@ -314,6 +314,20 @@ public class MemberEntity implements IMemberEntity {
     @Override
     public void setTeamForContactPerson(List<ITeamEntity> teamForContactPerson) {
         this.teamForContactPerson = teamForContactPerson;
+    }
+
+    private ISportEntity sport;
+
+    @Override
+    public void setSport(ISportEntity sport) {
+        this.sport = sport;
+    }
+
+    @Override
+    @ManyToOne(cascade = CascadeType.DETACH, targetEntity = SportEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "sport")
+    public ISportEntity getSport() {
+        return this.sport;
     }
 
     @Override
