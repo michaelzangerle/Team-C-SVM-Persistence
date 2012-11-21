@@ -1,5 +1,10 @@
 package svm.persistence.abstraction.model;
 
+import svm.persistence.hibernate.model.DepartmentsHasMembersEntity;
+
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 /**
@@ -28,4 +33,9 @@ public interface IDepartmentEntity extends IEntity {
     List<ISportEntity> getSports();
 
     void setSports(List<ISportEntity> sports);
+
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = DepartmentsHasMembersEntity.class, mappedBy = "pk.department", fetch = FetchType.LAZY)
+    List<IDepartmentsHasMembersEntity> getDepartmentHasMembers();
+
+    void setDepartmentHasMembers(List<IDepartmentsHasMembersEntity> departmentHasMembers);
 }

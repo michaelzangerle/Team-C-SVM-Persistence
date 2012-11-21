@@ -2,6 +2,7 @@ package svm.persistence.hibernate.model;
 
 import svm.persistence.abstraction.model.IContactDetailsEntity;
 import svm.persistence.abstraction.model.IDepartmentEntity;
+import svm.persistence.abstraction.model.IDepartmentsHasMembersEntity;
 import svm.persistence.abstraction.model.ISportEntity;
 
 import javax.persistence.*;
@@ -96,6 +97,19 @@ public class DepartmentEntity implements IDepartmentEntity {
     @Override
     public void setSports(List<ISportEntity> sports) {
         this.sports = sports;
+    }
+
+    private List<IDepartmentsHasMembersEntity> departmentHasMembers;
+
+    @Override
+    @OneToMany(cascade = CascadeType.DETACH, targetEntity = DepartmentsHasMembersEntity.class, mappedBy = "pk.department", fetch = FetchType.LAZY)
+    public List<IDepartmentsHasMembersEntity> getDepartmentHasMembers() {
+        return departmentHasMembers;
+    }
+
+    @Override
+    public void setDepartmentHasMembers(List<IDepartmentsHasMembersEntity> departmentHasMembers) {
+        this.departmentHasMembers = departmentHasMembers;
     }
 
     @Override
