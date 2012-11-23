@@ -208,4 +208,13 @@ public class DAOFactory {
         return (ISportDAO) getDAO(SportDAO.class);
     }
 
+    /**
+     * TeamsHasMembers Dao
+     *
+     * @return ITeamsHasMemberDAO
+     */
+    public ITeamsHasMemberDAO getTeamsHasMembersDAO() {
+        return (ITeamsHasMemberDAO) getDAO(TeamsHasMembersDAO.class);
+    }
+
 }
